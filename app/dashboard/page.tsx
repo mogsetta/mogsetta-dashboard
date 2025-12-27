@@ -30,6 +30,36 @@ export default function DashboardPage() {
 
   return (
     <main className="os">
+      {/* COMMAND STRIP */}
+      <section
+        className={`os-command os-command-primary os-command-dominant lane-${activeSystem}`}
+      >
+        <div className="os-command-left">
+          <span className="os-command-eyebrow">PRIMARY DIRECTIVE · LOCKED</span>
+          <h3 className="os-command-title">
+            Execute {system.label} System
+          </h3>
+          <p className="os-command-desc">
+            You are in <strong>Build Mode</strong> for the
+            <strong> {system.label} System</strong>.
+            All other systems are secondary until this execution completes.
+          </p>
+          <div className="os-command-meta">
+            <span className="meta-dot" />
+            <span className="meta-text">Execution locked · AI standing by</span>
+          </div>
+        </div>
+
+        <div className="os-command-right">
+          <Link
+            href={`/dashboard/coaches/${system.slug}`}
+            className="btn-primary os-command-btn"
+          >
+            Execute System →
+          </Link>
+        </div>
+      </section>
+
       <section className="os-pulse">
         <div className="os-metrics">
           <Metric label="Active Systems" value="3" accent="gold" />
@@ -67,7 +97,7 @@ export default function DashboardPage() {
       </section>
 
       {/* HERO / STATUS */}
-      <section className="os-hero os-hero-primary" style={{ opacity: 0.92 }}>
+      <section className="os-hero os-hero-primary" style={{ opacity: 0.82 }}>
         <div className="os-hero-left">
           <span className="os-eyebrow">MOGSETTA · OPERATOR OS</span>
           <h1>Command Center</h1>
@@ -90,36 +120,6 @@ export default function DashboardPage() {
               View Active Operators →
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* COMMAND STRIP */}
-      <section
-        className={`os-command os-command-primary os-command-dominant lane-${activeSystem}`}
-      >
-        <div className="os-command-left">
-          <span className="os-command-eyebrow">PRIMARY DIRECTIVE · LOCKED</span>
-          <h3 className="os-command-title">
-            Execute {system.label} System
-          </h3>
-          <p className="os-command-desc">
-            You are in <strong>Build Mode</strong> for the
-            <strong> {system.label} System</strong>.
-            All other systems are secondary until this execution completes.
-          </p>
-          <div className="os-command-meta">
-            <span className="meta-dot" />
-            <span className="meta-text">Execution locked · AI standing by</span>
-          </div>
-        </div>
-
-        <div className="os-command-right">
-          <Link
-            href={`/dashboard/coaches/${system.slug}`}
-            className="btn-primary os-command-btn"
-          >
-            Execute System →
-          </Link>
         </div>
       </section>
 
@@ -371,7 +371,7 @@ export default function DashboardPage() {
         }
 
         .os-pulse {
-          margin-bottom: 48px;
+          margin-bottom: 24px;
           opacity: 0.92;
         }
 
@@ -381,7 +381,7 @@ export default function DashboardPage() {
           display: grid;
           grid-template-columns: 1fr;
           gap: 48px;
-          padding: 76px 72px;
+          padding: 64px 64px;
           border-radius: 40px;
           background:
             radial-gradient(1000px 420px at 50% -20%, rgba(212,175,55,0.22), transparent 62%),
@@ -434,7 +434,7 @@ export default function DashboardPage() {
         }
 
         .os-hero h1 {
-          font-size: 52px;
+          font-size: 44px;
           margin: 18px 0 14px;
           letter-spacing: 0.02em;
         }
@@ -498,7 +498,7 @@ export default function DashboardPage() {
 
         .metric strong {
           display: block;
-          font-size: 22px;
+          font-size: 20px;
           margin-top: 8px;
         }
 
@@ -601,6 +601,7 @@ export default function DashboardPage() {
           position: relative;
           overflow: hidden;
           margin-top: -24px;
+          margin-bottom: 64px;
         }
 
         /* =========================

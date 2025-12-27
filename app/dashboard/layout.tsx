@@ -143,11 +143,49 @@ export default function DashboardLayout({
         }
 
         .dash-sidebar {
+          position: relative;
           background: linear-gradient(180deg, #0b0c10, #050506);
           border-right: 1px solid rgba(255, 255, 255, 0.08);
           padding: 28px 22px;
           display: flex;
           flex-direction: column;
+          overflow: hidden;
+        }
+
+        .dash-sidebar::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: transparent;
+          pointer-events: none;
+          transition: background 0.4s ease;
+        }
+
+        .dash-sidebar.digital::before {
+          background: linear-gradient(
+            180deg,
+            rgba(239, 68, 68, 0.06),
+            rgba(239, 68, 68, 0.02),
+            transparent 60%
+          );
+        }
+
+        .dash-sidebar.service::before {
+          background: linear-gradient(
+            180deg,
+            rgba(168, 85, 247, 0.06),
+            rgba(168, 85, 247, 0.02),
+            transparent 60%
+          );
+        }
+
+        .dash-sidebar.ecommerce::before {
+          background: linear-gradient(
+            180deg,
+            rgba(59, 130, 246, 0.06),
+            rgba(59, 130, 246, 0.02),
+            transparent 60%
+          );
         }
 
         .dash-main {
