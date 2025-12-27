@@ -33,7 +33,7 @@ const OPERATORS: Operator[] = [
     href: "/dashboard/coaches/service-systems",
   },
   {
-    id: "ecom",
+    id: "ecommerce",
     system: "SYSTEM 03",
     title: "E‑Commerce",
     description:
@@ -409,15 +409,15 @@ export default function CoachesPage() {
         }
 
         /* E-COMMERCE — BLUE */
-        .operator-tab.ecom:hover,
-        .operator-tab.ecom.active {
+        .operator-tab.ecommerce:hover,
+        .operator-tab.ecommerce.active {
           border-color: rgba(0,102,204,0.55);
           box-shadow:
             0 0 0 1px rgba(0,102,204,0.45),
             0 0 44px rgba(0,102,204,0.28),
             0 24px 70px rgba(0,0,0,0.65);
         }
-        .operator-tab.ecom::before {
+        .operator-tab.ecommerce::before {
           background: linear-gradient(
             180deg,
             rgba(0,102,204,0.9),
@@ -445,7 +445,7 @@ export default function CoachesPage() {
             inset 0 0 0 1px rgba(255,255,255,0.02);
         }
 
-        .operator-panel.ecom {
+        .operator-panel.ecommerce {
           border-color: rgba(0,102,204,0.35);
           box-shadow:
             0 0 0 1px rgba(0,102,204,0.25),

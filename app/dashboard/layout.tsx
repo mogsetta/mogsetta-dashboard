@@ -28,20 +28,6 @@ export default function DashboardLayout({
   const [activeSystem, setActiveSystem] = useState<ActiveSystem>("digital");
 
   useEffect(() => {
-    const saved = typeof window !== "undefined"
-      ? (localStorage.getItem("activeSystem") as ActiveSystem | null)
-      : null;
-
-    if (saved) setActiveSystem(saved);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("activeSystem", activeSystem);
-    }
-  }, [activeSystem]);
-
-  useEffect(() => {
     const path = pathname.toLowerCase();
 
     if (path.includes("digital")) {
