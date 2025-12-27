@@ -49,6 +49,39 @@ export default function ServiceSystemsCoursePage() {
         </div>
       </header>
 
+      {/* SYSTEM ORIENTATION */}
+      <section className="course-orientation">
+        <span className="orientation-eyebrow">SYSTEM ORIENTATION</span>
+
+        <div className="orientation-grid">
+          <div className="orientation-card">
+            <h4>System Scope</h4>
+            <p>
+              This system covers productized services designed for repeatable
+              delivery — clear scope, defined outcomes, and standardized
+              fulfillment. Custom work and ad‑hoc requests are intentionally
+              excluded.
+            </p>
+          </div>
+
+          <div className="orientation-card">
+            <h4>Execution Philosophy</h4>
+            <p>
+              Services scale through constraints. Standardization, delegation,
+              and quality control take priority over flexibility and speed.
+            </p>
+          </div>
+
+          <div className="orientation-card">
+            <h4>Success Criteria</h4>
+            <p>
+              A successful service system delivers predictable outcomes, removes
+              founder dependency, and expands capacity without added complexity.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* MODULES */}
       <section className="course-modules">
         <ModuleCard
@@ -162,6 +195,49 @@ export default function ServiceSystemsCoursePage() {
         .course-hero-actions {
           display: flex;
           gap: 14px;
+        }
+
+        .course-orientation {
+          margin-bottom: 96px;
+        }
+
+        .orientation-eyebrow {
+          font-size: 11px;
+          letter-spacing: 0.32em;
+          text-transform: uppercase;
+          color: rgba(124, 108, 255, 0.75);
+          display: block;
+          margin-bottom: 28px;
+        }
+
+        .orientation-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 28px;
+        }
+
+        .orientation-card {
+          background: linear-gradient(180deg, #0b0c10, #050506);
+          border: 1px solid rgba(124, 108, 255, 0.18);
+          border-radius: 22px;
+          padding: 26px 26px 30px;
+        }
+
+        .orientation-card h4 {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+
+        .orientation-card p {
+          font-size: 14.5px;
+          line-height: 1.75;
+          opacity: 0.78;
+        }
+
+        @media (max-width: 900px) {
+          .orientation-grid {
+            grid-template-columns: 1fr;
+          }
         }
 
         /* MODULES */
@@ -346,4 +422,4 @@ function ModuleCard({
       `}</style>
     </div>
   );
-}  
+} 

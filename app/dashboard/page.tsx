@@ -488,7 +488,7 @@ export default function DashboardPage() {
           display: grid;
           grid-template-columns: 1fr;
           gap: 48px;
-          padding: 64px 64px;
+          padding: 52px 56px;
           border-radius: 40px;
           background:
             radial-gradient(1000px 420px at 50% -20%, rgba(212,175,55,0.22), transparent 62%),
@@ -501,7 +501,7 @@ export default function DashboardPage() {
           position: relative;
           box-shadow:
             0 0 0 1px rgba(212,175,55,0.35),
-            0 32px 96px rgba(0,0,0,0.65);
+            0 28px 84px rgba(0,0,0,0.62);
         }
 
         .os-hero-primary::before {
@@ -515,7 +515,7 @@ export default function DashboardPage() {
             rgba(99,102,241,0.25),
             transparent 60%
           );
-          opacity: 0.25;
+          opacity: 0.18;
           pointer-events: none;
         }
 
@@ -529,7 +529,7 @@ export default function DashboardPage() {
             rgba(212,175,55,0.28),
             transparent 65%
           );
-          opacity: 0.35;
+          opacity: 0.24;
           pointer-events: none;
         }
 
@@ -541,16 +541,16 @@ export default function DashboardPage() {
         }
 
         .os-hero h1 {
-          font-size: 44px;
-          margin: 18px 0 14px;
+          font-size: 40px;
+          margin: 16px 0 12px;
           letter-spacing: 0.02em;
         }
 
         .os-hero p {
           max-width: 620px;
-          font-size: 18px;
+          font-size: 17px;
           line-height: 1.75;
-          opacity: 0.82;
+          opacity: 0.78;
         }
 
         .os-hero-actions {
@@ -707,7 +707,7 @@ export default function DashboardPage() {
             0 26px 78px rgba(0,0,0,0.70);
           position: relative;
           overflow: hidden;
-          margin-top: 0;
+          margin-top: 14px;
           margin-bottom: 0;
         }
 
@@ -924,6 +924,12 @@ export default function DashboardPage() {
             0 0 0 1px rgba(212,175,55,0.45),
             0 12px 36px rgba(0,0,0,0.65);
         }
+        .os-command-btn:hover {
+          transform: translateY(-1px);
+          box-shadow:
+            0 0 0 1px rgba(212,175,55,0.55),
+            0 16px 44px rgba(0,0,0,0.72);
+        }
 
         /* BUTTONS */
         .btn-primary {
@@ -1090,14 +1096,14 @@ export default function DashboardPage() {
         }
 
         .context-card h3 {
-          font-size: 24px;
+          font-size: 22px;
           margin: 14px 0 10px;
         }
 
         .context-card p {
-          font-size: 16px;
+          font-size: 15.5px;
           line-height: 1.75;
-          opacity: 0.82;
+          opacity: 0.78;
           max-width: 520px;
         }
 
@@ -1144,6 +1150,7 @@ export default function DashboardPage() {
           line-height: 1.65;
           max-width: 680px;
           margin: 0;
+          font-size: 15px;
         }
 
         .os-timeline-rail {
@@ -1222,7 +1229,7 @@ export default function DashboardPage() {
         }
 
         .tl-title {
-          font-size: 18px;
+          font-size: 17px;
           margin: 0;
           letter-spacing: 0.01em;
         }

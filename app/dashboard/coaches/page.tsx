@@ -94,23 +94,19 @@ export default function CoachesPage() {
           <p className="panel-desc">{active.description}</p>
 
           <div className="operator-status">
-            <div className="status-row">
-              <span className="status-label">System Status</span>
+            <div className="status-col">
+              <span className="status-label">Status</span>
               <span className="status-value">Monitoring</span>
             </div>
 
-            <div className="status-row">
+            <div className="status-col">
               <span className="status-label">Primary Signal</span>
-              <span className="status-text">
-                Execution path is defined, but leverage can be increased.
-              </span>
+              <span className="status-value muted">Leverage available</span>
             </div>
 
-            <div className="status-row action">
-              <span className="status-label">Recommended Action</span>
-              <span className="status-action">
-                Review system map and identify highest-impact constraint.
-              </span>
+            <div className="status-col">
+              <span className="status-label">Next Action</span>
+              <span className="status-value action">Review system map</span>
             </div>
           </div>
 
@@ -262,8 +258,8 @@ export default function CoachesPage() {
         }
 
         .operator-panel {
-          padding: 56px;
-          border-radius: 32px;
+          padding: 52px 56px 58px;
+          border-radius: 30px;
           background: linear-gradient(180deg, #0b0c10, #050506);
           border: 1px solid rgba(255,255,255,0.08);
           box-shadow: 0 20px 60px rgba(0,0,0,0.55);
@@ -334,14 +330,14 @@ export default function CoachesPage() {
         }
 
         .operator-panel h2 {
-          font-size: 36px;
-          margin: 12px 0 14px;
+          font-size: 34px;
+          margin: 10px 0 12px;
         }
 
         .panel-desc {
-          max-width: 720px;
-          opacity: 0.85;
-          line-height: 1.7;
+          max-width: 680px;
+          opacity: 0.82;
+          line-height: 1.65;
         }
 
         .panel-focus {
@@ -362,13 +358,25 @@ export default function CoachesPage() {
 
         .enter-btn {
           display: inline-flex;
-          padding: 16px 28px;
+          align-items: center;
+          gap: 10px;
+          padding: 16px 30px;
           border-radius: 16px;
-          background: linear-gradient(180deg, #ffffff, #e5e5e5);
+          background: linear-gradient(180deg, #ffffff, #e6e6e6);
           color: #000;
           font-weight: 600;
           text-decoration: none;
-          box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+          box-shadow:
+            0 10px 26px rgba(0,0,0,0.45),
+            inset 0 1px 0 rgba(255,255,255,0.9);
+          transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .enter-btn:hover {
+          transform: translateY(-1px);
+          box-shadow:
+            0 14px 36px rgba(0,0,0,0.55),
+            inset 0 1px 0 rgba(255,255,255,0.95);
         }
 
         /* =========================
@@ -456,45 +464,39 @@ export default function CoachesPage() {
       `}</style>
       <style jsx>{`
         .operator-status {
-          margin-top: 28px;
-          padding: 22px 26px;
-          border-radius: 18px;
-          background: linear-gradient(180deg, #0b0c10, #050506);
+          margin-top: 24px;
+          padding: 16px 20px;
+          border-radius: 16px;
+          background: rgba(255,255,255,0.03);
           border: 1px solid rgba(255,255,255,0.08);
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
         }
 
-        .status-row {
+        .status-col {
           display: flex;
           flex-direction: column;
           gap: 6px;
-          margin-bottom: 14px;
-        }
-
-        .status-row:last-child {
-          margin-bottom: 0;
         }
 
         .status-label {
           font-size: 11px;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          opacity: 0.6;
+          opacity: 0.55;
         }
 
         .status-value {
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 600;
         }
 
-        .status-text {
-          font-size: 15px;
-          opacity: 0.8;
-          line-height: 1.6;
+        .status-value.muted {
+          opacity: 0.75;
         }
 
-        .status-row.action .status-action {
-          font-size: 15px;
-          font-weight: 600;
+        .status-value.action {
           color: #d4af37;
         }
       `}</style>
