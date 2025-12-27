@@ -121,9 +121,10 @@ export default function DashboardLayout({
           </NavLink>
         </nav>
 
-        <div className={`dash-active-system ${activeSystem}`}>
+        <div className={`dash-active-system ${activeSystem ?? ""}`}>
           <span className="system-label">Active System</span>
           <span className="system-name">
+            {!activeSystem && "Select a system"}
             {activeSystem === "digital" && "Digital Products"}
             {activeSystem === "service" && "Service Systems"}
             {activeSystem === "ecommerce" && "E‑Commerce"}
