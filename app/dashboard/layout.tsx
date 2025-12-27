@@ -74,7 +74,7 @@ export default function DashboardLayout({
   return (
     <ActiveSystemContext.Provider value={{ activeSystem, setActiveSystem }}>
       <div className="dash-shell">
-      <aside className="dash-sidebar">
+      <aside className={`dash-sidebar ${activeSystem}`}>
         <div className="dash-brand">
           <span className="dash-logo">◆</span>
           <div className="dash-brand-text">
@@ -227,32 +227,40 @@ export default function DashboardLayout({
         .dash-nav {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 6px;
+          margin-top: 14px;
         }
 
         .dash-active-system {
-          margin-top: 28px;
+          margin-top: 32px;
           padding: 14px 16px;
-          border-radius: 14px;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 16px;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.12);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.04);
           transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Color accents driven by activity */
         .dash-active-system.digital {
-          border-color: rgba(239,68,68,0.35);
-          box-shadow: 0 0 0 1px rgba(239,68,68,0.18);
+          border-color: rgba(239,68,68,0.45);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.04),
+            0 0 0 1px rgba(239,68,68,0.18);
         }
 
         .dash-active-system.service {
-          border-color: rgba(168,85,247,0.35);
-          box-shadow: 0 0 0 1px rgba(168,85,247,0.18);
+          border-color: rgba(168,85,247,0.45);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.04),
+            0 0 0 1px rgba(168,85,247,0.18);
         }
 
         .dash-active-system.ecommerce {
-          border-color: rgba(59,130,246,0.35);
-          box-shadow: 0 0 0 1px rgba(59,130,246,0.18);
+          border-color: rgba(59,130,246,0.45);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.04),
+            0 0 0 1px rgba(59,130,246,0.18);
         }
 
         .system-label {
@@ -274,15 +282,17 @@ export default function DashboardLayout({
         }
 
         .dash-logout {
-          background: transparent;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 10px;
-          padding: 10px 14px;
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 14px;
+          padding: 11px 16px;
           color: rgba(255, 255, 255, 0.55);
           cursor: pointer;
+          transition: background 0.2s ease, color 0.2s ease;
         }
         .dash-logout:hover {
-          background: rgba(255,255,255,0.04);
+          background: rgba(255,255,255,0.06);
+          color: #ffffff;
         }
       `}</style>
       </div>
@@ -305,24 +315,63 @@ function NavLink({
 
       <style jsx>{`
         .dash-link {
+          position: relative;
           display: block;
-          padding: 10px 14px;
-          border-radius: 10px;
+          padding: 12px 16px 12px 18px;
+          border-radius: 14px;
           font-size: 15px;
           text-decoration: none;
           color: rgba(255, 255, 255, 0.55);
           border: 1px solid transparent;
-          transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+          background: transparent;
+          transition:
+            color 0.18s ease,
+            background 0.18s ease,
+            border-color 0.18s ease,
+            box-shadow 0.18s ease,
+            transform 0.18s ease;
+        }
+
+        .dash-link::before {
+          content: "";
+          position: absolute;
+          left: 6px;
+          top: 10px;
+          bottom: 10px;
+          width: 2px;
+          border-radius: 2px;
+          background: transparent;
+          transition: background 0.18s ease;
         }
 
         .dash-link:hover {
-          background: rgba(255, 255, 255, 0.04);
+          background: rgba(255, 255, 255, 0.06);
+          transform: translateY(-1px);
         }
 
         .dash-link.active {
           color: #ffffff;
-          background: rgba(212, 175, 55, 0.16);
-          border-color: rgba(212, 175, 55, 0.4);
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.22);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 8px 24px rgba(0,0,0,0.55);
+        }
+
+        .dash-link.active::before {
+          background: rgba(255,255,255,0.9);
+        }
+
+        .dash-sidebar.digital .dash-link.active::before {
+          background: rgba(239,68,68,0.9);
+        }
+
+        .dash-sidebar.service .dash-link.active::before {
+          background: rgba(168,85,247,0.9);
+        }
+
+        .dash-sidebar.ecommerce .dash-link.active::before {
+          background: rgba(59,130,246,0.9);
         }
       `}</style>
     </Link>
