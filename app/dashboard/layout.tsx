@@ -71,6 +71,16 @@ export default function DashboardLayout({
     return `/dashboard/${base}/ecommerce`;
   }
 
+  function activeSystemTogglePath() {
+    if (pathname.startsWith("/dashboard/coaches")) {
+      return systemScopedPath("courses");
+    }
+    if (pathname.startsWith("/dashboard/courses")) {
+      return systemScopedPath("coaches");
+    }
+    return systemScopedPath("courses");
+  }
+
   return (
     <ActiveSystemContext.Provider value={{ activeSystem, setActiveSystem }}>
       <div className="dash-shell">
@@ -107,16 +117,23 @@ export default function DashboardLayout({
           </NavLink>
         </nav>
 
-        <div className={`dash-active-system ${activeSystem ?? ""}`}>
+        <div className="dash-section-gap" />
+        <div className="dash-divider" />
+
+        <Link
+          href={activeSystemTogglePath()}
+          className={`dash-active-system ${activeSystem ?? ""}`}
+        >
           <span className="system-label">Active System</span>
           <span className="system-name">
-            {!activeSystem && "Select a system"}
             {activeSystem === "digital" && "Digital Products"}
             {activeSystem === "service" && "Service Systems"}
             {activeSystem === "ecommerce" && "E‑Commerce"}
           </span>
-        </div>
+          <span className="system-switch-icon">↔</span>
+        </Link>
 
+        <div className="dash-divider" />
         <div className="dash-spacer" />
 
         <button className="dash-logout" onClick={handleLogout}>
@@ -270,35 +287,68 @@ export default function DashboardLayout({
         }
 
         .dash-active-system {
-          margin-top: 32px;
-          padding: 14px 16px;
-          border-radius: 16px;
+          margin-top: 48px;
+          margin-bottom: 20px;
+          padding: 20px 20px;
+          border-radius: 18px;
           background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.12);
+          border: 1px solid rgba(255,255,255,0.22);
           box-shadow:
-            inset 0 1px 0 rgba(255,255,255,0.04);
+            inset 0 1px 0 rgba(255,255,255,0.06),
+            0 0 0 1px rgba(255,255,255,0.25),
+            0 18px 44px rgba(0,0,0,0.65);
           transition: border-color 0.3s ease, box-shadow 0.3s ease;
+          cursor: pointer;
+          text-decoration: none;
+          position: relative;
+        }
+
+        .dash-active-system:hover {
+          transform: translateY(-1px);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 0 0 1px rgba(255,255,255,0.35),
+            0 22px 56px rgba(0,0,0,0.75);
         }
 
         .dash-active-system.digital {
-          border-color: rgba(239,68,68,0.45);
+          border-color: rgba(239,68,68,0.55);
           box-shadow:
-            inset 0 1px 0 rgba(255,255,255,0.04),
-            0 0 0 1px rgba(239,68,68,0.18);
+            inset 0 1px 0 rgba(255,255,255,0.06),
+            0 0 0 1px rgba(239,68,68,0.45),
+            0 18px 44px rgba(0,0,0,0.65);
         }
 
         .dash-active-system.service {
-          border-color: rgba(168,85,247,0.45);
+          border-color: rgba(168,85,247,0.55);
           box-shadow:
-            inset 0 1px 0 rgba(255,255,255,0.04),
-            0 0 0 1px rgba(168,85,247,0.18);
+            inset 0 1px 0 rgba(255,255,255,0.06),
+            0 0 0 1px rgba(168,85,247,0.45),
+            0 18px 44px rgba(0,0,0,0.65);
         }
 
         .dash-active-system.ecommerce {
-          border-color: rgba(59,130,246,0.45);
+          border-color: rgba(59,130,246,0.55);
           box-shadow:
-            inset 0 1px 0 rgba(255,255,255,0.04),
-            0 0 0 1px rgba(59,130,246,0.18);
+            inset 0 1px 0 rgba(255,255,255,0.06),
+            0 0 0 1px rgba(59,130,246,0.45),
+            0 18px 44px rgba(0,0,0,0.65);
+        }
+
+        .system-switch-icon {
+          position: absolute;
+          right: 14px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 14px;
+          opacity: 0;
+          transition: opacity 0.2s ease, transform 0.2s ease;
+          pointer-events: none;
+        }
+
+        .dash-active-system:hover .system-switch-icon {
+          opacity: 0.45;
+          transform: translateY(-50%) translateX(2px);
         }
 
         .system-label {
@@ -311,8 +361,23 @@ export default function DashboardLayout({
         }
 
         .system-name {
-          font-size: 15px;
+          font-size: 15.5px;
           font-weight: 600;
+        }
+
+        .dash-divider {
+          margin: 28px 0 20px;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.12),
+            transparent
+          );
+        }
+
+        .dash-section-gap {
+          height: 28px;
         }
 
         .dash-spacer {
@@ -357,7 +422,8 @@ function NavLink({
           display: block;
           padding: 12px 16px 12px 18px;
           border-radius: 14px;
-          font-size: 15px;
+          font-size: 15.5px;
+          font-weight: 500;
           text-decoration: none;
           color: rgba(255, 255, 255, 0.55);
           border: 1px solid transparent;

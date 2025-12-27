@@ -148,7 +148,7 @@ export default function DashboardPage() {
       <section className="os-timeline">
         <div className="os-timeline-head">
           <div>
-            <span className="os-timeline-eyebrow">Operator Timeline</span>
+            <span className="os-timeline-eyebrow">Priority Signals</span>
             <h2 className="os-section-title" style={{ marginBottom: 10 }}>
               Live Activity Feed
             </h2>
@@ -1197,6 +1197,29 @@ export default function DashboardPage() {
             flex-direction: column;
           }
         }
+
+        /* === Timeline Intelligence Hierarchy === */
+        /* Make signal source feel authoritative */
+        .tl-kind span:first-child {
+          font-weight: 700;
+        }
+
+        /* De-emphasize personal activity (logs) */
+        .tl[data-kind="YOU"] {
+          opacity: 0.65;
+        }
+
+        /* Elevate alerts without flashing */
+        .tl[data-kind="ALERT"] {
+          border-color: rgba(212,175,55,0.45);
+          box-shadow:
+            0 0 0 1px rgba(212,175,55,0.25),
+            0 18px 46px rgba(0,0,0,0.6);
+        }
+
+        .tl[data-kind="ALERT"] .tl-title {
+          letter-spacing: 0.02em;
+        }
       `}</style>
     </main>
   );
@@ -1300,6 +1323,7 @@ function TimelineEvent(item: TimelineItem) {
   return (
     <Shell
       {...shellProps}
+      data-kind={item.kind}
       style={{ ["--dot" as any]: dot, ["--glow" as any]: glow }}
     >
       <div className="tl-top">

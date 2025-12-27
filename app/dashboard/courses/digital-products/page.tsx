@@ -71,7 +71,7 @@ export default function DigitalProductsCoursePage() {
               setProgress(Math.min(progress + 20, 100));
             }}
           >
-            Continue Module
+            Continue Digital System
           </button>
         </div>
       </section>
@@ -195,11 +195,11 @@ export default function DigitalProductsCoursePage() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 64px;
-          padding: 20px 22px;
+          margin-bottom: 72px;
+          padding: 22px 26px;
           background: linear-gradient(180deg, #0a0b0f, #050506);
-          border: 1px solid rgba(220,38,38,0.18);
-          border-radius: 18px;
+          border: 1px solid rgba(220,38,38,0.24);
+          border-radius: 20px;
         }
 
         .course-command-left {
@@ -384,7 +384,7 @@ function ModuleCard({
           display: block;
           font-size: 11px;
           letter-spacing: 0.24em;
-          opacity: 0.55;
+          opacity: 0.45;
           margin-bottom: 10px;
         }
 

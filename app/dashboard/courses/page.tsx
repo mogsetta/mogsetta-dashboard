@@ -46,7 +46,7 @@ export default function CoursesPage() {
 
         <div className="courses-command-actions">
           <Link href="/dashboard/courses/digital-products" className="cmd-primary">
-            View Courses
+            Enter Active System
           </Link>
         </div>
       </section>
@@ -54,9 +54,9 @@ export default function CoursesPage() {
       {/* SYSTEM STATUS */}
       <section className="courses-status">
         <div>
-          <span>ACTIVE SYSTEM</span>
+          <span>SYSTEM MODE</span>
           <strong>
-            Select a system
+            Execution Ready
           </strong>
         </div>
 
@@ -116,7 +116,7 @@ export default function CoursesPage() {
         }
 
         .courses-hero {
-          margin-bottom: 56px;
+          margin-bottom: 42px;
         }
 
         .courses-eyebrow {
@@ -129,7 +129,7 @@ export default function CoursesPage() {
         }
 
         .courses-title {
-          font-size: 42px;
+          font-size: 38px;
           margin-bottom: 14px;
         }
 
@@ -150,11 +150,11 @@ export default function CoursesPage() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 48px;
-          padding: 18px 22px;
+          margin-bottom: 64px;
+          padding: 22px 26px;
           background: linear-gradient(180deg, #0a0b0f, #050506);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 18px;
+          border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 20px;
         }
 
         .courses-command-left {
