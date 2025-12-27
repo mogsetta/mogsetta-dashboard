@@ -48,29 +48,33 @@ export default function EcommerceCoursePage() {
         </div>
       </header>
 
-      {/* COURSE COMMAND */}
-      <section className="course-command">
-        <div className="course-command-left">
-          <span className="cmd-eyebrow">CURRENT MODULE</span>
-          <strong className="cmd-title">
-            {activeModule}. Offer Engineering
-          </strong>
-        </div>
-
-        <div className="course-command-right">
-          <div className="cmd-progress">
-            <span>PROGRESS</span>
-            <strong>{progress}%</strong>
+      {/* SYSTEM ORIENTATION */}
+      <section className="course-orientation">
+        <div className="orientation-grid">
+          <div>
+            <span className="orientation-label">SYSTEM SCOPE</span>
+            <p>
+              This system governs how offers are structured, how conversion is
+              engineered, and how revenue compounds over time in an e‑commerce
+              business.
+            </p>
           </div>
 
-          <button
-            className="primary cmd-primary"
-            onClick={() => {
-              setProgress(Math.min(progress + 20, 100));
-            }}
-          >
-            Continue Module
-          </button>
+          <div>
+            <span className="orientation-label">SUCCESS CRITERIA</span>
+            <p>
+              Clarity of offer, predictable conversion, controlled scaling, and
+              repeatable retention — not short‑term spikes.
+            </p>
+          </div>
+
+          <div>
+            <span className="orientation-label">NOT THE FOCUS</span>
+            <p>
+              Tools, platforms, hacks, or trends. Those are downstream decisions
+              made after system integrity is established.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -189,56 +193,45 @@ export default function EcommerceCoursePage() {
           gap: 14px;
         }
 
-        /* COURSE COMMAND */
+        /* SYSTEM ORIENTATION */
 
-        .course-command {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 64px;
-          padding: 20px 22px;
-          background: linear-gradient(180deg, #0a0b0f, #050506);
-          border: 1px solid rgba(0,102,204,0.18);
-          border-radius: 18px;
+        .course-orientation {
+          margin: 72px 0 96px;
         }
 
-        .course-command-left {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
+        .orientation-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 36px;
+          padding: 28px 32px;
+          border-radius: 22px;
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.14);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.06),
+            0 14px 40px rgba(0,0,0,0.55);
         }
 
-        .cmd-eyebrow {
+        .orientation-label {
+          display: block;
           font-size: 11px;
           letter-spacing: 0.28em;
-          opacity: 0.6;
+          text-transform: uppercase;
+          color: rgba(59,130,246,0.85);
+          margin-bottom: 10px;
         }
 
-        .cmd-title {
-          font-size: 18px;
-          font-weight: 600;
+        .orientation-grid p {
+          font-size: 15px;
+          line-height: 1.7;
+          opacity: 0.8;
         }
 
-        .course-command-right {
-          display: flex;
-          align-items: center;
-          gap: 22px;
-        }
-
-        .cmd-progress span {
-          font-size: 11px;
-          letter-spacing: 0.22em;
-          opacity: 0.55;
-        }
-
-        .cmd-progress strong {
-          display: block;
-          font-size: 16px;
-          margin-top: 4px;
-        }
-
-        .cmd-primary {
-          padding: 12px 18px;
+        @media (max-width: 900px) {
+          .orientation-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
         }
 
         /* MODULES */

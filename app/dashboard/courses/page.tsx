@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useActiveSystem } from "../layout";
 
 export default function CoursesPage() {
+
+  const { activeSystem } = useActiveSystem();
 
   const COURSE_MAP = {
     digital: {
@@ -35,40 +38,42 @@ export default function CoursesPage() {
         </p>
       </header>
 
-      {/* COURSES COMMAND */}
-      <section className="courses-command">
-        <div className="courses-command-left">
-          <span className="cmd-eyebrow">ACTIVE SYSTEM</span>
-          <strong className="cmd-system">
-            Select a system
-          </strong>
-        </div>
+      {/* OPERATOR PANEL */}
+      <section className={`courses-operator-panel ${activeSystem}`}>
+        <Link
+          href={
+            activeSystem === "digital"
+              ? "/dashboard/coaches/digital-products"
+              : activeSystem === "service"
+              ? "/dashboard/coaches/service-systems"
+              : "/dashboard/coaches/ecommerce"
+          }
+          className="operator-panel-inner"
+        >
+          <div className="operator-left">
+            <span className="operator-eyebrow">ACTIVE SYSTEM</span>
+            <strong className="operator-system">
+              {activeSystem === "digital" && "Digital Products"}
+              {activeSystem === "service" && "Service Systems"}
+              {activeSystem === "ecommerce" && "E‑Commerce Systems"}
+            </strong>
+          </div>
 
-        <div className="courses-command-actions">
-          <Link href="/dashboard/courses/digital-products" className="cmd-primary">
-            Enter Active System
-          </Link>
-        </div>
-      </section>
-
-      {/* SYSTEM STATUS */}
-      <section className="courses-status">
-        <div>
-          <span>SYSTEM MODE</span>
-          <strong>
-            Execution Ready
-          </strong>
-        </div>
-
-        <div>
-          <span>PROGRESS</span>
-          <strong>0%</strong>
-        </div>
-
-        <div>
-          <span>LAST ACCESSED</span>
-          <strong>Today</strong>
-        </div>
+          <div className="operator-stats">
+            <div>
+              <span>MODE</span>
+              <strong>Execution Ready</strong>
+            </div>
+            <div>
+              <span>PROGRESS</span>
+              <strong>0%</strong>
+            </div>
+            <div>
+              <span>LAST ACCESSED</span>
+              <strong>Today</strong>
+            </div>
+          </div>
+        </Link>
       </section>
 
       <h2 className="courses-section-label">AVAILABLE SYSTEMS</h2>
@@ -146,73 +151,78 @@ export default function CoursesPage() {
           opacity: 0.55;
         }
 
-        .courses-command {
+        .courses-operator-panel {
+          margin-bottom: 64px;
+        }
+
+        .courses-operator-panel.digital .operator-panel-inner {
+          box-shadow:
+            0 0 0 1px rgba(239,68,68,0.35),
+            0 22px 60px rgba(0,0,0,0.75);
+        }
+
+        .courses-operator-panel.service .operator-panel-inner {
+          box-shadow:
+            0 0 0 1px rgba(168,85,247,0.35),
+            0 22px 60px rgba(0,0,0,0.75);
+        }
+
+        .courses-operator-panel.ecommerce .operator-panel-inner {
+          box-shadow:
+            0 0 0 1px rgba(59,130,246,0.35),
+            0 22px 60px rgba(0,0,0,0.75);
+        }
+
+        .operator-panel-inner {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 64px;
-          padding: 22px 26px;
+          padding: 26px 28px;
+          border-radius: 22px;
           background: linear-gradient(180deg, #0a0b0f, #050506);
-          border: 1px solid rgba(255,255,255,0.12);
-          border-radius: 20px;
+          border: 1px solid rgba(255,255,255,0.14);
+          text-decoration: none;
+          color: #fff;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .courses-command-left {
+        .operator-panel-inner:hover {
+          transform: translateY(-2px);
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.25),
+            0 22px 60px rgba(0,0,0,0.75);
+        }
+
+        .operator-left {
           display: flex;
           flex-direction: column;
-          gap: 4px;
+          gap: 6px;
         }
 
-        .cmd-eyebrow {
+        .operator-eyebrow {
           font-size: 11px;
-          letter-spacing: 0.22em;
-          opacity: 0.6;
+          letter-spacing: 0.32em;
+          opacity: 0.55;
         }
 
-        .cmd-system {
-          font-size: 18px;
+        .operator-system {
+          font-size: 20px;
           font-weight: 600;
         }
 
-        .cmd-system.red { color: #dc2626; }
-        .cmd-system.purple { color: #7c6cff; }
-        .cmd-system.blue { color: #4da3ff; }
-
-        .courses-command-actions {
-          display: flex;
-          gap: 12px;
-        }
-
-        .cmd-primary {
-          padding: 10px 16px;
-          border-radius: 12px;
-          font-weight: 600;
-          background: rgba(255,255,255,0.06);
-          border: 1px solid rgba(255,255,255,0.12);
-          text-decoration: none;
-        }
-
-        .courses-status {
+        .operator-stats {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 18px;
-          margin-bottom: 56px;
+          grid-template-columns: repeat(3, minmax(120px, 1fr));
+          gap: 28px;
         }
 
-        .courses-status div {
-          background: linear-gradient(180deg, #0a0b0f, #050506);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 14px;
-          padding: 16px 18px;
-        }
-
-        .courses-status span {
+        .operator-stats span {
           font-size: 11px;
           letter-spacing: 0.22em;
           opacity: 0.55;
         }
 
-        .courses-status strong {
+        .operator-stats strong {
           display: block;
           margin-top: 6px;
           font-size: 16px;

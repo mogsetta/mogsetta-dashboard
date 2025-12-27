@@ -112,7 +112,7 @@ export default function EcommerceCoachPage() {
         }
 
         .ecx-hero {
-          margin-bottom: 80px;
+          margin-bottom: 64px;
         }
 
         .ecx-eyebrow {
@@ -132,7 +132,7 @@ export default function EcommerceCoachPage() {
         .ecx-subtitle {
           max-width: 900px;
           font-size: 18px;
-          line-height: 1.8;
+          line-height: 1.65;
           opacity: 0.78;
         }
 
@@ -163,7 +163,7 @@ export default function EcommerceCoachPage() {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
           gap: 20px;
-          margin-bottom: 90px;
+          margin-bottom: 72px;
         }
 
         .ecx-map,
@@ -185,7 +185,7 @@ export default function EcommerceCoachPage() {
         }
 
         .operator-shell {
-          margin-top: 120px;
+          margin-top: 160px;
         }
 
         .operator-frame {

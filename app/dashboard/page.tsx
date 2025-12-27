@@ -30,10 +30,39 @@ export default function DashboardPage() {
 
   return (
     <main className="os">
+      {/* CONTINUE OPERATING */}
+      <section className={`continue-panel ${activeSystem}`}>
+        <Link
+          href={
+            activeSystem === "digital"
+              ? "/dashboard/courses/digital-products"
+              : activeSystem === "service"
+              ? "/dashboard/courses/service-systems"
+              : "/dashboard/courses/ecommerce"
+          }
+          className="continue-inner"
+        >
+          <div className="continue-left">
+            <span className="continue-eyebrow">CONTINUE OPERATING</span>
+            <h2 className="continue-title">
+              {activeSystem === "digital" && "Digital Products"}
+              {activeSystem === "service" && "Service Systems"}
+              {activeSystem === "ecommerce" && "E‑Commerce Systems"}
+            </h2>
+            <p className="continue-sub">
+              Resume execution in the active system. Continue where progress compounds.
+            </p>
+          </div>
+
+          <div className="continue-cta">
+            <span className="cta-label">OPEN COURSE</span>
+            <span className="cta-arrow">→</span>
+          </div>
+        </Link>
+      </section>
+
       {/* COMMAND STRIP */}
-      <section
-        className={`os-command os-command-primary os-command-dominant lane-${activeSystem}`}
-      >
+      <section className={`os-command os-command-primary lane-${activeSystem}`}>
         <div className="os-command-left">
           <span className="os-command-eyebrow">PRIMARY DIRECTIVE · LOCKED</span>
           <h3 className="os-command-title">
@@ -194,6 +223,84 @@ export default function DashboardPage() {
       </section>
 
       <style jsx>{`
+        /* =========================
+           CONTINUE OPERATING PANEL
+        ========================= */
+
+        .continue-panel {
+          margin-bottom: 64px;
+        }
+
+        .continue-inner {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 28px;
+          padding: 34px 36px;
+          border-radius: 26px;
+          background: linear-gradient(180deg, #0a0b0f, #050506);
+          border: 1px solid rgba(255,255,255,0.14);
+          text-decoration: none;
+          color: #fff;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .continue-inner:hover {
+          transform: translateY(-2px);
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.25),
+            0 24px 70px rgba(0,0,0,0.8);
+        }
+
+        .continue-left {
+          max-width: 720px;
+        }
+
+        .continue-eyebrow {
+          font-size: 11px;
+          letter-spacing: 0.32em;
+          opacity: 0.6;
+          margin-bottom: 10px;
+          display: inline-block;
+        }
+
+        .continue-title {
+          font-size: 34px;
+          margin-bottom: 10px;
+        }
+
+        .continue-sub {
+          font-size: 16px;
+          opacity: 0.75;
+          line-height: 1.7;
+        }
+
+        .continue-cta {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          opacity: 0.9;
+        }
+
+        .continue-panel.digital .continue-inner {
+          box-shadow:
+            0 0 0 1px rgba(239,68,68,0.35),
+            0 24px 70px rgba(0,0,0,0.8);
+        }
+
+        .continue-panel.service .continue-inner {
+          box-shadow:
+            0 0 0 1px rgba(168,85,247,0.35),
+            0 24px 70px rgba(0,0,0,0.8);
+        }
+
+        .continue-panel.ecommerce .continue-inner {
+          box-shadow:
+            0 0 0 1px rgba(59,130,246,0.35),
+            0 24px 70px rgba(0,0,0,0.8);
+        }
         /* COMMAND DOCK */
         .os-command-dock {
           display: flex;
@@ -367,7 +474,7 @@ export default function DashboardPage() {
           padding: 64px 28px 160px;
           display: flex;
           flex-direction: column;
-          gap: 104px;
+          gap: 84px;
         }
 
         .os-pulse {
@@ -585,7 +692,7 @@ export default function DashboardPage() {
           justify-content: space-between;
           align-items: center;
           gap: 48px;
-          padding: 64px 72px;
+          padding: 52px 56px;
           border-radius: 42px;
           background:
             radial-gradient(
@@ -594,14 +701,14 @@ export default function DashboardPage() {
               transparent 62%
             ),
             linear-gradient(180deg, #0b0c10, #050506);
-          border: 2px solid rgba(212,175,55,0.55);
+          border: 1px solid rgba(255,255,255,0.12);
           box-shadow:
-            0 0 0 1px rgba(212,175,55,0.45),
-            0 40px 120px rgba(0,0,0,0.75);
+            0 0 0 1px rgba(255,255,255,0.10),
+            0 26px 78px rgba(0,0,0,0.70);
           position: relative;
           overflow: hidden;
-          margin-top: -24px;
-          margin-bottom: 64px;
+          margin-top: 0;
+          margin-bottom: 0;
         }
 
         /* =========================
@@ -728,12 +835,6 @@ export default function DashboardPage() {
             0 14px 40px rgba(0,0,0,0.65);
         }
 
-        .os-command-dominant {
-          transform: scale(1.015);
-          box-shadow:
-            0 0 0 2px rgba(212,175,55,0.85),
-            0 50px 140px rgba(0,0,0,0.85);
-        }
 
         .os-command-primary::before {
           content: "";
@@ -760,7 +861,6 @@ export default function DashboardPage() {
             transparent 65%
           );
           opacity: 0.22;
-          animation: commandPulse 8s ease-in-out infinite;
           pointer-events: none;
         }
 

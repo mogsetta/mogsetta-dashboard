@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useActiveSystem } from "../layout";
 import Link from "next/link";
 
@@ -136,7 +136,7 @@ export default function CoachesPage() {
           padding: 96px 40px 160px;
           display: flex;
           flex-direction: column;
-          gap: 72px;
+          gap: 56px;
         }
 
         .operator-header {
@@ -184,7 +184,7 @@ export default function CoachesPage() {
         .operator-nav {
           display: flex;
           flex-direction: column;
-          gap: 18px;
+          gap: 14px;
         }
 
         .operator-tab {
@@ -194,7 +194,7 @@ export default function CoachesPage() {
           background: linear-gradient(180deg, #0b0c10, #050506);
           border: 1px solid rgba(255,255,255,0.1);
           border-radius: 22px;
-          padding: 26px 24px;
+          padding: 22px 22px;
           text-align: left;
           cursor: pointer;
           transition:
@@ -243,11 +243,11 @@ export default function CoachesPage() {
           font-size: 11px;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          color: #d4af37;
+          color: rgba(255,255,255,0.65);
           padding: 8px 12px;
           border-radius: 999px;
-          background: rgba(212,175,55,0.12);
-          border: 1px solid rgba(212,175,55,0.25);
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.18);
         }
 
         .tab-system {
@@ -293,14 +293,14 @@ export default function CoachesPage() {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: #d4af37;
-          box-shadow: 0 0 10px rgba(212,175,55,0.75);
+          background: #22c55e;
+          box-shadow: 0 0 10px rgba(34,197,94,0.65);
         }
 
         .panel-status-text {
           font-size: 13px;
           font-weight: 600;
-          color: #d4af37;
+          color: rgba(34,197,94,0.9);
         }
 
         .panel-header-right {
@@ -355,19 +355,20 @@ export default function CoachesPage() {
           padding: 10px 16px;
           border-radius: 999px;
           font-size: 14px;
-          background: rgba(212,175,55,0.12);
-          border: 1px solid rgba(212,175,55,0.35);
-          color: #d4af37;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.18);
+          color: rgba(255,255,255,0.7);
         }
 
         .enter-btn {
           display: inline-flex;
           padding: 16px 28px;
           border-radius: 16px;
-          background: #d4af37;
+          background: linear-gradient(180deg, #ffffff, #e5e5e5);
           color: #000;
           font-weight: 600;
           text-decoration: none;
+          box-shadow: 0 12px 30px rgba(0,0,0,0.45);
         }
 
         /* =========================

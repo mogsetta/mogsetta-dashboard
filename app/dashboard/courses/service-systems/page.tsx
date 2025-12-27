@@ -49,32 +49,6 @@ export default function ServiceSystemsCoursePage() {
         </div>
       </header>
 
-      {/* COURSE COMMAND */}
-      <section className="course-command">
-        <div className="course-command-left">
-          <span className="cmd-eyebrow">CURRENT MODULE</span>
-          <strong className="cmd-title">
-            {activeModule}. Service Offer Design
-          </strong>
-        </div>
-
-        <div className="course-command-right">
-          <div className="cmd-progress">
-            <span>PROGRESS</span>
-            <strong>{progress}%</strong>
-          </div>
-
-          <button
-            className="primary cmd-primary"
-            onClick={() => {
-              setProgress(Math.min(progress + 20, 100));
-            }}
-          >
-            Continue Module
-          </button>
-        </div>
-      </section>
-
       {/* MODULES */}
       <section className="course-modules">
         <ModuleCard
@@ -188,58 +162,6 @@ export default function ServiceSystemsCoursePage() {
         .course-hero-actions {
           display: flex;
           gap: 14px;
-        }
-
-        /* COURSE COMMAND */
-
-        .course-command {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 64px;
-          padding: 20px 22px;
-          background: linear-gradient(180deg, #0a0b0f, #050506);
-          border: 1px solid rgba(124,108,255,0.18);
-          border-radius: 18px;
-        }
-
-        .course-command-left {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-        }
-
-        .cmd-eyebrow {
-          font-size: 11px;
-          letter-spacing: 0.28em;
-          opacity: 0.6;
-        }
-
-        .cmd-title {
-          font-size: 18px;
-          font-weight: 600;
-        }
-
-        .course-command-right {
-          display: flex;
-          align-items: center;
-          gap: 22px;
-        }
-
-        .cmd-progress span {
-          font-size: 11px;
-          letter-spacing: 0.22em;
-          opacity: 0.55;
-        }
-
-        .cmd-progress strong {
-          display: block;
-          font-size: 16px;
-          margin-top: 4px;
-        }
-
-        .cmd-primary {
-          padding: 12px 18px;
         }
 
         /* MODULES */
@@ -424,4 +346,4 @@ function ModuleCard({
       `}</style>
     </div>
   );
-}
+}  

@@ -50,29 +50,36 @@ export default function DigitalProductsCoursePage() {
         </div>
       </header>
 
-      {/* COURSE COMMAND */}
-      <section className="course-command">
-        <div className="course-command-left">
-          <span className="cmd-eyebrow">CURRENT MODULE</span>
-          <strong className="cmd-title">
-            {activeModule}. Problem & Market Clarity
-          </strong>
-        </div>
+      {/* SYSTEM ORIENTATION */}
+      <section className="course-orientation">
+        <span className="orientation-eyebrow">SYSTEM ORIENTATION</span>
 
-        <div className="course-command-right">
-          <div className="cmd-progress">
-            <span>PROGRESS</span>
-            <strong>{progress}%</strong>
+        <div className="orientation-grid">
+          <div className="orientation-card">
+            <h4>System Scope</h4>
+            <p>
+              This system covers scalable digital products — courses, tools,
+              templates, and frameworks designed to deliver outcomes without
+              manual effort. One‑off PDFs and hustle tactics are excluded by
+              design.
+            </p>
           </div>
 
-          <button
-            className="primary cmd-primary"
-            onClick={() => {
-              setProgress(Math.min(progress + 20, 100));
-            }}
-          >
-            Continue Digital System
-          </button>
+          <div className="orientation-card">
+            <h4>Execution Philosophy</h4>
+            <p>
+              Products are treated as leverage assets. Systems compound when
+              structure is prioritized over launches, and clarity over speed.
+            </p>
+          </div>
+
+          <div className="orientation-card">
+            <h4>Success Criteria</h4>
+            <p>
+              A successful system delivers repeatable value, reduces support
+              load, and expands without proportional effort.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -189,56 +196,47 @@ export default function DigitalProductsCoursePage() {
           gap: 14px;
         }
 
-        /* COURSE COMMAND */
-
-        .course-command {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 72px;
-          padding: 22px 26px;
-          background: linear-gradient(180deg, #0a0b0f, #050506);
-          border: 1px solid rgba(220,38,38,0.24);
-          border-radius: 20px;
+        .course-orientation {
+          margin-bottom: 96px;
         }
 
-        .course-command-left {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-        }
-
-        .cmd-eyebrow {
+        .orientation-eyebrow {
           font-size: 11px;
-          letter-spacing: 0.28em;
-          opacity: 0.6;
-        }
-
-        .cmd-title {
-          font-size: 18px;
-          font-weight: 600;
-        }
-
-        .course-command-right {
-          display: flex;
-          align-items: center;
-          gap: 22px;
-        }
-
-        .cmd-progress span {
-          font-size: 11px;
-          letter-spacing: 0.22em;
-          opacity: 0.55;
-        }
-
-        .cmd-progress strong {
+          letter-spacing: 0.32em;
+          text-transform: uppercase;
+          color: rgba(220, 38, 38, 0.75);
           display: block;
-          font-size: 16px;
-          margin-top: 4px;
+          margin-bottom: 28px;
         }
 
-        .cmd-primary {
-          padding: 12px 18px;
+        .orientation-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 28px;
+        }
+
+        .orientation-card {
+          background: linear-gradient(180deg, #0b0c10, #050506);
+          border: 1px solid rgba(220, 38, 38, 0.18);
+          border-radius: 22px;
+          padding: 26px 26px 30px;
+        }
+
+        .orientation-card h4 {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+
+        .orientation-card p {
+          font-size: 14.5px;
+          line-height: 1.75;
+          opacity: 0.78;
+        }
+
+        @media (max-width: 900px) {
+          .orientation-grid {
+            grid-template-columns: 1fr;
+          }
         }
 
         .course-modules {
