@@ -74,7 +74,7 @@ export default function DashboardLayout({
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) router.replace("/login");
+      if (!session) router.replace("/auth");
     });
 
     return () => subscription.unsubscribe();
@@ -82,7 +82,7 @@ export default function DashboardLayout({
 
   async function handleLogout() {
     await supabase.auth.signOut();
-    router.push("/login");
+    router.push("/auth");
   }
 
   function systemScopedPath(base: "courses" | "coaches") {
