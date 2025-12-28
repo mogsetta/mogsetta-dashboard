@@ -1,7 +1,7 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { digitalProductsCourse } from "@/lib/courses/digital-products";
 
 
 /*
@@ -11,20 +11,13 @@ import { useEffect, useState } from "react";
 */
 
 export default function DigitalProductsCoursePage() {
-  const [activeModule, setActiveModule] = useState("01");
-  const [progress, setProgress] = useState(0);
+  const router = useRouter();
 
-  useEffect(() => {
-    const savedModule = localStorage.getItem("digital_active_module");
-    const savedProgress = localStorage.getItem("digital_progress");
-    if (savedModule) setActiveModule(savedModule);
-    if (savedProgress) setProgress(Number(savedProgress));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("digital_active_module", activeModule);
-    localStorage.setItem("digital_progress", String(progress));
-  }, [activeModule, progress]);
+  const handleResume = () => {
+    router.push(
+      "/dashboard/courses/digital-products/offer-creation/offer-creation"
+    );
+  };
 
   return (
     <div className="course-shell">
@@ -39,14 +32,16 @@ export default function DigitalProductsCoursePage() {
         </p>
 
         <div className="course-hero-bar">
-          <ProgressStat label="Progress" value={`${progress}%`} />
+          <ProgressStat label="Progress" value="0%" />
           <ProgressStat label="Modules" value="5" />
           <ProgressStat label="Estimated Time" value="5–7 hrs" />
         </div>
 
         <div className="course-hero-actions">
           <button className="primary">Start Course</button>
-          <button className="secondary">Resume</button>
+          <button className="secondary" onClick={handleResume}>
+            Resume
+          </button>
         </div>
       </header>
 
@@ -94,7 +89,7 @@ export default function DigitalProductsCoursePage() {
             "Outcome promises",
             "Demand validation logic",
           ]}
-          state={activeModule === "01" ? "active" : "locked"}
+          state="active"
         />
 
         <ModuleCard

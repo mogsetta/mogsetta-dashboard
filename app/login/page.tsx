@@ -6,150 +6,75 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY!
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  async function handleLogin(e: React.FormEvent) {
-    e.preventDefault();
-    setLoading(true);
+  const handleLogin = async () => {
     setError(null);
+    setLoading(true);
 
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
+    setLoading(false);
+
     if (error) {
       setError(error.message);
-      setLoading(false);
       return;
     }
 
     router.push("/dashboard");
-  }
-
-  async function handleSignup() {
-    setLoading(true);
-    setError(null);
-
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
-
-    if (error) {
-      setError(error.message);
-      setLoading(false);
-      return;
-    }
-
-    router.push("/dashboard");
-  }
+  };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "#050506",
-        color: "#fff",
-      }}
-    >
-      <form
-        onSubmit={handleLogin}
-        style={{
-          width: 380,
-          padding: 32,
-          borderRadius: 16,
-          background: "#0b0c10",
-          border: "1px solid rgba(255,255,255,0.08)",
-        }}
-      >
-        <h1 style={{ fontSize: 24, marginBottom: 8 }}>
-          Sign in to Mogsetta
-        </h1>
-
-        <p style={{ opacity: 0.6, marginBottom: 24 }}>
-          Access your systems, courses, and AI coaches
-        </p>
-
-        {error && (
-          <p style={{ color: "#ff6b6b", marginBottom: 12 }}>
-            {error}
+    <main className="min-h-screen flex items-center justify-center bg-black">
+      <div className="w-full max-w-sm space-y-6 rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+        <header className="space-y-1 text-center">
+          <h1 className="text-2xl font-semibold">Log in to Mogsetta</h1>
+          <p className="text-sm text-muted">
+            Access your systems and AI operators
           </p>
-        )}
+        </header>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          style={inputStyle}
-        />
+        <div className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full rounded-lg bg-black/40 border border-white/10 px-3 py-2 text-sm outline-none"
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          style={inputStyle}
-        />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full rounded-lg bg-black/40 border border-white/10 px-3 py-2 text-sm outline-none"
+          />
 
-        <button
-          type="submit"
-          disabled={loading}
-          style={buttonStyle}
-        >
-          {loading ? "Signing in..." : "Sign In"}
-        </button>
+          {error && (
+            <p className="text-sm text-red-400 text-center">{error}</p>
+          )}
 
-        <button
-          type="button"
-          onClick={handleSignup}
-          disabled={loading}
-          style={{
-            ...buttonStyle,
-            background: "transparent",
-            color: "#d4af37",
-            border: "1px solid rgba(212,175,55,0.4)",
-            marginTop: 10,
-          }}
-        >
-          Create Account
-        </button>
-      </form>
-    </div>
+          <button
+            onClick={handleLogin}
+            disabled={loading}
+            className="w-full rounded-lg bg-white text-black py-2 text-sm font-medium hover:opacity-90 transition"
+          >
+            {loading ? "Logging in..." : "Log In"}
+          </button>
+        </div>
+      </div>
+    </main>
   );
 }
-
-const inputStyle = {
-  width: "100%",
-  padding: "12px 14px",
-  marginBottom: 14,
-  borderRadius: 10,
-  border: "1px solid rgba(255,255,255,0.2)",
-  background: "#050506",
-  color: "#fff",
-};
-
-const buttonStyle = {
-  width: "100%",
-  padding: "12px",
-  borderRadius: 10,
-  background: "#d4af37",
-  color: "#000",
-  fontWeight: 600,
-  border: "none",
-  cursor: "pointer",
-};

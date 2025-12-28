@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 /*
   SERVICE SYSTEMS COURSE PAGE
@@ -9,6 +10,7 @@ import { useEffect, useState } from "react";
 */
 
 export default function ServiceSystemsCoursePage() {
+  const router = useRouter();
   const [activeModule, setActiveModule] = useState("01");
   const [progress, setProgress] = useState(0);
 
@@ -25,61 +27,46 @@ export default function ServiceSystemsCoursePage() {
     localStorage.setItem("service_progress", String(progress));
   }, [activeModule, progress]);
 
+  const handleResume = () => {
+    // Default first lesson
+    let nextPath =
+      "/dashboard/courses/service-systems/client-acquisition/offer-clarity";
+
+    const completed = JSON.parse(
+      localStorage.getItem("service_completed_lessons") || "[]"
+    ) as string[];
+
+    // Future-proof: if offer-clarity is complete, move forward later
+    if (completed.includes("offer-clarity")) {
+      nextPath =
+        "/dashboard/courses/service-systems/client-acquisition/offer-clarity";
+    }
+
+    router.push(nextPath);
+  };
+
   return (
     <div className="course-shell">
-      {/* HERO */}
-      <header className="course-hero">
-        <span className="course-eyebrow">COURSE · SERVICE SYSTEMS</span>
+      {/* COMMAND HEADER */}
+      <header className="course-command">
+        <span className="course-eyebrow">SERVICE SYSTEM</span>
         <h1 className="course-title">Service Systems Operator</h1>
         <p className="course-subtitle">
-          Build productized services that scale without chaos. This course focuses
-          on scope control, delivery systems, delegation, and predictable outcomes
-          — not freelancing tactics or custom work.
+          Build productized services that deliver predictable outcomes without founder dependency.
         </p>
 
-        <div className="course-hero-bar">
-          <ProgressStat label="Progress" value={`${progress}%`} />
-          <ProgressStat label="Modules" value="5" />
-          <ProgressStat label="Estimated Time" value="5–7 hrs" />
-        </div>
-
-        <div className="course-hero-actions">
-          <button className="primary">Start Course</button>
-          <button className="secondary">Resume</button>
+        <div className="course-command-action">
+          <button className="primary large" onClick={handleResume}>
+            Resume Execution
+          </button>
         </div>
       </header>
 
-      {/* SYSTEM ORIENTATION */}
-      <section className="course-orientation">
-        <span className="orientation-eyebrow">SYSTEM ORIENTATION</span>
-
-        <div className="orientation-grid">
-          <div className="orientation-card">
-            <h4>System Scope</h4>
-            <p>
-              This system covers productized services designed for repeatable
-              delivery — clear scope, defined outcomes, and standardized
-              fulfillment. Custom work and ad‑hoc requests are intentionally
-              excluded.
-            </p>
-          </div>
-
-          <div className="orientation-card">
-            <h4>Execution Philosophy</h4>
-            <p>
-              Services scale through constraints. Standardization, delegation,
-              and quality control take priority over flexibility and speed.
-            </p>
-          </div>
-
-          <div className="orientation-card">
-            <h4>Success Criteria</h4>
-            <p>
-              A successful service system delivers predictable outcomes, removes
-              founder dependency, and expands capacity without added complexity.
-            </p>
-          </div>
-        </div>
+      <section className="system-brief">
+        <p>
+          This system teaches how to design, deliver, and scale services using
+          standardized scope, defined outcomes, and repeatable delivery architecture.
+        </p>
       </section>
 
       {/* MODULES */}
@@ -158,11 +145,17 @@ export default function ServiceSystemsCoursePage() {
           padding: 48px 24px 160px;
         }
 
-        /* HERO */
+        /* COMMAND HEADER */
 
-        .course-hero {
-          margin-bottom: 100px;
+        .course-command {
+          margin-bottom: 80px;
         }
+
+        .course-command-action {
+          margin-top: 32px;
+        }
+
+        /* HERO */
 
         .course-eyebrow {
           font-size: 11px;
@@ -197,47 +190,14 @@ export default function ServiceSystemsCoursePage() {
           gap: 14px;
         }
 
-        .course-orientation {
-          margin-bottom: 96px;
-        }
+        /* SYSTEM BRIEF */
 
-        .orientation-eyebrow {
-          font-size: 11px;
-          letter-spacing: 0.32em;
-          text-transform: uppercase;
-          color: rgba(124, 108, 255, 0.75);
-          display: block;
-          margin-bottom: 28px;
-        }
-
-        .orientation-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
-        }
-
-        .orientation-card {
-          background: linear-gradient(180deg, #0b0c10, #050506);
-          border: 1px solid rgba(124, 108, 255, 0.18);
-          border-radius: 22px;
-          padding: 26px 26px 30px;
-        }
-
-        .orientation-card h4 {
-          font-size: 18px;
-          margin-bottom: 10px;
-        }
-
-        .orientation-card p {
-          font-size: 14.5px;
-          line-height: 1.75;
-          opacity: 0.78;
-        }
-
-        @media (max-width: 900px) {
-          .orientation-grid {
-            grid-template-columns: 1fr;
-          }
+        .system-brief {
+          max-width: 760px;
+          margin-bottom: 72px;
+          font-size: 16px;
+          line-height: 1.8;
+          opacity: 0.75;
         }
 
         /* MODULES */
@@ -422,4 +382,4 @@ function ModuleCard({
       `}</style>
     </div>
   );
-} 
+}

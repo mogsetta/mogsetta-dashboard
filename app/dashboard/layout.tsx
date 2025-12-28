@@ -4,6 +4,7 @@ import React, { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
+import { serviceSystemsCourse } from "@/lib/courses/service-system";
 
 type ActiveSystem = "digital" | "service" | "ecommerce";
 
@@ -20,9 +21,28 @@ export default function DashboardLayout({
   const pathname = usePathname();
   const router = useRouter();
 
+  const isInServiceCourses = pathname.startsWith("/dashboard/courses/service-systems");
+
+  const pathParts = pathname.split("/").filter(Boolean);
+  const activeCourseSlug = pathParts[4]; // client-acquisition
+  const activeLessonSlug =
+    pathParts.length > 5 ? pathParts[5] : null; // offer-clarity
+
+  const activeCourse =
+    activeCourseSlug === serviceSystemsCourse.course
+      ? serviceSystemsCourse
+      : null;
+
+  const activeLesson =
+    activeCourse && activeLessonSlug
+      ? activeCourse.lessons[
+          activeLessonSlug as keyof typeof activeCourse.lessons
+        ] ?? null
+      : null;
+
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY!
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
   const [activeSystem, setActiveSystem] = useState<ActiveSystem>("digital");
@@ -133,6 +153,21 @@ export default function DashboardLayout({
         </Link>
 
         <div className="dash-system-divider" />
+
+        {isInServiceCourses && activeCourse && (
+          <div className="dash-course-hierarchy">
+            <div className="dash-course-name">
+              {activeCourse.title}
+            </div>
+
+            {activeLesson && (
+              <div className="dash-lesson-name">
+                • {activeLesson.title}
+              </div>
+            )}
+          </div>
+        )}
+
         <div className="dash-spacer" />
 
         <button className="dash-logout" onClick={handleLogout}>
@@ -354,6 +389,24 @@ export default function DashboardLayout({
             rgba(255,255,255,0.12),
             transparent
           );
+        }
+
+        .dash-course-hierarchy {
+          margin: 8px 6px 0;
+          padding-left: 14px;
+          border-left: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .dash-course-name {
+          font-size: 13.5px;
+          font-weight: 600;
+          opacity: 0.85;
+          margin-bottom: 6px;
+        }
+
+        .dash-lesson-name {
+          font-size: 13px;
+          opacity: 0.65;
         }
 
         .system-switch-icon {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 /*
   E‑COMMERCE COURSE PAGE
@@ -8,21 +8,13 @@ import { useEffect, useState } from "react";
 */
 
 export default function EcommerceCoursePage() {
-  const [activeModule, setActiveModule] = useState("01");
-  const [progress, setProgress] = useState(0);
+  const router = useRouter();
 
-  useEffect(() => {
-    const savedModule = localStorage.getItem("ecommerce_active_module");
-    const savedProgress = localStorage.getItem("ecommerce_progress");
-
-    if (savedModule) setActiveModule(savedModule);
-    if (savedProgress) setProgress(Number(savedProgress));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("ecommerce_active_module", activeModule);
-    localStorage.setItem("ecommerce_progress", String(progress));
-  }, [activeModule, progress]);
+  const handleResume = () => {
+    router.push(
+      "/dashboard/courses/ecommerce/offer-engineering/offer-engineering"
+    );
+  };
 
   return (
     <div className="course-shell">
@@ -37,14 +29,16 @@ export default function EcommerceCoursePage() {
         </p>
 
         <div className="course-hero-bar">
-          <ProgressStat label="Progress" value={`${progress}%`} />
+          <ProgressStat label="Progress" value="0%" />
           <ProgressStat label="Modules" value="5" />
           <ProgressStat label="Estimated Time" value="6–8 hrs" />
         </div>
 
         <div className="course-hero-actions">
           <button className="primary">Start Course</button>
-          <button className="secondary">Resume</button>
+          <button className="secondary" onClick={handleResume}>
+            Resume
+          </button>
         </div>
       </header>
 
@@ -89,7 +83,7 @@ export default function EcommerceCoursePage() {
             "Value stacking & pricing logic",
             "Guarantees & positioning",
           ]}
-          state={activeModule === "01" ? "active" : "locked"}
+          state="active"
         />
 
         <ModuleCard
