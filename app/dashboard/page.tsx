@@ -125,32 +125,6 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      {/* HERO / STATUS */}
-      <section className="os-hero os-hero-primary" style={{ opacity: 0.82 }}>
-        <div className="os-hero-left">
-          <span className="os-eyebrow">MOGSETTA · OPERATOR OS</span>
-          <h1>Command Center</h1>
-          <p>
-            Centralized visibility, execution control, and AI‑assisted decision
-            making. Every system, operator, and action flows through this interface.
-          </p>
-
-          <div className="os-hero-actions">
-            <Link
-              href={`/dashboard/courses/${system.slug}`}
-              className="btn-secondary"
-            >
-              Resume Active System →
-            </Link>
-            <Link
-              href={`/dashboard/coaches/${system.slug}`}
-              className="btn-secondary"
-            >
-              View Active Operators →
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* SYSTEM CONTEXT */}
       <section className="os-context">

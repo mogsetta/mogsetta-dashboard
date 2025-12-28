@@ -58,21 +58,6 @@ export default function CoursesPage() {
               {activeSystem === "ecommerce" && "E‑Commerce Systems"}
             </strong>
           </div>
-
-          <div className="operator-stats">
-            <div>
-              <span>MODE</span>
-              <strong>Execution Ready</strong>
-            </div>
-            <div>
-              <span>PROGRESS</span>
-              <strong>0%</strong>
-            </div>
-            <div>
-              <span>LAST ACCESSED</span>
-              <strong>Today</strong>
-            </div>
-          </div>
         </Link>
       </section>
 
@@ -88,7 +73,7 @@ export default function CoursesPage() {
             desc="Design, validate, and scale digital products as long‑term assets with modular structure and leverage logic."
             href="/dashboard/courses/digital-products"
             accent="red"
-            active={false}
+            active={activeSystem === "digital"}
           />
 
           <CourseCard
@@ -97,7 +82,7 @@ export default function CoursesPage() {
             desc="Engineer repeatable, productized services with scope discipline, delivery workflows, and delegation readiness."
             href="/dashboard/courses/service-systems"
             accent="purple"
-            active={false}
+            active={activeSystem === "service"}
           />
 
           <CourseCard
@@ -106,7 +91,7 @@ export default function CoursesPage() {
             desc="Build conversion‑focused stores using offer design, optimization loops, and operational clarity."
             href="/dashboard/courses/ecommerce"
             accent="blue"
-            active={false}
+            active={activeSystem === "ecommerce"}
           />
 
         </div>
@@ -303,7 +288,7 @@ function CourseCard({
       <span className="course-status">
         {active ? "ACTIVE SYSTEM" : "NOT STARTED"}
       </span>
-      <div className="course-link">Enter System →</div>
+      <div className="course-link">View Documentation →</div>
       <span className="course-meta">System Documentation</span>
 
       <style jsx>{`
@@ -328,8 +313,8 @@ function CourseCard({
 
         .course-card.active {
           box-shadow:
-            0 0 0 1px rgba(255,255,255,0.18),
-            0 22px 60px rgba(0,0,0,0.65);
+            0 0 0 1px rgba(255,255,255,0.22),
+            0 26px 64px rgba(0,0,0,0.7);
         }
 
         .course-index {

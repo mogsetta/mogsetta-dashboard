@@ -117,8 +117,7 @@ export default function DashboardLayout({
           </NavLink>
         </nav>
 
-        <div className="dash-section-gap" />
-        <div className="dash-divider" />
+        <div className="dash-nav-divider" />
 
         <Link
           href={activeSystemTogglePath()}
@@ -133,7 +132,7 @@ export default function DashboardLayout({
           <span className="system-switch-icon">↔</span>
         </Link>
 
-        <div className="dash-divider" />
+        <div className="dash-system-divider" />
         <div className="dash-spacer" />
 
         <button className="dash-logout" onClick={handleLogout}>
@@ -282,8 +281,19 @@ export default function DashboardLayout({
         .dash-nav {
           display: flex;
           flex-direction: column;
-          gap: 6px;
-          margin-top: 14px;
+          gap: 10px;
+          margin-top: 18px;
+        }
+
+        .dash-nav-divider {
+          margin: 32px 0 36px;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.18),
+            transparent
+          );
         }
 
         .dash-active-system {
@@ -333,6 +343,17 @@ export default function DashboardLayout({
             inset 0 1px 0 rgba(255,255,255,0.06),
             0 0 0 1px rgba(59,130,246,0.45),
             0 18px 44px rgba(0,0,0,0.65);
+        }
+
+        .dash-system-divider {
+          margin: 36px 0 24px;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.12),
+            transparent
+          );
         }
 
         .system-switch-icon {
@@ -392,6 +413,7 @@ export default function DashboardLayout({
           color: rgba(255, 255, 255, 0.55);
           cursor: pointer;
           transition: background 0.2s ease, color 0.2s ease;
+          margin-top: 12px;
         }
         .dash-logout:hover {
           background: rgba(255,255,255,0.06);
