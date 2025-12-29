@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import Link from "next/link";
@@ -42,7 +40,7 @@ export default function OfferEngineeringModulePage() {
           {Object.entries(lessons).map(([slug, lesson], index) => (
             <Link
               key={slug}
-              href={`/courses/ecommerce/offer-engineering/${slug}`}
+              href={`/dashboard/courses/ecommerce/offer-engineering/${slug}`}
               className={`block rounded-xl border p-5 transition
                 ${
                   completed.includes(slug)

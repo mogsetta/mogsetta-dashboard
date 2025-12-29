@@ -20,7 +20,7 @@ export default function ClientAcquisitionModulePage() {
       {/* Module Header */}
       <header className="space-y-3">
         <span className="text-xs uppercase tracking-widest text-muted">
-          Service Systems • Module
+          Service Systems • Client Acquisition
         </span>
 
         <h1 className="text-4xl font-semibold">
@@ -31,6 +31,8 @@ export default function ClientAcquisitionModulePage() {
           {serviceSystemsCourse.description}
         </p>
       </header>
+
+      <hr className="border-white/10" />
 
       {/* Lessons List */}
       <section className="space-y-6">
@@ -43,7 +45,7 @@ export default function ClientAcquisitionModulePage() {
             <Link
               key={slug}
               href={`/courses/service-systems/client-acquisition/${slug}`}
-              className={`block rounded-xl border p-5 transition
+              className={`group block rounded-xl border p-5 transition
                 ${
                   completed.includes(slug)
                     ? "border-white/30 bg-white/[0.06]"
@@ -56,7 +58,7 @@ export default function ClientAcquisitionModulePage() {
                     {completed.includes(slug)
                       ? "Completed"
                       : index === completed.length
-                      ? "Next"
+                      ? "In Progress"
                       : `Lesson ${index + 1}`}
                   </span>
 
@@ -69,7 +71,7 @@ export default function ClientAcquisitionModulePage() {
                   </p>
                 </div>
 
-                <span className="text-sm text-muted">
+                <span className="text-sm text-muted transition group-hover:translate-x-1">
                   →
                 </span>
               </div>

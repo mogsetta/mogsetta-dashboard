@@ -15,7 +15,7 @@ export default function DigitalProductsCoursePage() {
 
   const handleResume = () => {
     router.push(
-      "/dashboard/courses/digital-products/offer-creation/offer-creation"
+      "/dashboard/courses/digital-products/offer-creation/offer-foundation"
     );
   };
 
@@ -38,7 +38,9 @@ export default function DigitalProductsCoursePage() {
         </div>
 
         <div className="course-hero-actions">
-          <button className="primary">Start Course</button>
+          <button className="primary" onClick={handleResume}>
+            Start Course
+          </button>
           <button className="secondary" onClick={handleResume}>
             Resume
           </button>

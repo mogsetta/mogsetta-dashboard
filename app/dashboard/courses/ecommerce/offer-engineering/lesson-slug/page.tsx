@@ -10,18 +10,18 @@ type ChatMessage = {
   content: string;
 };
 
-export default function OfferClarityLesson() {
+export default function OfferEngineeringLesson() {
   const [phase, setPhase] = useState<Phase>("read");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const router = useRouter();
 
   const handleComplete = () => {
-    const key = "service_completed_lessons";
+    const key = "ecommerce_completed_lessons";
     const stored = JSON.parse(localStorage.getItem(key) || "[]") as string[];
 
-    if (!stored.includes("offer-clarity")) {
-      stored.push("offer-clarity");
+    if (!stored.includes("offer-engineering")) {
+      stored.push("offer-engineering");
       localStorage.setItem(key, JSON.stringify(stored));
     }
 
@@ -29,9 +29,7 @@ export default function OfferClarityLesson() {
   };
 
   const handleNext = () => {
-    router.push(
-      "/dashboard/courses/service-systems/client-acquisition"
-    );
+    router.push("/dashboard/courses/ecommerce/offer-engineering");
   };
 
   const handleSend = () => {
@@ -54,11 +52,11 @@ export default function OfferClarityLesson() {
         {/* Lesson Header */}
         <header className="space-y-3">
           <span className="text-xs uppercase tracking-widest text-muted">
-            Service Systems • Client Acquisition
+            E-commerce • Offer Engineering
           </span>
 
           <h1 className="text-4xl font-semibold">
-            Offer Clarity
+            Offer Engineering
           </h1>
 
           <p className="text-lg text-muted max-w-2xl">
@@ -76,7 +74,7 @@ export default function OfferClarityLesson() {
             </span>
             <span className={`px-3 py-1 rounded-full text-xs border ${
               phase === "apply"
-                ? "border-gold text-gold"
+                ? "border-blue-400 text-blue-400"
                 : "border-white/10 text-muted"
             }`}>
               Apply
@@ -159,7 +157,7 @@ export default function OfferClarityLesson() {
             {phase === "apply" && (
               <button
                 onClick={handleComplete}
-                className="px-4 py-2 rounded-lg bg-gold text-black text-sm font-medium hover:opacity-90 transition"
+                className="px-4 py-2 rounded-lg bg-blue-500 text-black text-sm font-medium hover:opacity-90 transition"
               >
                 Mark Complete
               </button>
@@ -216,7 +214,7 @@ export default function OfferClarityLesson() {
 
           <button
             onClick={handleSend}
-            className="px-3 py-2 rounded-lg bg-gold text-black text-sm font-medium"
+            className="px-3 py-2 rounded-lg bg-blue-500 text-black text-sm font-medium"
           >
             Send
           </button>
@@ -224,4 +222,4 @@ export default function OfferClarityLesson() {
       </aside>
     </section>
   );
-}  
+} 

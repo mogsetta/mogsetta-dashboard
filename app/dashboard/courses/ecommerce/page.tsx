@@ -11,9 +11,7 @@ export default function EcommerceCoursePage() {
   const router = useRouter();
 
   const handleResume = () => {
-    router.push(
-      "/dashboard/courses/ecommerce/offer-engineering/offer-engineering"
-    );
+    router.push("/dashboard/courses/ecommerce/offer-engineering");
   };
 
   return (
@@ -35,7 +33,9 @@ export default function EcommerceCoursePage() {
         </div>
 
         <div className="course-hero-actions">
-          <button className="primary">Start Course</button>
+          <button className="primary" onClick={handleResume}>
+            Start Course
+          </button>
           <button className="secondary" onClick={handleResume}>
             Resume
           </button>
@@ -74,17 +74,26 @@ export default function EcommerceCoursePage() {
 
       {/* MODULES */}
       <section className="course-modules">
-        <ModuleCard
-          index="01"
-          title="Offer Engineering"
-          desc="Design high‑leverage offers before touching products, traffic, or ads."
-          lessons={[
-            "Why offers beat products",
-            "Value stacking & pricing logic",
-            "Guarantees & positioning",
-          ]}
-          state="active"
-        />
+        <div
+          onClick={() =>
+            router.push(
+              "/dashboard/courses/ecommerce/offer-engineering/offer-foundation"
+            )
+          }
+          style={{ cursor: "pointer" }}
+        >
+          <ModuleCard
+            index="01"
+            title="Offer Engineering"
+            desc="Design high‑leverage offers before touching products, traffic, or ads."
+            lessons={[
+              "Why offers beat products",
+              "Value stacking & pricing logic",
+              "Guarantees & positioning",
+            ]}
+            state="active"
+          />
+        </div>
 
         <ModuleCard
           index="02"

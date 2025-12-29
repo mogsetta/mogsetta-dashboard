@@ -11,12 +11,6 @@ export const digitalProductsCourse = {
         "Define the core problem, outcome, and transformation your digital product delivers.",
       order: 1,
     },
-    "offer-creation": {
-      title: "Offer Creation",
-      summary:
-        "Design a digital product offer that solves a real problem and converts without heavy persuasion.",
-      order: 2,
-    },
     "pricing-positioning": {
       title: "Pricing & Positioning",
       summary:

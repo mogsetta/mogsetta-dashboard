@@ -28,9 +28,7 @@ export default function OfferFoundationLesson() {
   };
 
   const handleNext = () => {
-    router.push(
-      "/dashboard/courses/ecommerce/offer-engineering/offer-foundation"
-    );
+    router.push("/dashboard/courses/ecommerce/offer-engineering/offer-foundation");
   };
 
   const handleSend = () => {
@@ -57,12 +55,11 @@ export default function OfferFoundationLesson() {
           </span>
 
           <h1 className="text-4xl font-semibold">
-            Offer Engineering
+            Offer Foundation
           </h1>
 
           <p className="text-lg text-muted max-w-2xl">
-            Build high-leverage offers that convert before touching traffic,
-            products, or ads.
+            Establish the foundational structure of your e‑commerce offer before scaling traffic, ads, or fulfillment.
           </p>
         </header>
 

@@ -1,5 +1,3 @@
-
-
 export const serviceSystemsCourse = {
   system: "service-systems",
   course: "client-acquisition",
@@ -42,6 +40,45 @@ export const serviceSystemsCourse = {
           "Be specific",
           "Avoid buzzwords",
           "Focus on outcomes, not features",
+        ],
+      },
+    },
+    "audience-definition": {
+      title: "Audience Definition",
+      summary:
+        "Identify and narrow the exact audience this service is built for so your offer speaks directly to buyers.",
+      objectives: [
+        "Define your primary buyer persona",
+        "Eliminate non-ideal customers",
+        "Clarify who this system is NOT for",
+      ],
+      framework: [
+        {
+          heading: "Why Audience Precision Matters",
+          content:
+            "A service that tries to speak to everyone converts no one. Precise audience definition allows your messaging, outreach, and delivery to compound instead of dilute.",
+        },
+        {
+          heading: "The Narrow-Then-Expand Principle",
+          content:
+            "Start with a narrowly defined ideal client you understand deeply. Once the system works, you can expand outward without breaking conversion.",
+        },
+      ],
+      example:
+        "We help 6–7 figure local service business owners who already get inbound leads but lack a predictable outbound acquisition system.",
+      task: {
+        instruction:
+          "Describe your ideal client in one sentence using industry, size, and core pain.",
+        placeholder:
+          "We help ___ businesses that struggle with ___.",
+      },
+      aiContext: {
+        role:
+          "You are an operator helping the user precisely define their ideal service audience.",
+        constraints: [
+          "Force specificity",
+          "Challenge vague targeting",
+          "Anchor advice in real buyer behavior",
         ],
       },
     },

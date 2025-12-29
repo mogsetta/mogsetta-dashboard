@@ -10,7 +10,7 @@ type ChatMessage = {
   content: string;
 };
 
-export default function OfferClarityLesson() {
+export default function AudienceDefinitionLesson() {
   const [phase, setPhase] = useState<Phase>("read");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
@@ -20,8 +20,8 @@ export default function OfferClarityLesson() {
     const key = "service_completed_lessons";
     const stored = JSON.parse(localStorage.getItem(key) || "[]") as string[];
 
-    if (!stored.includes("offer-clarity")) {
-      stored.push("offer-clarity");
+    if (!stored.includes("audience-definition")) {
+      stored.push("audience-definition");
       localStorage.setItem(key, JSON.stringify(stored));
     }
 
@@ -58,12 +58,11 @@ export default function OfferClarityLesson() {
           </span>
 
           <h1 className="text-4xl font-semibold">
-            Offer Clarity
+            Audience Definition
           </h1>
 
           <p className="text-lg text-muted max-w-2xl">
-            Define a clear, compelling service offer that instantly communicates value
-            and converts the right clients.
+            Identify and narrow the exact audience this service is built for so your offer speaks directly to buyers.
           </p>
 
           <div className="flex items-center gap-3 pt-2">
