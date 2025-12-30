@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { digitalProductsCourse } from "@/lib/courses/digital-products";
 import { getResumePathClient } from "@/lib/progress/client";
+import { useEffect, useState } from "react";
 
 
 /*
@@ -14,15 +15,20 @@ import { getResumePathClient } from "@/lib/progress/client";
 export default function DigitalProductsCoursePage() {
   const router = useRouter();
 
+  const [resumePath, setResumePath] = useState<string | null>(null);
+
+  useEffect(() => {
+    getResumePathClient("digital-products").then(setResumePath);
+  }, []);
+
   const handleStart = () => {
     router.push("/dashboard/courses/digital-products/offer-creation");
   };
 
   const handleResume = () => {
-    const moduleRoot = "/dashboard/courses/digital-products/offer-creation";
-    const resumePath = getResumePathClient("digital-products");
-
-    router.push(resumePath ?? moduleRoot);
+    router.push(
+      resumePath ?? "/dashboard/courses/digital-products/offer-creation"
+    );
   };
 
   return (

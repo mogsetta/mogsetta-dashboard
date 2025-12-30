@@ -29,5 +29,23 @@ export const digitalProductsCourse = {
         "Remove fear, reduce hesitation, and shift risk away from the buyer.",
       order: 4,
     },
+    "channel-selection": {
+      title: "Channel Selection",
+      summary:
+        "Choose the right distribution channels before spending time or money.",
+      order: 5,
+    },
+    "validation-loops": {
+      title: "Validation Loops",
+      summary:
+        "Validate demand, messaging, and pricing with fast feedback loops.",
+      order: 6,
+    },
+    "scaling-traffic": {
+      title: "Scaling Traffic",
+      summary:
+        "Scale traffic only after signal is proven and systems are stable.",
+      order: 7,
+    },
   },
 };

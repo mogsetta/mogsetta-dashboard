@@ -1,7 +1,10 @@
 // PHASE 1 — DYNAMIC ACTIVE SYSTEM
+// PHASE 1 — DYNAMIC ACTIVE SYSTEM
 "use client";
 import Link from "next/link";
 import { useActiveSystem } from "./layout";
+import { useEffect, useState } from "react";
+import { getProgress } from "@/lib/progress";
 
 /**
  * MOGSETTA OS — OPERATOR CONTROL ROOM
@@ -10,6 +13,18 @@ import { useActiveSystem } from "./layout";
 
 export default function DashboardPage() {
   const { activeSystem } = useActiveSystem();
+
+  const [resumeHref, setResumeHref] = useState<string | null>(null);
+
+  useEffect(() => {
+    getProgress().then((progress) => {
+      if (!progress) return;
+
+      const base = `/dashboard/courses/${progress.system}/${progress.module}`;
+      const path = progress.lesson ? `${base}/${progress.lesson}` : base;
+      setResumeHref(path);
+    });
+  }, []);
 
   const SYSTEM_MAP = {
     digital: {
@@ -34,11 +49,12 @@ export default function DashboardPage() {
       <section className={`continue-panel ${activeSystem}`}>
         <Link
           href={
-            activeSystem === "digital"
+            resumeHref ??
+            (activeSystem === "digital"
               ? "/dashboard/courses/digital-products"
               : activeSystem === "service"
               ? "/dashboard/courses/service-systems"
-              : "/dashboard/courses/ecommerce"
+              : "/dashboard/courses/ecommerce")
           }
           className="continue-inner"
         >

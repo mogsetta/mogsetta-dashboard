@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { setProgress } from "@/lib/progress";
+import CoachLayout from "@/components/CoachLayout";
 
 export default function ValidationLoopsLesson() {
   const router = useRouter();
@@ -19,54 +20,65 @@ export default function ValidationLoopsLesson() {
   };
 
   return (
-    <div className="lesson-shell">
-      {phase === "lesson" && (
-        <>
-          <header className="lesson-header">
-            <span className="lesson-eyebrow">
-              DIGITAL PRODUCTS · DISTRIBUTION
-            </span>
-            <h1 className="lesson-title">Validation Loops</h1>
-            <p className="lesson-subtitle">
-              Validate demand, messaging, and pricing with fast feedback loops
-              before scaling traffic.
-            </p>
-          </header>
+    <>
+      <CoachLayout
+        title="Validation Loops"
+        system="digital-products"
+        description="Validate demand, messaging, and pricing with fast feedback loops."
+        lessonContext={{
+          system: "digital-products",
+          module: "distribution",
+          lesson: "validation-loops",
+        }}
+      >
+        {phase === "lesson" && (
+          <>
+            <header className="lesson-header">
+              <span className="lesson-eyebrow">
+                DIGITAL PRODUCTS · DISTRIBUTION
+              </span>
+              <h1 className="lesson-title">Validation Loops</h1>
+              <p className="lesson-subtitle">
+                Validate demand, messaging, and pricing with fast feedback loops
+                before scaling traffic.
+              </p>
+            </header>
 
-          <section className="lesson-content">
-            <h2>Why validation comes first</h2>
-            <p>
-              Scaling without validation amplifies mistakes. Validation loops
-              protect capital and clarify signal before commitment.
-            </p>
+            <section className="lesson-content">
+              <h2>Why validation comes first</h2>
+              <p>
+                Scaling without validation amplifies mistakes. Validation loops
+                protect capital and clarify signal before commitment.
+              </p>
 
-            <h2>What to validate</h2>
-            <ul>
-              <li>Problem-message resonance</li>
-              <li>Offer clarity and pricing tolerance</li>
-              <li>Channel responsiveness</li>
-            </ul>
+              <h2>What to validate</h2>
+              <ul>
+                <li>Problem-message resonance</li>
+                <li>Offer clarity and pricing tolerance</li>
+                <li>Channel responsiveness</li>
+              </ul>
 
-            <h2>Designing fast loops</h2>
-            <p>
-              A good validation loop is cheap, fast, and directional. The goal
-              is not perfection — it’s clarity.
-            </p>
+              <h2>Designing fast loops</h2>
+              <p>
+                A good validation loop is cheap, fast, and directional. The goal
+                is not perfection — it’s clarity.
+              </p>
 
-            <h2>Action</h2>
-            <p>
-              Define one experiment you can run this week to test demand with
-              minimal spend.
-            </p>
-          </section>
+              <h2>Action</h2>
+              <p>
+                Define one experiment you can run this week to test demand with
+                minimal spend.
+              </p>
+            </section>
 
-          <footer className="lesson-actions">
-            <button className="primary" onClick={handleComplete}>
-              Mark Lesson Complete
-            </button>
-          </footer>
-        </>
-      )}
+            <footer className="lesson-actions">
+              <button className="primary" onClick={handleComplete}>
+                Mark Lesson Complete
+              </button>
+            </footer>
+          </>
+        )}
+      </CoachLayout>
 
       {phase === "complete" && (
         <div className="lesson-complete">
@@ -97,12 +109,6 @@ export default function ValidationLoopsLesson() {
       )}
 
       <style jsx>{`
-        .lesson-shell {
-          max-width: 880px;
-          margin: 0 auto;
-          padding: 56px 24px 160px;
-        }
-
         .lesson-eyebrow {
           font-size: 11px;
           letter-spacing: 0.32em;
@@ -177,6 +183,6 @@ export default function ValidationLoopsLesson() {
           cursor: pointer;
         }
       `}</style>
-    </div>
+    </>
   );
 }

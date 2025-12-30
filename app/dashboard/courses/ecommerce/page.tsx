@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { getResumePathClient } from "@/lib/progress/client";
+import { useEffect, useState } from "react";
 
 /*
   E‑COMMERCE COURSE PAGE
@@ -11,16 +12,20 @@ import { getResumePathClient } from "@/lib/progress/client";
 export default function EcommerceCoursePage() {
   const router = useRouter();
 
+  const [resumePath, setResumePath] = useState<string | null>(null);
+
+  useEffect(() => {
+    getResumePathClient("ecommerce").then(setResumePath);
+  }, []);
 
   const handleStart = () => {
     router.push("/dashboard/courses/ecommerce/offer-engineering");
   };
 
   const handleResume = () => {
-    const moduleRoot = "/dashboard/courses/ecommerce/offer-engineering";
-    const resumePath = getResumePathClient("ecommerce");
-
-    router.push(resumePath ?? moduleRoot);
+    router.push(
+      resumePath ?? "/dashboard/courses/ecommerce/offer-engineering"
+    );
   };
 
   return (

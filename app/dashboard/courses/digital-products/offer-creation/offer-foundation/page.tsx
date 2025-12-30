@@ -3,11 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { setProgress } from "@/lib/progress";
-
-type ChatMessage = {
-  role: "user" | "assistant";
-  content: string;
-};
+import CoachChat from "@/components/CoachChat";
 
 export default function OfferFoundationLesson() {
   // Placeholder for future multi-lesson flow
@@ -15,9 +11,6 @@ export default function OfferFoundationLesson() {
 
   const router = useRouter();
   const [completed, setCompleted] = useState(false);
-
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [input, setInput] = useState("");
 
   const handleComplete = () => {
     setProgress({
@@ -35,20 +28,6 @@ export default function OfferFoundationLesson() {
         ? `/dashboard/courses/digital-products/offer-creation/${nextLessonSlug}`
         : "/dashboard/courses/digital-products/offer-creation"
     );
-  };
-
-  const handleSend = () => {
-    if (!input.trim()) return;
-
-    const userMessage: ChatMessage = { role: "user", content: input };
-    const aiMessage: ChatMessage = {
-      role: "assistant",
-      content:
-        "Operator response (mock): Focus on validating demand, defining the transformation, and simplifying delivery.",
-    };
-
-    setMessages((prev) => [...prev, userMessage, aiMessage]);
-    setInput("");
   };
 
   return (
@@ -113,76 +92,16 @@ export default function OfferFoundationLesson() {
         </div>
       </div>
 
-      {/* AI Operator */}
-      <aside className="rounded-2xl border border-white/10 bg-white/[0.025] p-6 flex flex-col">
-        <header className="mb-4">
-          <h2 className="text-lg font-medium">AI Operator</h2>
-          <p className="text-sm text-muted">
-            Context: Digital Products • Offer Creation • Offer Foundation
-          </p>
-        </header>
-
-        <div className="flex-1 space-y-3 overflow-y-auto text-sm">
-          {messages.length === 0 && (
-            <div className="space-y-3 text-muted">
-              <p className="text-sm">Suggested prompts:</p>
-              <ul className="space-y-2 text-sm list-disc list-inside">
-                <li>Who is the specific buyer for this offer?</li>
-                <li>What transformation am I promising?</li>
-                <li>Why would someone buy this now?</li>
-                <li>What makes this offer different?</li>
-              </ul>
-            </div>
-          )}
-
-          {messages.map((m, i) => (
-            <div
-              key={i}
-              className={
-                m.role === "user"
-                  ? "text-right text-white"
-                  : "text-left text-muted"
-              }
-            >
-              <p>{m.content}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-4 space-y-3">
-          <div className="flex flex-wrap gap-2">
-            {[
-              "Define the buyer",
-              "Clarify the promise",
-              "Pressure-test differentiation",
-            ].map((label) => (
-              <button
-                key={label}
-                onClick={() => setInput(label)}
-                className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs hover:bg-white/[0.08] transition"
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-
-          <div className="flex gap-2">
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask the operator…"
-              className="flex-1 rounded-lg bg-black/30 border border-white/10 px-3 py-2 text-sm outline-none"
-            />
-
-            <button
-              onClick={handleSend}
-              className="px-3 py-2 rounded-lg bg-red-500 text-black text-sm font-medium"
-            >
-              Send
-            </button>
-          </div>
-        </div>
-      </aside>
+      <CoachChat
+        coachId="digital-products"
+        title="AI Operator"
+        description="Pressure-test your offer and validate demand in real time."
+        lessonContext={{
+          system: "digital-products",
+          module: "offer-creation",
+          lesson: "offer-foundation",
+        }}
+      />
     </section>
   );
 }

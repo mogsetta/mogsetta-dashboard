@@ -84,5 +84,104 @@ export const serviceSystemsCourse = {
         ],
       },
     },
+    "channel-selection": {
+      title: "Channel Selection",
+      summary:
+        "Select the most effective channels to acquire service clients predictably.",
+      order: 3,
+      objectives: [
+        "Identify where ideal clients already pay attention",
+        "Avoid low-intent acquisition channels",
+        "Choose one primary acquisition channel",
+      ],
+      framework: [
+        {
+          heading: "Service Distribution vs Products",
+          content:
+            "Service businesses require high-intent channels. Visibility alone does not convert — intent does.",
+        },
+        {
+          heading: "Channel Fit",
+          content:
+            "The best channel is the one where your buyer is already problem-aware and actively seeking solutions.",
+        },
+      ],
+      example:
+        "Outbound email to local business owners already spending on ads converts better than cold social DMs.",
+      task: {
+        instruction:
+          "List one channel where your ideal client already looks for solutions.",
+        placeholder: "My best channel is ___.",
+      },
+      aiContext: {
+        role:
+          "You are an operator helping the user select high-intent acquisition channels for services.",
+        constraints: [
+          "Avoid low-quality traffic",
+          "Prioritize intent over reach",
+          "Keep recommendations realistic",
+        ],
+      },
+    },
+    "validation-loops": {
+      title: "Validation Loops",
+      summary:
+        "Test messaging and outreach before scaling client acquisition.",
+      order: 4,
+      objectives: [
+        "Validate demand before scaling",
+        "Reduce wasted outreach",
+        "Improve messaging clarity",
+      ],
+      framework: [
+        {
+          heading: "Why Validation Matters",
+          content:
+            "Scaling outreach without validation wastes time and damages reputation.",
+        },
+      ],
+      example:
+        "Sending 50 targeted outreach messages before building automation reveals conversion signal.",
+      task: {
+        instruction:
+          "Describe one small test you can run to validate demand.",
+        placeholder: "I will validate by ___.",
+      },
+      aiContext: {
+        role:
+          "You are an operator helping the user design fast validation loops for service acquisition.",
+        constraints: ["Keep tests small", "Focus on signal", "Avoid overbuilding"],
+      },
+    },
+    "scaling-traffic": {
+      title: "Scaling Acquisition",
+      summary:
+        "Increase client acquisition volume without breaking delivery quality.",
+      order: 5,
+      objectives: [
+        "Scale only after signal is proven",
+        "Protect service delivery quality",
+        "Maintain predictable acquisition",
+      ],
+      framework: [
+        {
+          heading: "Scaling Services Carefully",
+          content:
+            "Service businesses break when acquisition outpaces fulfillment. Scaling must be controlled.",
+        },
+      ],
+      example:
+        "Increasing outreach volume by 20% weekly instead of doubling overnight.",
+      task: {
+        instruction:
+          "Identify one constraint that limits how fast you can scale.",
+        placeholder: "My main scaling constraint is ___.",
+      },
+      aiContext: {
+        role:
+          "You are an operator helping the user scale service acquisition responsibly.",
+        constraints: ["Protect fulfillment", "Avoid burnout", "Maintain quality"],
+      },
+    },
   },
 };

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { setProgress } from "@/lib/progress";
+import CoachLayout from "@/components/CoachLayout";
 
 export default function ChannelSelectionLesson() {
   const router = useRouter();
@@ -19,58 +20,69 @@ export default function ChannelSelectionLesson() {
   };
 
   return (
-    <div className="lesson-shell">
-      {phase === "lesson" && (
-        <>
-          <header className="lesson-header">
-            <span className="lesson-eyebrow">
-              DIGITAL PRODUCTS · DISTRIBUTION
-            </span>
-            <h1 className="lesson-title">Channel Selection</h1>
-            <p className="lesson-subtitle">
-              Choose the right distribution channels before spending time or
-              money so growth is signal-driven, not guesswork.
-            </p>
-          </header>
+    <>
+      <CoachLayout
+        title="Channel Selection"
+        system="digital-products"
+        description="Choose the right distribution channels before spending time or money."
+        lessonContext={{
+          system: "digital-products",
+          module: "distribution",
+          lesson: "channel-selection",
+        }}
+      >
+        {phase === "lesson" && (
+          <>
+            <header className="lesson-header">
+              <span className="lesson-eyebrow">
+                DIGITAL PRODUCTS · DISTRIBUTION
+              </span>
+              <h1 className="lesson-title">Channel Selection</h1>
+              <p className="lesson-subtitle">
+                Choose the right distribution channels before spending time or
+                money so growth is signal-driven, not guesswork.
+              </p>
+            </header>
 
-          <section className="lesson-content">
-            <h2>Why channels matter</h2>
-            <p>
-              Most failed digital products don’t fail because the offer is bad —
-              they fail because the product is shown in the wrong place.
-            </p>
+            <section className="lesson-content">
+              <h2>Why channels matter</h2>
+              <p>
+                Most failed digital products don’t fail because the offer is bad —
+                they fail because the product is shown in the wrong place.
+              </p>
 
-            <h2>Audience-first selection</h2>
-            <p>
-              Choose channels based on where your audience already pays
-              attention, not where traffic is cheapest.
-            </p>
-            <ul>
-              <li>Search intent platforms</li>
-              <li>Owned attention channels</li>
-              <li>Borrowed distribution</li>
-            </ul>
+              <h2>Audience-first selection</h2>
+              <p>
+                Choose channels based on where your audience already pays
+                attention, not where traffic is cheapest.
+              </p>
+              <ul>
+                <li>Search intent platforms</li>
+                <li>Owned attention channels</li>
+                <li>Borrowed distribution</li>
+              </ul>
 
-            <h2>One channel at a time</h2>
-            <p>
-              Focus on mastering one channel before expanding. Signal clarity
-              beats channel diversification early.
-            </p>
+              <h2>One channel at a time</h2>
+              <p>
+                Focus on mastering one channel before expanding. Signal clarity
+                beats channel diversification early.
+              </p>
 
-            <h2>Action</h2>
-            <p>
-              Write down the single channel where your ideal buyer is most
-              likely to discover your product today.
-            </p>
-          </section>
+              <h2>Action</h2>
+              <p>
+                Write down the single channel where your ideal buyer is most
+                likely to discover your product today.
+              </p>
+            </section>
 
-          <footer className="lesson-actions">
-            <button className="primary" onClick={handleComplete}>
-              Mark Lesson Complete
-            </button>
-          </footer>
-        </>
-      )}
+            <footer className="lesson-actions">
+              <button className="primary" onClick={handleComplete}>
+                Mark Lesson Complete
+              </button>
+            </footer>
+          </>
+        )}
+      </CoachLayout>
 
       {phase === "complete" && (
         <div className="lesson-complete">
@@ -101,12 +113,6 @@ export default function ChannelSelectionLesson() {
       )}
 
       <style jsx>{`
-        .lesson-shell {
-          max-width: 880px;
-          margin: 0 auto;
-          padding: 56px 24px 160px;
-        }
-
         .lesson-eyebrow {
           font-size: 11px;
           letter-spacing: 0.32em;
@@ -181,6 +187,6 @@ export default function ChannelSelectionLesson() {
           cursor: pointer;
         }
       `}</style>
-    </div>
+    </>
   );
 }

@@ -5,15 +5,15 @@ import { useRouter } from "next/navigation";
 import { setProgress } from "@/lib/progress";
 import CoachLayout from "@/components/CoachLayout";
 
-export default function ValueStackingLesson() {
+export default function EcommerceScalingTrafficLesson() {
   const router = useRouter();
   const [phase, setPhase] = useState<"lesson" | "complete">("lesson");
 
   const handleComplete = () => {
     setProgress({
-      system: "digital-products",
-      module: "offer-creation",
-      lesson: "value-stacking",
+      system: "ecommerce",
+      module: "offer-engineering",
+      lesson: "scaling-traffic",
     });
 
     setPhase("complete");
@@ -22,49 +22,52 @@ export default function ValueStackingLesson() {
   return (
     <>
       <CoachLayout
-        title="Value Stacking"
-        system="digital-products"
-        description="Stack perceived value without increasing delivery complexity."
+        title="Scaling Traffic"
+        system="ecommerce"
+        description="Scale traffic only after your offer converts profitably and consistently."
         lessonContext={{
-          system: "digital-products",
-          module: "offer-creation",
-          lesson: "value-stacking",
+          system: "ecommerce",
+          module: "offer-engineering",
+          lesson: "scaling-traffic",
         }}
       >
         {phase === "lesson" && (
           <>
             <header className="lesson-header">
-              <span className="lesson-eyebrow">DIGITAL PRODUCTS · OFFER CREATION</span>
-              <h1 className="lesson-title">Value Stacking</h1>
+              <span className="lesson-eyebrow">
+                E‑COMMERCE · OFFER ENGINEERING
+              </span>
+              <h1 className="lesson-title">Scaling Traffic</h1>
               <p className="lesson-subtitle">
-                Learn how to stack perceived value so your offer feels overwhelming in value — without increasing delivery complexity.
+                Scale traffic only after your offer converts profitably and
+                consistently under controlled conditions.
               </p>
             </header>
 
             <section className="lesson-content">
-              <h2>What value stacking really is</h2>
+              <h2>Why most stores fail at scale</h2>
               <p>
-                Value stacking is the art of increasing perceived value without increasing cost. You are not adding more work — you are clarifying outcomes.
+                Traffic magnifies everything. If your offer leaks conversion or
+                margin, scaling only accelerates losses.
               </p>
 
-              <h2>Core vs supporting value</h2>
-              <p>
-                Every strong offer has one primary outcome and several supporting components that remove doubt, friction, or risk.
-              </p>
+              <h2>Signals required before scaling</h2>
               <ul>
-                <li>The core result the buyer wants</li>
-                <li>Frameworks or tools that make execution easier</li>
-                <li>Guidance that reduces uncertainty</li>
+                <li>Stable conversion rate</li>
+                <li>Predictable cost per acquisition</li>
+                <li>Healthy contribution margin</li>
               </ul>
 
-              <h2>Avoid fake bonuses</h2>
+              <h2>Incremental expansion</h2>
               <p>
-                Bonuses should directly support the core outcome. Irrelevant bonuses reduce trust instead of increasing value.
+                Increase spend in controlled steps. Monitor performance daily and
+                reduce spend immediately if metrics degrade.
               </p>
 
               <h2>Action</h2>
               <p>
-                Write out your core outcome, then list three supporting elements that make achieving it faster or more certain.
+                Identify the single metric you will watch most closely as you
+                increase traffic spend.
               </p>
             </section>
 
@@ -80,18 +83,24 @@ export default function ValueStackingLesson() {
       {phase === "complete" && (
         <div className="lesson-complete">
           <h2>Lesson complete</h2>
-          <p>You’ve stacked value correctly. Ready to continue?</p>
+          <p>You’re ready to scale traffic with discipline.</p>
 
           <div className="lesson-complete-actions">
             <button
               className="secondary"
-              onClick={() => router.push("/dashboard/courses/digital-products/offer-creation")}
+              onClick={() =>
+                router.push(
+                  "/dashboard/courses/ecommerce/offer-engineering"
+                )
+              }
             >
               Back to Module
             </button>
             <button
               className="primary"
-              onClick={() => router.push("/dashboard/courses/digital-products")}
+              onClick={() =>
+                router.push("/dashboard/courses/ecommerce")
+              }
             >
               View Course Progress
             </button>
@@ -104,7 +113,7 @@ export default function ValueStackingLesson() {
           font-size: 11px;
           letter-spacing: 0.32em;
           text-transform: uppercase;
-          color: rgba(220, 80, 80, 0.85);
+          color: rgba(0, 120, 255, 0.85);
           display: inline-block;
           margin-bottom: 18px;
         }
@@ -156,7 +165,7 @@ export default function ValueStackingLesson() {
         }
 
         .primary {
-          background: linear-gradient(135deg, #c43d3d, #8f2626);
+          background: linear-gradient(135deg, #1f7cff, #0b5ed7);
           color: #fff;
           border: none;
           border-radius: 14px;
@@ -167,8 +176,8 @@ export default function ValueStackingLesson() {
 
         .secondary {
           background: transparent;
-          border: 1px solid rgba(220, 80, 80, 0.4);
-          color: rgba(220, 80, 80, 0.9);
+          border: 1px solid rgba(0, 120, 255, 0.4);
+          color: rgba(0, 120, 255, 0.9);
           border-radius: 14px;
           padding: 14px 22px;
           cursor: pointer;

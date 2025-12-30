@@ -1,18 +1,30 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { createClient } from "@/lib/supabase/client";
 
 type Message = {
   role: "user" | "assistant";
   content: string;
 };
 
+type StoredMessage = Message & {
+  created_at?: string;
+};
+
 type CoachId = "digital-products" | "service-systems" | "ecommerce";
+
+type LessonContext = {
+  system: string;
+  module: string;
+  lesson?: string;
+};
 
 type CoachChatProps = {
   coachId: CoachId;
   title: string;
   description: string;
+  lessonContext?: LessonContext;
 };
 
 type CoachResponse = {
@@ -44,15 +56,36 @@ export default function CoachChat({
   coachId,
   title,
   description,
+  lessonContext,
 }: CoachChatProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
+  const supabase = createClient();
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    if (!lessonContext) return;
+
+    const loadMessages = async () => {
+      const { data } = await supabase
+        .from("coach_messages")
+        .select("role, content, created_at")
+        .eq("coach_id", coachId)
+        .order("created_at", { ascending: true });
+
+      if (data && data.length > 0) {
+        setMessages(data as StoredMessage[]);
+      }
+    };
+
+    loadMessages();
+  }, [lessonContext, coachId]);
 
   async function sendMessage(text?: string) {
     const content = (text ?? input).trim();
@@ -64,6 +97,15 @@ export default function CoachChat({
     ];
 
     setMessages(nextMessages);
+
+    if (lessonContext) {
+      await supabase.from("coach_messages").insert({
+        coach_id: coachId,
+        role: "user",
+        content,
+      });
+    }
+
     setInput("");
     setLoading(true);
 
@@ -71,7 +113,10 @@ export default function CoachChat({
       const res = await fetch(`/api/coach/${coachId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: nextMessages }),
+        body: JSON.stringify({
+          messages: nextMessages,
+          context: lessonContext ?? null,
+        }),
       });
 
       const data = (await res.json()) as CoachResponse;
@@ -92,6 +137,14 @@ export default function CoachChat({
           { role: "assistant", content: chunks[i] },
         ];
         setMessages(updatedMessages);
+
+        if (lessonContext) {
+          await supabase.from("coach_messages").insert({
+            coach_id: coachId,
+            role: "assistant",
+            content: chunks[i],
+          });
+        }
       }
     } catch {
       setMessages([
@@ -119,6 +172,12 @@ export default function CoachChat({
       <header style={{ marginBottom: 24 }}>
         <h1 style={{ fontSize: 32, marginBottom: 6 }}>{title}</h1>
         <p style={{ opacity: 0.7 }}>{description}</p>
+        {lessonContext && (
+          <p style={{ marginTop: 6, fontSize: 12, opacity: 0.5 }}>
+            Context: {lessonContext.system} / {lessonContext.module}
+            {lessonContext.lesson ? ` / ${lessonContext.lesson}` : ""}
+          </p>
+        )}
       </header>
 
       {messages.length === 0 && (

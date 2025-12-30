@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { setProgress } from "@/lib/progress";
+import CoachLayout from "@/components/CoachLayout";
 
 export default function PricingPositioningLesson() {
   const router = useRouter();
@@ -19,51 +20,62 @@ export default function PricingPositioningLesson() {
   };
 
   return (
-    <div className="lesson-shell">
-      {phase === "lesson" && (
-        <>
-          <header className="lesson-header">
-            <span className="lesson-eyebrow">DIGITAL PRODUCTS · OFFER CREATION</span>
-            <h1 className="lesson-title">Pricing & Positioning</h1>
-            <p className="lesson-subtitle">
-              Learn how to anchor value, frame price, and position your offer so it feels obvious — not expensive.
-            </p>
-          </header>
+    <>
+      <CoachLayout
+        title="Pricing & Positioning"
+        system="digital-products"
+        description="Anchor value and frame price so your offer feels obvious, not expensive."
+        lessonContext={{
+          system: "digital-products",
+          module: "offer-creation",
+          lesson: "pricing-positioning",
+        }}
+      >
+        {phase === "lesson" && (
+          <>
+            <header className="lesson-header">
+              <span className="lesson-eyebrow">DIGITAL PRODUCTS · OFFER CREATION</span>
+              <h1 className="lesson-title">Pricing & Positioning</h1>
+              <p className="lesson-subtitle">
+                Learn how to anchor value, frame price, and position your offer so it feels obvious — not expensive.
+              </p>
+            </header>
 
-          <section className="lesson-content">
-            <h2>Why pricing is perception</h2>
-            <p>
-              Pricing is not math — it’s messaging. The same offer can feel cheap or premium depending on how it’s framed.
-            </p>
+            <section className="lesson-content">
+              <h2>Why pricing is perception</h2>
+              <p>
+                Pricing is not math — it’s messaging. The same offer can feel cheap or premium depending on how it’s framed.
+              </p>
 
-            <h2>Position before price</h2>
-            <p>
-              Your price only makes sense once the buyer understands:
-            </p>
-            <ul>
-              <li>Who the offer is for</li>
-              <li>What problem it eliminates</li>
-              <li>What alternative paths cost them</li>
-            </ul>
+              <h2>Position before price</h2>
+              <p>
+                Your price only makes sense once the buyer understands:
+              </p>
+              <ul>
+                <li>Who the offer is for</li>
+                <li>What problem it eliminates</li>
+                <li>What alternative paths cost them</li>
+              </ul>
 
-            <h2>Anchoring correctly</h2>
-            <p>
-              Always anchor against a larger cost: time, complexity, failure, or lost opportunity — never against other creators.
-            </p>
+              <h2>Anchoring correctly</h2>
+              <p>
+                Always anchor against a larger cost: time, complexity, failure, or lost opportunity — never against other creators.
+              </p>
 
-            <h2>Action</h2>
-            <p>
-              Write one sentence that explains why your offer is cheaper than the alternative it replaces.
-            </p>
-          </section>
+              <h2>Action</h2>
+              <p>
+                Write one sentence that explains why your offer is cheaper than the alternative it replaces.
+              </p>
+            </section>
 
-          <footer className="lesson-actions">
-            <button className="primary" onClick={handleComplete}>
-              Mark Lesson Complete
-            </button>
-          </footer>
-        </>
-      )}
+            <footer className="lesson-actions">
+              <button className="primary" onClick={handleComplete}>
+                Mark Lesson Complete
+              </button>
+            </footer>
+          </>
+        )}
+      </CoachLayout>
 
       {phase === "complete" && (
         <div className="lesson-complete">
@@ -88,12 +100,6 @@ export default function PricingPositioningLesson() {
       )}
 
       <style jsx>{`
-        .lesson-shell {
-          max-width: 880px;
-          margin: 0 auto;
-          padding: 56px 24px 160px;
-        }
-
         .lesson-eyebrow {
           font-size: 11px;
           letter-spacing: 0.32em;
@@ -168,6 +174,6 @@ export default function PricingPositioningLesson() {
           cursor: pointer;
         }
       `}</style>
-    </div>
+    </>
   );
 }

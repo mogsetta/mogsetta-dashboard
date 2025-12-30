@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { setProgress } from "@/lib/progress";
 import { getResumePathClient } from "@/lib/progress/client";
@@ -16,13 +16,20 @@ export default function OfferClarityLessonPage() {
   const [completed, setCompleted] = useState(false);
   const [phase, setPhase] = useState("start");
 
+  const [resumePath, setResumePath] = useState<string | null>(null);
+
+  useEffect(() => {
+    getResumePathClient("service-systems").then(setResumePath);
+  }, []);
+
   const handleStart = () => {
     router.push("/dashboard/courses/service-systems/client-acquisition");
   };
 
   const handleResume = () => {
-    const resumePath = getResumePathClient("service-systems");
-    router.push(resumePath ?? "/dashboard/courses/service-systems/client-acquisition");
+    router.push(
+      resumePath ?? "/dashboard/courses/service-systems/client-acquisition"
+    );
   };
 
   const handleComplete = () => {

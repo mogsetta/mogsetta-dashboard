@@ -1,11 +1,20 @@
 "use client";
 
 import { ReactNode } from "react";
+import CoachChat from "@/components/CoachChat";
+
+type LessonContext = {
+  system: string;
+  module: string;
+  lesson?: string;
+  intent?: "lesson" | "strategy";
+};
 
 type CoachLayoutProps = {
   title: string;
   system: string;
   description: string;
+  lessonContext?: LessonContext;
   children?: ReactNode;
 };
 
@@ -13,8 +22,16 @@ export default function CoachLayout({
   title,
   system,
   description,
+  lessonContext,
   children,
 }: CoachLayoutProps) {
+  const aiContext = lessonContext
+    ? {
+        ...lessonContext,
+        intent: lessonContext.intent ?? "lesson",
+      }
+    : undefined;
+
   return (
     <div style={{ maxWidth: 1200, margin: "0 auto" }}>
       {/* Header */}
@@ -82,9 +99,12 @@ export default function CoachLayout({
           }}
         >
           {children ?? (
-            <p style={{ opacity: 0.6 }}>
-              AI chat interface will render here.
-            </p>
+            <CoachChat
+              coachId={system as any}
+              title={title}
+              description={description}
+              lessonContext={aiContext}
+            />
           )}
         </div>
 
