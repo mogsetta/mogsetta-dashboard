@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { getResumePath } from "@/lib/progress";
+import { getResumePathClient } from "@/lib/progress/client";
 
 /*
   E‑COMMERCE COURSE PAGE
@@ -17,14 +17,10 @@ export default function EcommerceCoursePage() {
   };
 
   const handleResume = () => {
-    const resumePath = getResumePath(
-      "ecommerce",
-      "offer-engineering"
-    );
+    const moduleRoot = "/dashboard/courses/ecommerce/offer-engineering";
+    const resumePath = getResumePathClient("ecommerce");
 
-    router.push(
-      resumePath ?? "/dashboard/courses/ecommerce/offer-engineering"
-    );
+    router.push(resumePath ?? moduleRoot);
   };
 
   return (

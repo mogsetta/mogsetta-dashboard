@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { digitalProductsCourse } from "@/lib/courses/digital-products";
-import { getResumePath } from "@/lib/progress";
+import { getResumePathClient } from "@/lib/progress/client";
 
 
 /*
@@ -19,15 +19,10 @@ export default function DigitalProductsCoursePage() {
   };
 
   const handleResume = () => {
-    const resumePath = getResumePath(
-      "digital-products",
-      "offer-creation"
-    );
+    const moduleRoot = "/dashboard/courses/digital-products/offer-creation";
+    const resumePath = getResumePathClient("digital-products");
 
-    router.push(
-      resumePath ??
-        "/dashboard/courses/digital-products/offer-creation"
-    );
+    router.push(resumePath ?? moduleRoot);
   };
 
   return (

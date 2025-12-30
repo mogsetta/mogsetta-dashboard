@@ -20,6 +20,11 @@ export default function OfferClarityLesson() {
   const router = useRouter();
 
   const handleComplete = () => {
+    setProgress({
+      system: "service-systems",
+      module: "client-acquisition",
+      lesson: "offer-clarity",
+    });
     setPhase("complete");
   };
 

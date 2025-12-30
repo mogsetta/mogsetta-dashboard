@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { setProgress } from "@/lib/progress";
-import { getResumePath } from "@/lib/progress";
+import { getResumePathClient } from "@/lib/progress/client";
 
 /*
   OFFER CLARITY LESSON PAGE
@@ -21,14 +21,8 @@ export default function OfferClarityLessonPage() {
   };
 
   const handleResume = () => {
-    const resumePath = getResumePath(
-      "service-systems",
-      "client-acquisition"
-    );
-
-    router.push(
-      resumePath ?? "/dashboard/courses/service-systems/client-acquisition"
-    );
+    const resumePath = getResumePathClient("service-systems");
+    router.push(resumePath ?? "/dashboard/courses/service-systems/client-acquisition");
   };
 
   const handleComplete = () => {
