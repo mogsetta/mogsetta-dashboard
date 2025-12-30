@@ -5,10 +5,11 @@ export const ecommerceCourse = {
   description:
     "Build and scale e‑commerce businesses as durable systems. Focus on offer leverage, conversion mechanics, retention loops, and operational clarity — not tactics or trends.",
   lessons: {
-    "offer-engineering": {
-      title: "Offer Engineering",
+    "offer-foundation": {
+      title: "Offer Foundation",
       summary:
-        "Design high‑leverage offers before touching products, traffic, or ads.",
+        "Build the core offer mechanics (audience, promise, pricing, and proof) before touching products, traffic, or ads.",
+      order: 1,
     },
   },
 };

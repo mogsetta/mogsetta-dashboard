@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { setProgress } from "@/lib/progress";
 
 type Phase = "read" | "apply" | "complete";
 
@@ -11,26 +12,22 @@ type ChatMessage = {
 };
 
 export default function OfferClarityLesson() {
+  // Placeholder for future multi-lesson flow
+  const nextLessonSlug: string | null = null;
   const [phase, setPhase] = useState<Phase>("read");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const router = useRouter();
 
   const handleComplete = () => {
-    const key = "service_completed_lessons";
-    const stored = JSON.parse(localStorage.getItem(key) || "[]") as string[];
-
-    if (!stored.includes("offer-clarity")) {
-      stored.push("offer-clarity");
-      localStorage.setItem(key, JSON.stringify(stored));
-    }
-
     setPhase("complete");
   };
 
   const handleNext = () => {
     router.push(
-      "/dashboard/courses/service-systems/client-acquisition"
+      nextLessonSlug
+        ? `/dashboard/courses/service-systems/client-acquisition/${nextLessonSlug}`
+        : "/dashboard/courses/service-systems/client-acquisition"
     );
   };
 
@@ -90,6 +87,13 @@ export default function OfferClarityLesson() {
             </span>
           </div>
         </header>
+
+        <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
+          <p className="text-sm text-muted">
+            <span className="font-medium text-white">How to use this lesson:</span>
+            Read the guidance below, define your service offer in your own words, then use the Operator to pressure-test clarity before marking complete.
+          </p>
+        </div>
 
         {/* Core Lesson Content */}
         <div className="space-y-8">
@@ -187,9 +191,15 @@ export default function OfferClarityLesson() {
 
         <div className="flex-1 space-y-3 overflow-y-auto text-sm">
           {messages.length === 0 && (
-            <p className="text-muted">
-              Ask questions about positioning, clarity, or service offers.
-            </p>
+            <div className="space-y-3 text-muted">
+              <p className="text-sm">Suggested prompts:</p>
+              <ul className="space-y-2 text-sm list-disc list-inside">
+                <li>Who is the exact client for this service?</li>
+                <li>What problem are they actively trying to solve?</li>
+                <li>What outcome do they get after working with me?</li>
+                <li>Why should they choose this service over alternatives?</li>
+              </ul>
+            </div>
           )}
 
           {messages.map((m, i) => (
@@ -206,22 +216,40 @@ export default function OfferClarityLesson() {
           ))}
         </div>
 
-        <div className="mt-4 flex gap-2">
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Ask the operator…"
-            className="flex-1 rounded-lg bg-black/30 border border-white/10 px-3 py-2 text-sm outline-none"
-          />
+        <div className="mt-4 space-y-3">
+          <div className="flex flex-wrap gap-2">
+            {[
+              "Define the client",
+              "Clarify the outcome",
+              "Pressure-test differentiation",
+            ].map((label) => (
+              <button
+                key={label}
+                onClick={() => setInput(label)}
+                className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs hover:bg-white/[0.08] transition"
+              >
+                {label}
+              </button>
+            ))}
+          </div>
 
-          <button
-            onClick={handleSend}
-            className="px-3 py-2 rounded-lg bg-gold text-black text-sm font-medium"
-          >
-            Send
-          </button>
+          <div className="flex gap-2">
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Ask the operator…"
+              className="flex-1 rounded-lg bg-black/30 border border-white/10 px-3 py-2 text-sm outline-none"
+            />
+
+            <button
+              onClick={handleSend}
+              className="px-3 py-2 rounded-lg bg-gold text-black text-sm font-medium"
+            >
+              Send
+            </button>
+          </div>
         </div>
       </aside>
     </section>
   );
-}  
+}

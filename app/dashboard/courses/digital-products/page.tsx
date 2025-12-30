@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { digitalProductsCourse } from "@/lib/courses/digital-products";
+import { getResumePath } from "@/lib/progress";
 
 
 /*
@@ -13,9 +14,19 @@ import { digitalProductsCourse } from "@/lib/courses/digital-products";
 export default function DigitalProductsCoursePage() {
   const router = useRouter();
 
+  const handleStart = () => {
+    router.push("/dashboard/courses/digital-products/offer-creation");
+  };
+
   const handleResume = () => {
+    const resumePath = getResumePath(
+      "digital-products",
+      "offer-creation"
+    );
+
     router.push(
-      "/dashboard/courses/digital-products/offer-creation/offer-foundation"
+      resumePath ??
+        "/dashboard/courses/digital-products/offer-creation"
     );
   };
 
@@ -38,7 +49,7 @@ export default function DigitalProductsCoursePage() {
         </div>
 
         <div className="course-hero-actions">
-          <button className="primary" onClick={handleResume}>
+          <button className="primary" onClick={handleStart}>
             Start Course
           </button>
           <button className="secondary" onClick={handleResume}>

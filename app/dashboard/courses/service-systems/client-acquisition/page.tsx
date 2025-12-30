@@ -44,7 +44,7 @@ export default function ClientAcquisitionModulePage() {
           {Object.entries(lessons).map(([slug, lesson], index) => (
             <Link
               key={slug}
-              href={`/courses/service-systems/client-acquisition/${slug}`}
+              href={`/dashboard/courses/service-systems/client-acquisition/${slug}`}
               className={`group block rounded-xl border p-5 transition
                 ${
                   completed.includes(slug)

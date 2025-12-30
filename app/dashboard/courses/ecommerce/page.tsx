@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { getResumePath } from "@/lib/progress";
 
 /*
   E‑COMMERCE COURSE PAGE
@@ -10,8 +11,20 @@ import { useRouter } from "next/navigation";
 export default function EcommerceCoursePage() {
   const router = useRouter();
 
-  const handleResume = () => {
+
+  const handleStart = () => {
     router.push("/dashboard/courses/ecommerce/offer-engineering");
+  };
+
+  const handleResume = () => {
+    const resumePath = getResumePath(
+      "ecommerce",
+      "offer-engineering"
+    );
+
+    router.push(
+      resumePath ?? "/dashboard/courses/ecommerce/offer-engineering"
+    );
   };
 
   return (
@@ -33,7 +46,7 @@ export default function EcommerceCoursePage() {
         </div>
 
         <div className="course-hero-actions">
-          <button className="primary" onClick={handleResume}>
+          <button className="primary" onClick={handleStart}>
             Start Course
           </button>
           <button className="secondary" onClick={handleResume}>
@@ -77,7 +90,7 @@ export default function EcommerceCoursePage() {
         <div
           onClick={() =>
             router.push(
-              "/dashboard/courses/ecommerce/offer-engineering/offer-foundation"
+              "/dashboard/courses/ecommerce/offer-engineering"
             )
           }
           style={{ cursor: "pointer" }}
@@ -144,10 +157,6 @@ export default function EcommerceCoursePage() {
         />
       </section>
 
-      {/* FOOTER CTA */}
-      <footer className="course-footer">
-        <button className="primary large">Continue Course</button>
-      </footer>
 
       {/* STYLES */}
       <style jsx>{`

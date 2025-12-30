@@ -141,6 +141,7 @@ export default function DashboardLayout({
 
         <Link
           href={activeSystemTogglePath()}
+          prefetch={false}
           className={`dash-active-system ${activeSystem ?? ""}`}
         >
           <span className="system-label">Active System</span>
@@ -488,7 +489,7 @@ function NavLink({
   children: ReactNode;
 }) {
   return (
-    <Link href={href} className={`dash-link ${active ? "active" : ""}`}>
+    <Link href={href} prefetch={false} className={`dash-link ${active ? "active" : ""}`}>
       {children}
 
       <style jsx>{`

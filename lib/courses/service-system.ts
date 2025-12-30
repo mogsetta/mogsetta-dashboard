@@ -8,6 +8,7 @@ export const serviceSystemsCourse = {
       title: "Offer Clarity",
       summary:
         "Define a clear, compelling service offer that instantly communicates value.",
+      order: 1,
       objectives: [
         "Identify your ideal client",
         "Define the core problem you solve",
@@ -47,6 +48,7 @@ export const serviceSystemsCourse = {
       title: "Audience Definition",
       summary:
         "Identify and narrow the exact audience this service is built for so your offer speaks directly to buyers.",
+      order: 2,
       objectives: [
         "Define your primary buyer persona",
         "Eliminate non-ideal customers",
