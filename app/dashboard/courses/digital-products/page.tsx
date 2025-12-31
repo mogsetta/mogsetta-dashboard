@@ -18,7 +18,18 @@ export default function DigitalProductsCoursePage() {
   const [resumePath, setResumePath] = useState<string | null>(null);
 
   useEffect(() => {
-    getResumePathClient("digital-products").then(setResumePath);
+    let mounted = true;
+
+    const loadResume = async () => {
+      const path = await getResumePathClient("digital-products");
+      if (mounted) setResumePath(path);
+    };
+
+    loadResume();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const handleStart = () => {
