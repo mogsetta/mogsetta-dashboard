@@ -4,7 +4,6 @@ import React, { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
-import { serviceSystemsCourse } from "@/lib/courses/service-system";
 
 type ActiveSystem = "digital" | "service" | "ecommerce";
 
@@ -23,22 +22,6 @@ export default function DashboardLayout({
 
   const isInServiceCourses = pathname.startsWith("/dashboard/courses/service-systems");
 
-  const pathParts = pathname.split("/").filter(Boolean);
-  const activeCourseSlug = pathParts[4]; // client-acquisition
-  const activeLessonSlug =
-    pathParts.length > 5 ? pathParts[5] : null; // offer-clarity
-
-  const activeCourse =
-    activeCourseSlug === serviceSystemsCourse.course
-      ? serviceSystemsCourse
-      : null;
-
-  const activeLesson =
-    activeCourse && activeLessonSlug
-      ? activeCourse.lessons[
-          activeLessonSlug as keyof typeof activeCourse.lessons
-        ] ?? null
-      : null;
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -159,19 +142,6 @@ export default function DashboardLayout({
 
         <div className="dash-system-divider" />
 
-        {isInServiceCourses && activeCourse && (
-          <div className="dash-course-hierarchy">
-            <div className="dash-course-name">
-              {activeCourse.title}
-            </div>
-
-            {activeLesson && (
-              <div className="dash-lesson-name">
-                • {activeLesson.title}
-              </div>
-            )}
-          </div>
-        )}
 
         <div className="dash-spacer" />
 
@@ -212,7 +182,12 @@ export default function DashboardLayout({
           content: "";
           position: absolute;
           inset: 0;
-          background: transparent;
+          background: linear-gradient(
+            180deg,
+            rgba(255,255,255,0.04),
+            transparent 40%,
+            rgba(255,255,255,0.03)
+          );
           pointer-events: none;
           transition: background 0.4s ease;
         }
@@ -351,6 +326,7 @@ export default function DashboardLayout({
           cursor: pointer;
           text-decoration: none;
           position: relative;
+          animation: pulseGlow 6s ease-in-out infinite;
         }
 
         .dash-active-system:hover {
@@ -478,6 +454,28 @@ export default function DashboardLayout({
           color: #ffffff;
         }
       `}</style>
+      <style jsx>{`
+        @keyframes pulseGlow {
+          0% {
+            box-shadow:
+              inset 0 1px 0 rgba(255,255,255,0.06),
+              0 0 0 1px rgba(255,255,255,0.22),
+              0 18px 44px rgba(0,0,0,0.65);
+          }
+          50% {
+            box-shadow:
+              inset 0 1px 0 rgba(255,255,255,0.08),
+              0 0 0 1px rgba(255,255,255,0.35),
+              0 22px 56px rgba(0,0,0,0.75);
+          }
+          100% {
+            box-shadow:
+              inset 0 1px 0 rgba(255,255,255,0.06),
+              0 0 0 1px rgba(255,255,255,0.22),
+              0 18px 44px rgba(0,0,0,0.65);
+          }
+        }
+      `}</style>
       </div>
     </ActiveSystemContext.Provider>
   );
@@ -505,7 +503,7 @@ function NavLink({
           font-size: 15.5px;
           font-weight: 500;
           text-decoration: none;
-          color: rgba(255, 255, 255, 0.55);
+          color: rgba(255, 255, 255, 0.65);
           border: 1px solid transparent;
           background: transparent;
           transition:
@@ -540,6 +538,7 @@ function NavLink({
           box-shadow:
             inset 0 1px 0 rgba(255,255,255,0.08),
             0 8px 24px rgba(0,0,0,0.55);
+          letter-spacing: 0.01em;
         }
 
         .dash-link.active::before {
