@@ -8,7 +8,7 @@ import { serviceSystemsCourse } from "@/lib/courses/service-system";
 
 type ActiveSystem = "digital" | "service" | "ecommerce";
 
-const ActiveSystemContext = React.createContext<{
+export const ActiveSystemContext = React.createContext<{
   activeSystem: ActiveSystem;
   setActiveSystem: (s: ActiveSystem) => void;
 } | null>(null);
@@ -100,6 +100,10 @@ export default function DashboardLayout({
     }
     return systemScopedPath("courses");
   }
+
+  useEffect(() => {
+    clearCoachMemory();
+  }, []);
 
   return (
     <ActiveSystemContext.Provider value={{ activeSystem, setActiveSystem }}>
@@ -564,4 +568,8 @@ export function useActiveSystem() {
     throw new Error("useActiveSystem must be used within DashboardLayout");
   }
   return ctx;
+}
+
+function clearCoachMemory() {
+  // intentionally a no-op for now
 }

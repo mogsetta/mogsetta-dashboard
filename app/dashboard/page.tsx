@@ -2,7 +2,7 @@
 // PHASE 1 — DYNAMIC ACTIVE SYSTEM
 "use client";
 import Link from "next/link";
-import { useActiveSystem } from "./layout";
+import { useActiveSystem } from "./useActiveSystem";
 import { useEffect, useState } from "react";
 import { getProgress } from "@/lib/progress";
 
