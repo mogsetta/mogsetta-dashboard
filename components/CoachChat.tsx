@@ -3,17 +3,20 @@
 type LessonContext = {
   system: "digital-products" | "service-systems" | "ecommerce";
   module: string;
-  lesson: string;
+  lesson?: string;
+  intent?: "lesson" | "strategy";
 };
 
 type CoachChatProps = {
-  coachId: "digital-products" | "service-systems" | "ecommerce";
-  title: string;
-  description: string;
+  system: "digital-products" | "service-systems" | "ecommerce";
+  coachId: string;
+  title?: string;
+  description?: string;
   lessonContext?: LessonContext;
 };
 
 export default function CoachChat({
+  system,
   coachId,
   title,
   description,
@@ -22,8 +25,8 @@ export default function CoachChat({
   return (
     <div className="coach-chat-shell">
       <header className="coach-chat-header">
-        <h3>{title}</h3>
-        <p>{description}</p>
+        {title && <h3>{title}</h3>}
+        {description && <p>{description}</p>}
       </header>
 
       <div className="coach-chat-body">
