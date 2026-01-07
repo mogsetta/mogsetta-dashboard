@@ -73,6 +73,67 @@ export default function ChannelSelectionPage() {
         </div>
       </section>
 
+      {/* Validation Signal Matrix */}
+      <section style={{ marginBottom: 56 }}>
+        <h2 style={{ fontSize: 22, marginBottom: 12 }}>
+          Validation Signal Matrix
+        </h2>
+        <p style={{ fontSize: 16, lineHeight: 1.7, opacity: 0.85, marginBottom: 16 }}>
+          Use this matrix to choose the channel that gives you the fastest learning loop with the least effort.
+        </p>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 16,
+          }}
+        >
+          <div style={{ padding: 16, borderRadius: 10, border: "1px solid rgba(255,255,255,0.12)" }}>
+            <strong>High Intent · Low Reach</strong>
+            <p style={{ marginTop: 8, opacity: 0.85 }}>
+              Direct outreach, niche forums, targeted search. Best for early validation and sharp feedback.
+            </p>
+          </div>
+          <div style={{ padding: 16, borderRadius: 10, border: "1px solid rgba(255,255,255,0.12)" }}>
+            <strong>High Intent · High Reach</strong>
+            <p style={{ marginTop: 8, opacity: 0.85 }}>
+              Marketplaces, SEO, app stores. Powerful but competitive—use once messaging is proven.
+            </p>
+          </div>
+          <div style={{ padding: 16, borderRadius: 10, border: "1px solid rgba(255,255,255,0.12)" }}>
+            <strong>Low Intent · High Reach</strong>
+            <p style={{ marginTop: 8, opacity: 0.85 }}>
+              Social feeds and virality. Good for awareness, weak for validation without a hook.
+            </p>
+          </div>
+          <div style={{ padding: 16, borderRadius: 10, border: "1px solid rgba(255,255,255,0.12)" }}>
+            <strong>Low Intent · Low Reach</strong>
+            <p style={{ marginTop: 8, opacity: 0.85 }}>
+              Avoid early. Little signal and slow learning.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Callout Box */}
+      <div
+        style={{
+          background: "rgba(245, 184, 66, 0.13)",
+          border: "1px solid #f5b842",
+          borderRadius: 10,
+          padding: "18px 20px",
+          marginBottom: 42,
+          color: "#f5b842",
+          fontSize: 16,
+          fontWeight: 500,
+          lineHeight: 1.7,
+          maxWidth: 650,
+        }}
+      >
+        <span style={{ fontWeight: 700, marginRight: 6 }}>Tip:</span>
+        Pick the channel that gets you a clear yes/no signal in days, not weeks. Speed of feedback is your best friend.
+      </div>
+
       {/* Coach */}
       <CoachChat
         system="digital-products"

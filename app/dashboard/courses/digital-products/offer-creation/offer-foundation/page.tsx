@@ -75,6 +75,60 @@ export default function OfferFoundationPage() {
         </ul>
       </div>
 
+      <div
+        style={{
+          marginTop: 56,
+          padding: 28,
+          borderRadius: 16,
+          background: "rgba(255,255,255,0.02)",
+          border: "1px solid rgba(255,255,255,0.08)",
+        }}
+      >
+        <h2 style={{ fontSize: 22, marginBottom: 20 }}>
+          The Offer Stack
+        </h2>
+
+        <div style={{ display: "grid", gap: 14 }}>
+          {[
+            {
+              title: "Outcome",
+              desc: "The specific result your buyer wants to achieve.",
+            },
+            {
+              title: "Mechanism",
+              desc: "How your product delivers that outcome differently.",
+            },
+            {
+              title: "Proof",
+              desc: "Why the buyer should believe this will work for them.",
+            },
+            {
+              title: "Risk Reversal",
+              desc: "How you reduce fear, doubt, or perceived downside.",
+            },
+            {
+              title: "Friction Removal",
+              desc: "What makes saying yes easy right now.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              style={{
+                padding: 18,
+                borderRadius: 12,
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              <strong style={{ display: "block", marginBottom: 6 }}>
+                {item.title}
+              </strong>
+              <span style={{ opacity: 0.8 }}>{item.desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div style={{ marginTop: 40 }}>
         <CoachChat
           system="digital-products"
@@ -105,10 +159,10 @@ export default function OfferFoundationPage() {
         </a>
 
         <a
-          href="/dashboard/courses/digital-products/offer-creation/pricing-positioning"
+          href="/dashboard/courses/digital-products/offer-creation/offer-structure"
           style={{ fontWeight: 500 }}
         >
-          Pricing & Positioning →
+          Offer Structure →
         </a>
       </div>
     </div>

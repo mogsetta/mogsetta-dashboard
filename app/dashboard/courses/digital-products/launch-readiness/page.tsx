@@ -69,6 +69,27 @@ export default function LaunchReadinessPage() {
         </ul>
       </section>
 
+      {/* Framework */}
+      <section style={{ marginTop: 48, padding: 24, border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12 }}>
+        <h2 style={{ fontSize: 22, marginBottom: 12 }}>
+          The LAUNCH Framework
+        </h2>
+
+        <p style={{ opacity: 0.85, lineHeight: 1.6, marginBottom: 16 }}>
+          Use this framework to decide if you are ready to launch or if you are
+          still guessing.
+        </p>
+
+        <ul style={{ opacity: 0.85, lineHeight: 1.9 }}>
+          <li><strong>L — Language:</strong> Your offer can be explained clearly in one sentence.</li>
+          <li><strong>A — Audience:</strong> You know exactly who this is for and who it is not.</li>
+          <li><strong>U — Urgency:</strong> There is a real reason to act now.</li>
+          <li><strong>N — Numbers:</strong> Pricing and delivery math makes sense.</li>
+          <li><strong>C — Confidence:</strong> You feel calm saying the price out loud.</li>
+          <li><strong>H — Handling objections:</strong> You already know the top doubts.</li>
+        </ul>
+      </section>
+
       <div style={{ marginTop: 40 }}>
         <CoachChat
           system="digital-products"

@@ -1,8 +1,10 @@
+"use client";
+
 import Link from "next/link";
 
 export default function PricingPositioningModulePage() {
   const startPath =
-    "/dashboard/courses/digital-products/pricing-positioning/value-framing";
+    "/dashboard/courses/digital-products/pricing-positioning/pricing-basics";
 
   return (
     <div style={{ maxWidth: 980, margin: "0 auto", paddingBottom: 140 }}>
@@ -19,33 +21,11 @@ export default function PricingPositioningModulePage() {
         </p>
 
         <div style={{ display: "flex", gap: 14, marginTop: 18 }}>
-          <Link
-            href={startPath}
-            style={{
-              display: "inline-block",
-              padding: "12px 16px",
-              borderRadius: 12,
-              textDecoration: "none",
-              color: "inherit",
-              border: "1px solid rgba(255,255,255,0.14)",
-              fontWeight: 600,
-            }}
-          >
+          <Link href={startPath} className="primary-btn">
             Start Module
           </Link>
 
-          <Link
-            href="/dashboard/courses/digital-products"
-            style={{
-              display: "inline-block",
-              padding: "12px 16px",
-              borderRadius: 12,
-              textDecoration: "none",
-              color: "inherit",
-              border: "1px solid rgba(255,255,255,0.08)",
-              opacity: 0.85,
-            }}
-          >
+          <Link href="/dashboard/courses/digital-products" className="secondary-btn">
             Back to Course
           </Link>
         </div>
@@ -56,18 +36,26 @@ export default function PricingPositioningModulePage() {
 
         <div style={{ display: "grid", gap: 14 }}>
           <Link
-            href="/dashboard/courses/digital-products/pricing-positioning/value-framing"
-            style={{
-              display: "block",
-              padding: 18,
-              borderRadius: 16,
-              border: "1px solid rgba(255,255,255,0.10)",
-              textDecoration: "none",
-              color: "inherit",
-            }}
+            href="/dashboard/courses/digital-products/pricing-positioning/pricing-basics"
+            className="lesson-card"
           >
             <div style={{ opacity: 0.65, fontSize: 12, letterSpacing: "0.16em" }}>
               LESSON 01
+            </div>
+            <div style={{ fontSize: 18, fontWeight: 650, marginTop: 6 }}>
+              Pricing Basics
+            </div>
+            <div style={{ opacity: 0.75, marginTop: 8, lineHeight: 1.6 }}>
+              Understand what you are actually pricing, why buyers pay, and how price signals seriousness and outcome level.
+            </div>
+          </Link>
+
+          <Link
+            href="/dashboard/courses/digital-products/pricing-positioning/value-framing"
+            className="lesson-card"
+          >
+            <div style={{ opacity: 0.65, fontSize: 12, letterSpacing: "0.16em" }}>
+              LESSON 02
             </div>
             <div style={{ fontSize: 18, fontWeight: 650, marginTop: 6 }}>
               Value Framing
@@ -79,17 +67,10 @@ export default function PricingPositioningModulePage() {
 
           <Link
             href="/dashboard/courses/digital-products/pricing-positioning/price-elasticity"
-            style={{
-              display: "block",
-              padding: 18,
-              borderRadius: 16,
-              border: "1px solid rgba(255,255,255,0.10)",
-              textDecoration: "none",
-              color: "inherit",
-            }}
+            className="lesson-card"
           >
             <div style={{ opacity: 0.65, fontSize: 12, letterSpacing: "0.16em" }}>
-              LESSON 02
+              LESSON 03
             </div>
             <div style={{ fontSize: 18, fontWeight: 650, marginTop: 6 }}>
               Price Elasticity
@@ -109,6 +90,45 @@ export default function PricingPositioningModulePage() {
           ← Back to Digital Products
         </Link>
       </footer>
+
+      <style jsx>{`
+        .lesson-card {
+          display: block;
+          padding: 18px;
+          border-radius: 16px;
+          border: 1px solid rgba(255,255,255,0.10);
+          text-decoration: none;
+          color: inherit;
+          background: rgba(255,255,255,0.02);
+          transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .lesson-card:hover {
+          transform: translateY(-2px);
+          border-color: rgba(37,99,235,0.35);
+          box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+        }
+
+        .primary-btn {
+          display: inline-block;
+          padding: 12px 16px;
+          border-radius: 12px;
+          background: #2563eb;
+          color: #fff;
+          text-decoration: none;
+          font-weight: 600;
+        }
+
+        .secondary-btn {
+          display: inline-block;
+          padding: 12px 16px;
+          border-radius: 12px;
+          border: 1px solid rgba(255,255,255,0.08);
+          color: inherit;
+          text-decoration: none;
+          opacity: 0.85;
+        }
+      `}</style>
     </div>
   );
 }

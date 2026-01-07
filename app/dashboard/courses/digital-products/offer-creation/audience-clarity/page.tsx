@@ -51,10 +51,10 @@ export default function AudienceClarityLesson() {
         </Link>
 
         <Link
-          href="../offer-foundation"
+          href="/dashboard/courses/digital-products/offer-creation/solution-definition"
           style={{ fontWeight: 500 }}
         >
-          Offer Foundation →
+          Solution Definition →
         </Link>
       </div>
     </div>

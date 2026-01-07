@@ -22,69 +22,46 @@ export default function DistributionValidationPage() {
         and channels <em>before</em> time or money is wasted.
       </p>
 
-      {/* Stats / meta */}
+      {/* Module Stats */}
       <div
         style={{
-          display: "flex",
-          gap: 32,
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+          gap: 16,
           marginTop: 32,
           marginBottom: 48,
-          opacity: 0.75,
-          fontSize: 14,
         }}
       >
-        <div>
-          <strong>Lessons</strong>
-          <div>4</div>
-        </div>
-        <div>
-          <strong>Estimated Time</strong>
-          <div>1.5–2 hours</div>
-        </div>
-        <div>
-          <strong>Outcome</strong>
-          <div>Validated distribution path</div>
-        </div>
+        <Stat label="Lessons" value="4" />
+        <Stat label="Estimated Time" value="1.5–2 hrs" />
+        <Stat label="Outcome" value="Validated distribution path" />
       </div>
 
       {/* Lessons */}
       <section style={{ marginBottom: 64 }}>
         <h2 style={{ fontSize: 22, marginBottom: 16 }}>Lessons</h2>
-
-        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-          <li style={{ marginBottom: 14 }}>
-            <Link
-              href="/dashboard/courses/digital-products/distribution-validation/channel-selection"
-              style={{ fontSize: 16, textDecoration: "none" }}
-            >
-              Channel Selection
-            </Link>
-          </li>
-          <li style={{ marginBottom: 14 }}>
-            <Link
-              href="/dashboard/courses/digital-products/distribution-validation/messaging-tests"
-              style={{ fontSize: 16, textDecoration: "none" }}
-            >
-              Messaging Tests
-            </Link>
-          </li>
-          <li style={{ marginBottom: 14 }}>
-            <Link
-              href="/dashboard/courses/digital-products/distribution-validation/early-feedback"
-              style={{ fontSize: 16, textDecoration: "none" }}
-            >
-              Early Feedback Loops
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/dashboard/courses/digital-products/distribution-validation/validation-metrics"
-              style={{ fontSize: 16, textDecoration: "none" }}
-            >
-              Validation Metrics
-            </Link>
-          </li>
-        </ul>
+        <div style={{ display: "grid", gap: 14 }}>
+          <LessonCard
+            number={1}
+            title="Channel Selection"
+            href="/dashboard/courses/digital-products/distribution-validation/channel-selection"
+          />
+          <LessonCard
+            number={2}
+            title="Messaging Tests"
+            href="/dashboard/courses/digital-products/distribution-validation/messaging-tests"
+          />
+          <LessonCard
+            number={3}
+            title="Early Feedback Loops"
+            href="/dashboard/courses/digital-products/distribution-validation/early-feedback"
+          />
+          <LessonCard
+            number={4}
+            title="Validation Metrics"
+            href="/dashboard/courses/digital-products/distribution-validation/validation-metrics"
+          />
+        </div>
       </section>
 
       {/* CTA */}
@@ -104,5 +81,51 @@ export default function DistributionValidationPage() {
         Start Module →
       </Link>
     </div>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div
+      style={{
+        padding: 18,
+        borderRadius: 16,
+        border: "1px solid rgba(255,255,255,0.08)",
+        background: "rgba(255,255,255,0.02)",
+      }}
+    >
+      <div style={{ fontSize: 12, opacity: 0.6 }}>{label}</div>
+      <div style={{ fontSize: 18, marginTop: 6 }}>{value}</div>
+    </div>
+  );
+}
+
+function LessonCard({
+  number,
+  title,
+  href,
+}: {
+  number: number;
+  title: string;
+  href: string;
+}) {
+  return (
+    <Link
+      href={href}
+      style={{
+        display: "block",
+        padding: 20,
+        borderRadius: 16,
+        border: "1px solid rgba(255,255,255,0.08)",
+        textDecoration: "none",
+        color: "inherit",
+        background: "rgba(255,255,255,0.015)",
+      }}
+    >
+      <div style={{ opacity: 0.5, fontSize: 13, marginBottom: 6 }}>
+        Lesson {number}
+      </div>
+      <div style={{ fontSize: 18 }}>{title}</div>
+    </Link>
   );
 }

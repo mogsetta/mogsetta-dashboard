@@ -184,7 +184,7 @@ export default function ProblemSelectionLesson() {
         </div>
 
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/offer-foundation"
+          href="/dashboard/courses/digital-products/offer-creation/audience-clarity"
           style={{
             display: "inline-block",
             padding: "12px 22px",

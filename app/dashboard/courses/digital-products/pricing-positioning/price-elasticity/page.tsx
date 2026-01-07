@@ -1,5 +1,3 @@
-
-
 import Link from "next/link";
 import CoachChat from "@/components/CoachChat";
 
@@ -64,17 +62,44 @@ export default function PriceElasticityPage() {
 
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: 56,
+          marginTop: 64,
+          padding: 24,
+          borderRadius: 12,
+          border: "1px solid rgba(255,255,255,0.08)",
+          background: "rgba(255,255,255,0.02)",
         }}
       >
-        <Link href="/dashboard/courses/digital-products/pricing-positioning/value-framing">
-          ← Back
-        </Link>
-        <Link href="/dashboard/courses/digital-products/pricing-positioning">
-          Finish Module →
-        </Link>
+        <h3 style={{ fontSize: 20, marginBottom: 8 }}>
+          Module Complete
+        </h3>
+        <p style={{ opacity: 0.85, lineHeight: 1.6, marginBottom: 20 }}>
+          You now understand how pricing sensitivity works and how to test it in the real world.
+          Next, you’ll apply this to your full offer and prepare it for launch.
+        </p>
+
+        <div style={{ display: "flex", gap: 16 }}>
+          <Link
+            href="/dashboard/courses/digital-products/pricing-positioning/value-framing"
+            style={{ opacity: 0.7 }}
+          >
+            ← Previous Lesson
+          </Link>
+
+          <Link
+            href="/dashboard/courses/digital-products"
+            style={{
+              marginLeft: "auto",
+              padding: "10px 16px",
+              borderRadius: 8,
+              background: "white",
+              color: "black",
+              fontWeight: 500,
+              textDecoration: "none",
+            }}
+          >
+            Return to Course →
+          </Link>
+        </div>
       </div>
     </div>
   );

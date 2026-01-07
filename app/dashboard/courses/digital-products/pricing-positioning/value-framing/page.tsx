@@ -1,5 +1,7 @@
 
 
+
+"use client";
 import Link from "next/link";
 import CoachChat from "@/components/CoachChat";
 
@@ -67,15 +69,45 @@ export default function ValueFramingPage() {
           display: "flex",
           justifyContent: "space-between",
           marginTop: 56,
+          gap: 12,
         }}
       >
-        <Link href="/dashboard/courses/digital-products/conversion-proof/commitment-actions">
-          ← Back
+        <Link
+          href="/dashboard/courses/digital-products/pricing-positioning"
+          className="secondary-btn"
+        >
+          ← Back to Module
         </Link>
-        <Link href="/dashboard/courses/digital-products/pricing-positioning/price-elasticity">
-          Next →
+
+        <Link
+          href="/dashboard/courses/digital-products/pricing-positioning/price-elasticity"
+          className="primary-btn"
+        >
+          Next Lesson →
         </Link>
       </div>
+
+      <style jsx>{`
+        .primary-btn {
+          display: inline-block;
+          padding: 12px 18px;
+          border-radius: 14px;
+          background: #2563eb;
+          color: #fff;
+          text-decoration: none;
+          font-weight: 600;
+        }
+
+        .secondary-btn {
+          display: inline-block;
+          padding: 12px 18px;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          color: rgba(255, 255, 255, 0.85);
+          text-decoration: none;
+          font-weight: 500;
+        }
+      `}</style>
     </div>
   );
 }
