@@ -34,6 +34,17 @@ export default function SolutionDefinitionPage() {
         </section>
 
         <section className="rounded-xl border p-5">
+          <h2 className="font-medium text-lg">Solution clarity checklist</h2>
+          <ul className="list-disc pl-5 mt-2 text-sm text-muted-foreground space-y-2">
+            <li>The outcome can be described in one sentence</li>
+            <li>The customer knows exactly what changes after completion</li>
+            <li>The solution removes a bottleneck, not just adds information</li>
+            <li>The steps are sequential and non-optional</li>
+            <li>The result is observable within a short time window</li>
+          </ul>
+        </section>
+
+        <section className="rounded-xl border p-5">
           <h2 className="font-medium text-lg">The solution test</h2>
           <p className="text-sm text-muted-foreground mt-2">
             A strong solution passes three tests:

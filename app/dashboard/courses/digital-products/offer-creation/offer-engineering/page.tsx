@@ -28,9 +28,10 @@ export default function OfferEngineeringPage() {
       <h1 style={{ fontSize: 32, marginBottom: 12 }}>Offer Engineering</h1>
 
       <p style={{ fontSize: 17, lineHeight: 1.7, opacity: 0.85 }}>
-        Offer Engineering is about increasing perceived value and conversion
-        without adding unnecessary complexity. These lessons break down the
-        mechanics behind high‑converting offers.
+        Offer Engineering is where a good idea becomes a high‑converting offer.
+        This stage focuses on how your offer is packaged, priced, and de‑risked
+        so it feels obvious to buy. Each lesson below addresses a specific
+        leverage point that directly impacts conversion.
       </p>
 
       <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 16 }}>

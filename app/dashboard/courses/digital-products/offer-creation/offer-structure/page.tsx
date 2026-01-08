@@ -15,16 +15,30 @@ export default function OfferStructurePage() {
         components that make an offer feel clear, complete, and easy to say yes to.
       </p>
 
+      <div style={{ marginTop: 32 }}>
+        <h2 style={{ fontSize: 20, marginBottom: 12 }}>
+          What a strong offer structure includes
+        </h2>
+
+        <ul style={{ lineHeight: 1.7, opacity: 0.85, paddingLeft: 18 }}>
+          <li>A clearly defined audience</li>
+          <li>A single primary outcome</li>
+          <li>A logical sequence of steps to reach that outcome</li>
+          <li>Clear start and finish points</li>
+          <li>No unnecessary branches or decisions for the buyer</li>
+        </ul>
+      </div>
+
       <div style={{ marginTop: 40, display: "grid", gap: 16 }}>
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/offer-structure/audience-clarity"
+          href="/dashboard/courses/digital-products/offer-creation/audience-clarity"
           style={{ fontSize: 18, fontWeight: 500 }}
         >
           → Audience Clarity
         </Link>
 
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/offer-structure/solution-definition"
+          href="/dashboard/courses/digital-products/offer-creation/solution-definition"
           style={{ fontSize: 18, fontWeight: 500 }}
         >
           → Solution Definition

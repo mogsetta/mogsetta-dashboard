@@ -1,5 +1,6 @@
 import CoachChat from "@/components/CoachChat";
 import React from "react";
+import Link from "next/link";
 
 export default function OfferFoundationPage() {
   return (
@@ -23,6 +24,14 @@ export default function OfferFoundationPage() {
           module="offer-foundation"
           coachId="offer-foundation"
         />
+        <div style={{ marginTop: 60, textAlign: "right" }}>
+  <Link
+    href="/dashboard/courses/digital-products/offer-creation/offer-structure"
+    style={{ fontWeight: 500 }}
+  >
+    Next: Offer Structure →
+  </Link>
+</div>
       </div>
     </div>
   );
