@@ -163,8 +163,10 @@ export default function ProblemSelectionLesson() {
       <div style={{ marginBottom: 56 }}>
         <CoachChat
           system="digital-products"
+          module="offer-creation"
+          lesson="problem-selection"
+          intent="lesson"
           coachId="problem-selection"
-          lessonContext={lessonContext}
         />
       </div>
 

@@ -1,13 +1,6 @@
 import Link from "next/link";
 import CoachChat from "@/components/CoachChat";
 
-const lessonContext = {
-  intent: "lesson",
-  system: "digital-products",
-  module: "pricing-positioning",
-  lesson: "price-elasticity",
-} as const;
-
 export default function PriceElasticityPage() {
   return (
     <div style={{ maxWidth: 920, margin: "0 auto", paddingBottom: 120 }}>
@@ -54,9 +47,11 @@ export default function PriceElasticityPage() {
 
       <div style={{ marginTop: 48 }}>
         <CoachChat
+          intent="lesson"
           system="digital-products"
+          module="pricing-positioning"
           coachId="price-elasticity"
-          lessonContext={lessonContext}
+          lesson="price-elasticity"
         />
       </div>
 
@@ -86,7 +81,7 @@ export default function PriceElasticityPage() {
           </Link>
 
           <Link
-            href="/dashboard/courses/digital-products"
+            href="/dashboard/courses/digital-products/pricing-positioning/pricing-basics"
             style={{
               marginLeft: "auto",
               padding: "10px 16px",
@@ -97,7 +92,7 @@ export default function PriceElasticityPage() {
               textDecoration: "none",
             }}
           >
-            Return to Course →
+            Next Lesson →
           </Link>
         </div>
       </div>

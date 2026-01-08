@@ -47,7 +47,13 @@ export default function SolutionDefinitionPage() {
       </div>
 
       <div className="mt-10">
-        <CoachChat system="digital-products" coachId="solution-definition" />
+        <CoachChat
+          system="digital-products"
+          module="offer-creation"
+          coachId="solution-definition"
+          intent="lesson"
+          lesson="solution-definition"
+        />
       </div>
 
       <div className="flex items-center justify-between mt-10">

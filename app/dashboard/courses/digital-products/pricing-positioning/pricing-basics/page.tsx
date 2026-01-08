@@ -32,13 +32,10 @@ export default function PricingBasicsLesson() {
       <div style={{ marginTop: 48 }}>
         <CoachChat
           system="digital-products"
+          module="pricing-positioning"
           coachId="pricing-basics"
-          lessonContext={{
-            system: "digital-products",
-            module: "pricing-positioning",
-            lesson: "pricing-basics",
-            intent: "lesson",
-          }}
+          intent="lesson"
+          lesson="pricing-basics"
         />
       </div>
     </div>

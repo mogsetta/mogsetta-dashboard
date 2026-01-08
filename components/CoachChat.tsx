@@ -1,26 +1,23 @@
 "use client";
 
-type LessonContext = {
+export type CoachChatProps = {
   system: "digital-products" | "service-systems" | "ecommerce";
   module: string;
-  lesson?: string;
-  intent?: "lesson" | "strategy";
-};
-
-type CoachChatProps = {
-  system: "digital-products" | "service-systems" | "ecommerce";
   coachId: string;
+  intent?: "lesson" | "strategy";
+  lesson?: string;
   title?: string;
   description?: string;
-  lessonContext?: LessonContext;
 };
 
 export default function CoachChat({
   system,
+  module,
   coachId,
+  intent,
+  lesson,
   title,
   description,
-  lessonContext,
 }: CoachChatProps) {
   return (
     <div className="coach-chat-shell">
@@ -31,12 +28,24 @@ export default function CoachChat({
 
       <div className="coach-chat-body">
         <p>
-          Coach ID: <strong>{coachId}</strong>
+          System: <strong>{system}</strong>
+        </p>
+        <p>
+          Module: <strong>{module}</strong>
+        </p>
+        <p>
+          Coach: <strong>{coachId}</strong>
         </p>
 
-        {lessonContext && (
+        {lesson && (
           <p>
-            Lesson: <strong>{lessonContext.lesson}</strong>
+            Lesson: <strong>{lesson}</strong>
+          </p>
+        )}
+
+        {intent && (
+          <p>
+            Mode: <strong>{intent}</strong>
           </p>
         )}
       </div>

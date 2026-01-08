@@ -1,16 +1,6 @@
-
-
-
 "use client";
 import Link from "next/link";
 import CoachChat from "@/components/CoachChat";
-
-const lessonContext = {
-  intent: "lesson",
-  system: "digital-products",
-  module: "pricing-positioning",
-  lesson: "value-framing",
-} as const;
 
 export default function ValueFramingPage() {
   return (
@@ -59,8 +49,10 @@ export default function ValueFramingPage() {
       <div style={{ marginTop: 48 }}>
         <CoachChat
           system="digital-products"
+          module="pricing-positioning"
           coachId="value-framing"
-          lessonContext={lessonContext}
+          intent="lesson"
+          lesson="value-framing"
         />
       </div>
 
@@ -80,7 +72,7 @@ export default function ValueFramingPage() {
         </Link>
 
         <Link
-          href="/dashboard/courses/digital-products/pricing-positioning/price-elasticity"
+          href="/dashboard/courses/digital-products/pricing-positioning/pricing-basics"
           className="primary-btn"
         >
           Next Lesson →
