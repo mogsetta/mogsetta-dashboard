@@ -76,10 +76,10 @@ export default function SolutionDefinitionPage() {
         </Link>
 
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/offer-structure"
+          href="/dashboard/courses/digital-products/offer-creation/offer-foundation"
           className="text-sm font-medium underline"
         >
-          Offer Structure →
+          Offer Foundation →
         </Link>
       </div>
     </div>

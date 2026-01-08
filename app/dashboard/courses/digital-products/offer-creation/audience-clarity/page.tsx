@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import CoachChat from "@/components/CoachChat";
 
@@ -49,12 +48,28 @@ export default function AudienceClarityPage() {
           intent="lesson"
           system="digital-products"
           module="offer-creation"
-          coachId="audience-clarity"
-          lesson="audience-clarity"
+          coachId="offer-creation"
         />
       </div>
 
-      <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 60 }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginTop: 60,
+        }}
+      >
+        <Link
+          href="/dashboard/courses/digital-products/offer-creation/offer-foundation"
+          style={{
+            opacity: 0.7,
+            fontWeight: 500,
+          }}
+        >
+          ← Back to Offer Foundation
+        </Link>
+
         <Link
           href="/dashboard/courses/digital-products/offer-creation/solution-definition"
           style={{

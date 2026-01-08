@@ -26,10 +26,10 @@ export default function OfferFoundationPage() {
         />
         <div style={{ marginTop: 60, textAlign: "right" }}>
   <Link
-    href="/dashboard/courses/digital-products/offer-creation/offer-structure"
+    href="/dashboard/courses/digital-products/offer-creation/audience-clarity"
     style={{ fontWeight: 500 }}
   >
-    Next: Offer Structure →
+    Next: Audience Clarity →
   </Link>
 </div>
       </div>

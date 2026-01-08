@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CoachChat from "@/components/CoachChat";
 
 export default function OfferStructurePage() {
   return (
@@ -52,6 +53,15 @@ export default function OfferStructurePage() {
         >
           Continue to Offer Engineering →
         </Link>
+      </div>
+
+      <div style={{ marginTop: 40 }}>
+        <CoachChat
+          intent="lesson"
+          system="digital-products"
+          module="offer-structure"
+          coachId="offer-structure"
+        />
       </div>
     </div>
   );
