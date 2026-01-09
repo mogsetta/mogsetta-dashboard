@@ -48,6 +48,36 @@ export default function DigitalProductsPage() {
             Start building →
           </div>
         </Link>
+
+        {/* Business Operating System */}
+        <Link
+          href="/dashboard/courses/digital-products/business-operating-system"
+          style={{
+            textDecoration: "none",
+            borderRadius: 18,
+            padding: 28,
+            background: "linear-gradient(135deg, #991b1b, #b91c1c)",
+            color: "#fff",
+            boxShadow: "0 12px 40px rgba(185,28,28,0.45)",
+          }}
+        >
+          <div style={{ fontSize: 12, opacity: 0.85 }}>
+            FULL BUILD COURSE
+          </div>
+
+          <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 8 }}>
+            Business Operating System
+          </h2>
+
+          <p style={{ marginTop: 8, fontSize: 15, opacity: 0.9 }}>
+            Turn your offer into a real business. Build the asset, go to market,
+            get your first sales, and operate sustainably with an AI partner.
+          </p>
+
+          <div style={{ marginTop: 18, fontWeight: 600 }}>
+            Enter system →
+          </div>
+        </Link>
       </div>
     </div>
   );
