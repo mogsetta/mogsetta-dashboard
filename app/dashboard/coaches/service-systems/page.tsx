@@ -113,6 +113,9 @@ export default function ServiceSystemsCoachPage() {
         <div className="operator-frame">
           <CoachChat
             coachId="service-systems"
+            system="service-systems"
+            module="service-systems"
+            intent="strategy"
             title="Service Systems Operator"
             description="Ask about offer design, scope control, SOP creation, delegation, fulfillment optimization, or scaling service businesses."
           />

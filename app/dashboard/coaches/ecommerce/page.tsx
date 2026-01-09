@@ -97,6 +97,9 @@ export default function EcommerceCoachPage() {
         <div className="operator-frame ecx-frame">
           <CoachChat
             coachId="ecommerce"
+            system="ecommerce"
+            module="ecommerce"
+            intent="strategy"
             title="E‑Commerce Revenue Operator"
             description="Ask about offers, conversion systems, bundles, AOV expansion, retention loops, and scalable revenue architecture."
           />

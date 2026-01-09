@@ -113,8 +113,11 @@ export default function DigitalProductsCoachPage() {
         <div className="operator-frame">
           <CoachChat
             coachId="digital-products"
-            title="Digital Products Operator"
-            description="Ask about product structure, validation strategy, pricing logic, delivery formats, or long‑term expansion."
+            intent="strategy"
+            system="digital-products"
+            module="digital-products"
+            title="Digital Products Coach"
+            description="High-level strategy, validation logic, pricing decisions, and leverage-based product design."
           />
         </div>
       </section>

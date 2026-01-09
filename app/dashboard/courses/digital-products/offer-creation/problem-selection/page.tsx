@@ -1,206 +1,87 @@
-import CoachChat from "@/components/CoachChat";
 import Link from "next/link";
+import CoachChat from "@/components/CoachChat";
 
-const lessonContext = {
-  intent: "lesson",
-  system: "digital-products",
-  module: "offer-creation",
-  lesson: "problem-selection",
-} satisfies {
-  intent: "lesson" | "strategy";
-  system: "digital-products" | "service-systems" | "ecommerce";
-  module: string;
-  lesson: string;
-};
-
-export default function ProblemSelectionLesson() {
+export default function ProblemSelectionPage() {
   return (
-    <div style={{ padding: "48px", maxWidth: 920, margin: "0 auto" }}>
-      <div style={{ opacity: 0.6, fontSize: 13, marginBottom: 8 }}>
-        Digital Products · Offer Creation · Lesson 1 of 4
-      </div>
-
-      <h1 style={{ fontSize: 36, marginBottom: 12 }}>
+    <div style={{ padding: "48px 56px", maxWidth: 920 }}>
+      {/* Header */}
+      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
         Problem Selection
       </h1>
-
-      <p style={{ fontSize: 17, lineHeight: 1.7, opacity: 0.85, marginBottom: 32 }}>
-        Every strong digital product starts with a painful, specific problem.
-        Most people fail here because they chase ideas instead of problems.
-        This lesson fixes that permanently.
+      <p style={{ opacity: 0.75, marginBottom: 32 }}>
+        The success of your offer is determined before you ever write copy or
+        build a product. It starts with choosing the right problem.
       </p>
 
-      {/* SECTION 1 */}
-      <div style={{ marginBottom: 40 }}>
-        <h2 style={{ fontSize: 22, marginBottom: 12 }}>
-          The Core Rule
+      {/* Section 1 */}
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          What Makes a Problem Worth Solving?
         </h2>
-        <p style={{ opacity: 0.8, lineHeight: 1.6 }}>
-          If people are not actively trying to solve a problem right now,
-          they will not pay for a solution.
-          Interest is not pain. Curiosity is not urgency.
+        <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
+          Strong offers solve problems that are painful, expensive, or urgent.
+          Weak offers solve problems that are optional, vague, or nice-to-have.
+          Your goal here is not creativity — it’s accuracy.
         </p>
-      </div>
+      </section>
 
-      {/* SECTION 2 */}
-      <div
-        style={{
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: 16,
-          padding: 24,
-          marginBottom: 40,
-        }}
-      >
-        <h2 style={{ fontSize: 20, marginBottom: 12 }}>
-          Problem Filters (Non-Negotiable)
+      {/* Section 2 */}
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          The Problem Filter
         </h2>
-
-        <ul style={{ opacity: 0.8, lineHeight: 1.8 }}>
-          <li>The problem costs time, money, or emotional energy</li>
-          <li>People already try to solve it without you</li>
-          <li>There is a clear “before” and “after” state</li>
-          <li>You can describe the pain in one sentence</li>
+        <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
+          <li>Is this problem already costing someone money?</li>
+          <li>Is the pain obvious without explanation?</li>
+          <li>Are people actively trying to solve it?</li>
+          <li>Can you clearly describe the before and after state?</li>
         </ul>
-      </div>
+      </section>
 
-      {/* SECTION 2.5 */}
-      <div
-        style={{
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: 16,
-          padding: 24,
-          marginBottom: 40,
-        }}
-      >
-        <h2 style={{ fontSize: 20, marginBottom: 12 }}>
-          The 3 Problem Types That Sell
+      {/* Section 3 */}
+      <section style={{ marginBottom: 48 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          Before You Move On
         </h2>
-
-        <p style={{ opacity: 0.8, lineHeight: 1.7, marginBottom: 16 }}>
-          Almost every successful digital product solves one of these three problem categories.
-          If your idea does not clearly fit at least one, it is weak.
+        <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
+          Write one clear sentence that describes the problem you’re solving and
+          who experiences it. If you can’t do this cleanly, stop here and refine
+          before continuing.
         </p>
+      </section>
 
-        <ul style={{ opacity: 0.8, lineHeight: 1.9 }}>
-          <li>
-            <strong>Pain-of-Loss Problems</strong> — People are actively losing money, time,
-            or opportunities if they do nothing.
-            <br />
-            <span style={{ opacity: 0.7 }}>Example: missed sales, wasted ad spend, failed launches.</span>
-          </li>
-
-          <li>
-            <strong>Time-Collapse Problems</strong> — People already know the solution,
-            but want it faster, simpler, or with fewer mistakes.
-            <br />
-            <span style={{ opacity: 0.7 }}>Example: compressing years of trial-and-error into weeks.</span>
-          </li>
-
-          <li>
-            <strong>Status-Risk Problems</strong> — People fear looking incompetent,
-            falling behind peers, or making the wrong visible decision.
-            <br />
-            <span style={{ opacity: 0.7 }}>Example: choosing the wrong niche, pricing wrong, public failure.</span>
-          </li>
-        </ul>
-      </div>
-
-      {/* SECTION 3 */}
-      <div
-        style={{
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: 16,
-          padding: 24,
-          marginBottom: 48,
-        }}
-      >
-        <h2 style={{ fontSize: 20, marginBottom: 12 }}>
-          Your Task
-        </h2>
-
-        <p style={{ opacity: 0.8, marginBottom: 12 }}>
-          Write down <strong>three problems</strong> you have personally experienced
-          or repeatedly observed.
-        </p>
-
-        <p style={{ opacity: 0.7 }}>
-          Avoid vague ideas like “motivation” or “confidence.”
-          Be concrete. Real pain has details.
-        </p>
-      </div>
-
-      {/* SECTION 4 */}
-      <div
-        style={{
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: 16,
-          padding: 24,
-          marginBottom: 48,
-          background: "rgba(255,255,255,0.02)",
-        }}
-      >
-        <h2 style={{ fontSize: 20, marginBottom: 12 }}>
-          Lock Your Problem (No Switching)
-        </h2>
-
-        <p style={{ opacity: 0.85, lineHeight: 1.7, marginBottom: 14 }}>
-          Choose <strong>one problem</strong> to build around. You are not allowed to switch
-          until you finish the next three lessons.
-        </p>
-
-        <p style={{ opacity: 0.8, lineHeight: 1.7, marginBottom: 14 }}>
-          Most failed products don’t fail because the idea was bad — they fail because
-          the creator kept changing direction before the offer had time to mature.
-        </p>
-
-        <p style={{ opacity: 0.75 }}>
-          Write your chosen problem in one sentence and commit to it. You can change it later,
-          but not now.
-        </p>
-      </div>
-
-      {/* COACH */}
-      <div style={{ marginBottom: 56 }}>
-        <CoachChat
-          system="digital-products"
-          module="offer-creation"
-          lesson="problem-selection"
-          intent="lesson"
-          coachId="problem-selection"
-        />
-      </div>
-
-      {/* FOOTER NAV */}
+      {/* Navigation */}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderTop: "1px solid rgba(255,255,255,0.08)",
-          paddingTop: 24,
-          marginBottom: 120,
+          justifyContent: "flex-end",
+          marginBottom: 56,
         }}
       >
-        <div style={{ opacity: 0.4, fontSize: 14 }}>
-          ← Previous
-        </div>
-
         <Link
           href="/dashboard/courses/digital-products/offer-creation/audience-clarity"
           style={{
-            display: "inline-block",
-            padding: "12px 22px",
-            borderRadius: 14,
-            background: "#2563eb",
-            color: "white",
             textDecoration: "none",
+            padding: "14px 22px",
+            borderRadius: 10,
+            background: "#991b1b",
+            color: "#fff",
             fontWeight: 600,
-            fontSize: 15,
           }}
         >
-          Next Lesson →
+          Next: Audience Clarity →
         </Link>
       </div>
+
+      {/* AI Coach */}
+      <CoachChat
+        coachId="digital-products"
+        system="digital-products"
+        module="offer-creation"
+        intent="strategy"
+        title="Offer Creation Coach"
+        description="Pressure-test whether a problem is worth building an offer around and refine your thinking before moving forward."
+      />
     </div>
   );
 }

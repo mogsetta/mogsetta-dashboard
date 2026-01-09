@@ -3,66 +3,98 @@ import CoachChat from "@/components/CoachChat";
 
 export default function OfferStructurePage() {
   return (
-    <div style={{ maxWidth: 920, margin: "0 auto", paddingBottom: 120 }}>
-      <div style={{ opacity: 0.6, fontSize: 13, marginBottom: 12 }}>
-        Digital Products · Offer Creation
-      </div>
-
-      <h1 style={{ fontSize: 32, marginBottom: 12 }}>Offer Structure</h1>
-
-      <p style={{ fontSize: 17, lineHeight: 1.7, opacity: 0.85 }}>
-        Offer structure defines how your offer is organized, delivered, and
-        experienced by the buyer. This section breaks down the core structural
-        components that make an offer feel clear, complete, and easy to say yes to.
+    <div style={{ padding: "48px 56px", maxWidth: 920 }}>
+      {/* Header */}
+      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
+        Offer Structure
+      </h1>
+      <p style={{ opacity: 0.75, marginBottom: 32 }}>
+        A clear offer structure makes your solution easier to understand,
+        easier to sell, and easier to deliver.
       </p>
 
-      <div style={{ marginTop: 32 }}>
-        <h2 style={{ fontSize: 20, marginBottom: 12 }}>
-          What a strong offer structure includes
+      {/* Section 1 */}
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          Structure Before Features
         </h2>
+        <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
+          Most offers fail because they feel messy or overwhelming. A strong
+          structure creates confidence by showing the buyer how the solution
+          fits together before they ever look at the details.
+        </p>
+      </section>
 
-        <ul style={{ lineHeight: 1.7, opacity: 0.85, paddingLeft: 18 }}>
-          <li>A clearly defined audience</li>
-          <li>A single primary outcome</li>
-          <li>A logical sequence of steps to reach that outcome</li>
-          <li>Clear start and finish points</li>
-          <li>No unnecessary branches or decisions for the buyer</li>
+      {/* Section 2 */}
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          The Structure Filter
+        </h2>
+        <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
+          <li>Is the path from start to finish obvious?</li>
+          <li>Does each part have a clear purpose?</li>
+          <li>Is the order logical for the customer?</li>
+          <li>Can the structure be explained simply?</li>
         </ul>
-      </div>
+      </section>
 
-      <div style={{ marginTop: 40, display: "grid", gap: 16 }}>
-        <Link
-          href="/dashboard/courses/digital-products/offer-creation/audience-clarity"
-          style={{ fontSize: 18, fontWeight: 500 }}
-        >
-          → Audience Clarity
-        </Link>
+      {/* Section 3 */}
+      <section style={{ marginBottom: 48 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          Before You Move On
+        </h2>
+        <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
+          Outline your offer in 3–5 clear components. Focus on sequence and
+          clarity, not content volume. If it feels bloated or confusing, simplify.
+        </p>
+      </section>
 
+      {/* Navigation */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: 56,
+        }}
+      >
         <Link
           href="/dashboard/courses/digital-products/offer-creation/solution-definition"
-          style={{ fontSize: 18, fontWeight: 500 }}
+          style={{
+            textDecoration: "none",
+            padding: "12px 18px",
+            borderRadius: 10,
+            border: "1px solid #991b1b",
+            color: "#991b1b",
+            fontWeight: 600,
+          }}
         >
-          → Solution Definition
+          ← Back
         </Link>
-      </div>
 
-      <div style={{ marginTop: 60 }}>
         <Link
           href="/dashboard/courses/digital-products/offer-creation/offer-engineering"
-          style={{ fontWeight: 500 }}
+          style={{
+            textDecoration: "none",
+            padding: "14px 22px",
+            borderRadius: 10,
+            background: "#991b1b",
+            color: "#fff",
+            fontWeight: 600,
+          }}
         >
-          Continue to Offer Engineering →
+          Next: Offer Engineering →
         </Link>
       </div>
 
-      <div style={{ marginTop: 40 }}>
-        <CoachChat
-          intent="lesson"
-          system="digital-products"
-          module="offer-structure"
-          coachId="offer-structure"
-        />
-      </div>
+      {/* AI Coach */}
+      <CoachChat
+        coachId="digital-products"
+        system="digital-products"
+        module="offer-creation"
+        intent="strategy"
+        title="Offer Creation Coach"
+        description="Help structure your offer into a clear, logical package that customers can easily understand and say yes to."
+      />
     </div>
   );
 }

@@ -1,69 +1,88 @@
-"use client";
 import Link from "next/link";
-
-const cardStyle: React.CSSProperties = {
-  padding: 24,
-  borderRadius: 16,
-  border: "1px solid rgba(255,255,255,0.08)",
-  background: "#0b0c10",
-  textDecoration: "none",
-  color: "inherit",
-  transition: "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
-};
 
 export default function CoursesPage() {
   return (
-    <div style={{ maxWidth: 1000, margin: "0 auto", paddingBottom: 120 }}>
-      <h1 style={{ fontSize: 36, marginBottom: 12 }}>Courses</h1>
-      <p style={{ opacity: 0.7, marginBottom: 40 }}>
-        Choose a system to begin or continue learning.
+    <div style={{ padding: "48px 56px" }}>
+      {/* Header */}
+      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>Courses</h1>
+      <p style={{ opacity: 0.7, marginBottom: 32 }}>
+        Choose a system to build.
       </p>
 
-      <div style={{ display: "grid", gap: 24 }}>
+      {/* Systems */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: 24,
+        }}
+      >
+        {/* Digital Products */}
         <Link
           href="/dashboard/courses/digital-products"
-          style={cardStyle}
-          className="course-card"
+          style={{
+            textDecoration: "none",
+            borderRadius: 18,
+            padding: 28,
+            background: "linear-gradient(135deg, #7f1d1d, #991b1b)",
+            color: "#fff",
+            boxShadow: "0 12px 40px rgba(127,29,29,0.45)",
+          }}
         >
-          <h2 style={{ marginBottom: 8 }}>Digital Products</h2>
-          <p style={{ opacity: 0.75 }}>
-            Build, price, and launch scalable digital products with clear
-            systems and validated offers.
+          <div style={{ fontSize: 12, opacity: 0.85 }}>SYSTEM 01</div>
+          <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 8 }}>
+            Digital Products
+          </h2>
+          <p style={{ marginTop: 8, fontSize: 15, opacity: 0.9 }}>
+            Build, validate, and scale leverage-based digital products.
           </p>
+          <div style={{ marginTop: 18, fontWeight: 600 }}>Enter system →</div>
         </Link>
 
+        {/* Service Systems */}
         <Link
           href="/dashboard/courses/service-systems"
-          style={cardStyle}
-          className="course-card"
+          style={{
+            textDecoration: "none",
+            borderRadius: 18,
+            padding: 28,
+            background: "linear-gradient(135deg, #5b21b6, #7c3aed)",
+            color: "#fff",
+            boxShadow: "0 12px 40px rgba(91,33,182,0.45)",
+          }}
         >
-          <h2 style={{ marginBottom: 8 }}>Service Systems</h2>
-          <p style={{ opacity: 0.75 }}>
-            Design repeatable service businesses with leverage and operational
-            clarity.
+          <div style={{ fontSize: 12, opacity: 0.85 }}>SYSTEM 02</div>
+          <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 8 }}>
+            Service Systems
+          </h2>
+          <p style={{ marginTop: 8, fontSize: 15, opacity: 0.9 }}>
+            Productize services, control scope, and scale fulfillment.
           </p>
+          <div style={{ marginTop: 18, fontWeight: 600 }}>Enter system →</div>
         </Link>
 
+        {/* E-Commerce */}
         <Link
           href="/dashboard/courses/ecommerce"
-          style={cardStyle}
-          className="course-card"
+          style={{
+            textDecoration: "none",
+            borderRadius: 18,
+            padding: 28,
+            background: "linear-gradient(135deg, #1e40af, #2563eb)",
+            color: "#fff",
+            boxShadow: "0 12px 40px rgba(30,64,175,0.45)",
+          }}
         >
-          <h2 style={{ marginBottom: 8 }}>E-commerce</h2>
-          <p style={{ opacity: 0.75 }}>
-            Build and scale commerce systems focused on conversion and
-            retention.
+          <div style={{ fontSize: 12, opacity: 0.85 }}>SYSTEM 03</div>
+          <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 8 }}>
+            E-Commerce
+          </h2>
+          <p style={{ marginTop: 8, fontSize: 15, opacity: 0.9 }}>
+            Build scalable stores, offers, and revenue engines.
           </p>
+          <div style={{ marginTop: 18, fontWeight: 600 }}>Enter system →</div>
         </Link>
       </div>
-
-      <style jsx>{`
-        .course-card:hover {
-          transform: translateY(-2px);
-          border-color: rgba(255, 255, 255, 0.16);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-        }
-      `}</style>
     </div>
   );
 }

@@ -1,57 +1,79 @@
 import Link from "next/link";
 
-const LESSONS = [
-  {
-    slug: "value-stacking",
-    title: "Value Stacking",
-    description: "Increase perceived value without increasing complexity.",
-  },
-  {
-    slug: "pricing-logic",
-    title: "Pricing Logic",
-    description: "Anchor price to outcomes, not effort.",
-  },
-  {
-    slug: "guarantees",
-    title: "Guarantees & Risk Reversal",
-    description: "Reduce perceived risk and increase conversions.",
-  },
-];
-
 export default function OfferEngineeringPage() {
   return (
-    <div style={{ maxWidth: 920, margin: "0 auto", paddingBottom: 120 }}>
-      <div style={{ opacity: 0.6, fontSize: 13, marginBottom: 12 }}>
-        Digital Products · Offer Creation
-      </div>
-
-      <h1 style={{ fontSize: 32, marginBottom: 12 }}>Offer Engineering</h1>
-
-      <p style={{ fontSize: 17, lineHeight: 1.7, opacity: 0.85 }}>
-        Offer Engineering is where a good idea becomes a high‑converting offer.
-        This stage focuses on how your offer is packaged, priced, and de‑risked
-        so it feels obvious to buy. Each lesson below addresses a specific
-        leverage point that directly impacts conversion.
+    <div style={{ padding: "48px 56px", maxWidth: 920 }}>
+      {/* Header */}
+      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
+        Offer Engineering
+      </h1>
+      <p style={{ opacity: 0.75, marginBottom: 32 }}>
+        Offer Engineering is where you refine, pressure-test, and strengthen your
+        offer so it can be confidently priced and sold.
       </p>
 
-      <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 16 }}>
-        {LESSONS.map((lesson) => (
+      {/* Overview */}
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          What You’ll Do Here
+        </h2>
+        <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
+          This section focuses on improving the leverage and resilience of your
+          offer. You’ll strengthen perceived value, define pricing logic, and
+          reduce buyer risk through clear guarantees.
+        </p>
+      </section>
+
+      {/* Lessons */}
+      <section>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 16 }}>
+          Lessons
+        </h2>
+
+        <div style={{ display: "grid", gap: 16 }}>
           <Link
-            key={lesson.slug}
-            href={`/dashboard/courses/digital-products/offer-creation/offer-engineering/${lesson.slug}`}
+            href="/dashboard/courses/digital-products/offer-creation/offer-engineering/value-stacking"
             style={{
-              padding: 20,
-              borderRadius: 10,
-              border: "1px solid rgba(255,255,255,0.1)",
               textDecoration: "none",
-              color: "inherit",
+              padding: 20,
+              borderRadius: 14,
+              border: "1px solid #991b1b",
+              color: "#991b1b",
+              fontWeight: 600,
             }}
           >
-            <h3 style={{ marginBottom: 6 }}>{lesson.title}</h3>
-            <p style={{ opacity: 0.75 }}>{lesson.description}</p>
+            Value Stacking →
           </Link>
-        ))}
-      </div>
+
+          <Link
+            href="/dashboard/courses/digital-products/offer-creation/offer-engineering/pricing-logic"
+            style={{
+              textDecoration: "none",
+              padding: 20,
+              borderRadius: 14,
+              border: "1px solid #991b1b",
+              color: "#991b1b",
+              fontWeight: 600,
+            }}
+          >
+            Pricing Logic →
+          </Link>
+
+          <Link
+            href="/dashboard/courses/digital-products/offer-creation/offer-engineering/guarantees"
+            style={{
+              textDecoration: "none",
+              padding: 20,
+              borderRadius: 14,
+              border: "1px solid #991b1b",
+              color: "#991b1b",
+              fontWeight: 600,
+            }}
+          >
+            Guarantees →
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

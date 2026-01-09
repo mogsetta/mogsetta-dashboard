@@ -1,87 +1,101 @@
+
+
 import Link from "next/link";
 import CoachChat from "@/components/CoachChat";
 
 export default function SolutionDefinitionPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-10">
-      <p className="text-sm text-muted-foreground">
-        Digital Products • Offer Creation
+    <div style={{ padding: "48px 56px", maxWidth: 920 }}>
+      {/* Header */}
+      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
+        Solution Definition
+      </h1>
+      <p style={{ opacity: 0.75, marginBottom: 32 }}>
+        A strong solution is defined by the outcome it delivers, not the features it includes.
       </p>
 
-      <h1 className="text-3xl font-semibold mt-2">Solution Definition</h1>
+      {/* Section 1 */}
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          Define the Outcome First
+        </h2>
+        <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
+          People buy results, not processes. Before deciding how your solution works, you must be
+          clear on what changes for the customer after they use it. This outcome should be specific,
+          measurable, and meaningful.
+        </p>
+      </section>
 
-      <p className="text-muted-foreground mt-3">
-        Define the exact solution you are delivering — not features, not content,
-        but the transformation your customer is paying for.
-      </p>
+      {/* Section 2 */}
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          The Outcome Filter
+        </h2>
+        <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
+          <li>Is the outcome clearly different from the customer’s current state?</li>
+          <li>Can the result be explained in one sentence?</li>
+          <li>Does the outcome justify paying for a solution?</li>
+          <li>Is this result achievable within a reasonable timeframe?</li>
+        </ul>
+      </section>
 
-      <div className="mt-8 space-y-4">
-        <section className="rounded-xl border p-5">
-          <h2 className="font-medium text-lg">What a solution really is</h2>
-          <p className="text-sm text-muted-foreground mt-2">
-            A solution is the smallest set of actions required to move someone
-            from their current state to a desired outcome — reliably.
-          </p>
-        </section>
+      {/* Section 3 */}
+      <section style={{ marginBottom: 48 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          Before You Move On
+        </h2>
+        <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
+          Write one sentence that clearly states the outcome your solution delivers. Avoid describing
+          steps, methods, or tools — focus only on the end result the customer wants.
+        </p>
+      </section>
 
-        <section className="rounded-xl border p-5">
-          <h2 className="font-medium text-lg">Define your solution</h2>
-          <ul className="list-disc pl-5 mt-2 text-sm text-muted-foreground space-y-2">
-            <li>What problem does this solve?</li>
-            <li>What changes after it’s implemented?</li>
-            <li>What steps are unavoidable?</li>
-          </ul>
-        </section>
-
-        <section className="rounded-xl border p-5">
-          <h2 className="font-medium text-lg">Solution clarity checklist</h2>
-          <ul className="list-disc pl-5 mt-2 text-sm text-muted-foreground space-y-2">
-            <li>The outcome can be described in one sentence</li>
-            <li>The customer knows exactly what changes after completion</li>
-            <li>The solution removes a bottleneck, not just adds information</li>
-            <li>The steps are sequential and non-optional</li>
-            <li>The result is observable within a short time window</li>
-          </ul>
-        </section>
-
-        <section className="rounded-xl border p-5">
-          <h2 className="font-medium text-lg">The solution test</h2>
-          <p className="text-sm text-muted-foreground mt-2">
-            A strong solution passes three tests:
-          </p>
-          <ul className="list-disc pl-5 mt-2 text-sm text-muted-foreground space-y-2">
-            <li>It directly removes the core constraint holding the customer back</li>
-            <li>It can be executed without relying on motivation or talent</li>
-            <li>It produces a visible result quickly</li>
-          </ul>
-        </section>
-      </div>
-
-      <div className="mt-10">
-        <CoachChat
-          system="digital-products"
-          module="offer-creation"
-          coachId="solution-definition"
-          intent="lesson"
-          lesson="solution-definition"
-        />
-      </div>
-
-      <div className="flex items-center justify-between mt-10">
+      {/* Navigation */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: 56,
+        }}
+      >
         <Link
           href="/dashboard/courses/digital-products/offer-creation/audience-clarity"
-          className="text-sm underline text-muted-foreground hover:text-foreground"
+          style={{
+            textDecoration: "none",
+            padding: "12px 18px",
+            borderRadius: 10,
+            border: "1px solid #991b1b",
+            color: "#991b1b",
+            fontWeight: 600,
+          }}
         >
-          ← Audience Clarity
+          ← Back
         </Link>
 
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/offer-foundation"
-          className="text-sm font-medium underline"
+          href="/dashboard/courses/digital-products/offer-creation/offer-structure"
+          style={{
+            textDecoration: "none",
+            padding: "14px 22px",
+            borderRadius: 10,
+            background: "#991b1b",
+            color: "#fff",
+            fontWeight: 600,
+          }}
         >
-          Offer Foundation →
+          Next: Offer Structure →
         </Link>
       </div>
+
+      {/* AI Coach */}
+      <CoachChat
+        coachId="digital-products"
+        system="digital-products"
+        module="offer-creation"
+        intent="strategy"
+        title="Offer Creation Coach"
+        description="Clarify the outcome your solution delivers and pressure-test whether it’s strong enough to anchor a compelling offer."
+      />
     </div>
   );
 }
