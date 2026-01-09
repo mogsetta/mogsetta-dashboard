@@ -9,8 +9,10 @@ export default function OfferStructurePage() {
         Offer Structure
       </h1>
       <p style={{ opacity: 0.75, marginBottom: 32 }}>
-        A clear offer structure makes your solution easier to understand,
-        easier to sell, and easier to deliver.
+        A clear offer structure makes your solution easier to understand, easier to sell,
+        and easier to deliver. When the structure is clean, buyers feel confident moving
+        forward. When it’s messy or bloated, hesitation increases — even if the solution
+        itself is strong.
       </p>
 
       {/* Section 1 */}
@@ -19,9 +21,10 @@ export default function OfferStructurePage() {
           Structure Before Features
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-          Most offers fail because they feel messy or overwhelming. A strong
-          structure creates confidence by showing the buyer how the solution
-          fits together before they ever look at the details.
+          Most offers fail not because the solution is bad, but because the structure feels
+          confusing or overwhelming. A strong structure shows the buyer how the solution fits
+          together before they ever look at individual features. Clarity creates confidence,
+          and confidence drives decisions.
         </p>
       </section>
 
@@ -31,10 +34,11 @@ export default function OfferStructurePage() {
           The Structure Filter
         </h2>
         <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
-          <li>Is the path from start to finish obvious?</li>
-          <li>Does each part have a clear purpose?</li>
-          <li>Is the order logical for the customer?</li>
-          <li>Can the structure be explained simply?</li>
+          <li>Is the path from start to finish obvious to a first-time buyer?</li>
+          <li>Does each component serve a clear purpose?</li>
+          <li>Is the sequence logical from the customer’s perspective?</li>
+          <li>Can the structure be explained in a few simple sentences?</li>
+          <li>Does the structure feel focused rather than bloated?</li>
         </ul>
       </section>
 
@@ -44,9 +48,24 @@ export default function OfferStructurePage() {
           Before You Move On
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-          Outline your offer in 3–5 clear components. Focus on sequence and
-          clarity, not content volume. If it feels bloated or confusing, simplify.
+          Before moving forward, outline your offer in 3–5 clear components. Focus on order,
+          clarity, and simplicity — not content volume. If any part feels unnecessary,
+          confusing, or out of sequence, simplify before continuing. A clean structure is a
+          competitive advantage.
         </p>
+      </section>
+
+      {/* Apply This Step */}
+      <section style={{ marginBottom: 56 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          Apply This Step
+        </h2>
+        <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
+          <li>List the 3–5 core components of your offer.</li>
+          <li>Order them in the sequence a customer should experience them.</li>
+          <li>Remove or simplify anything that feels unnecessary or confusing.</li>
+          <li>Rewrite your offer structure in a way that is easy to explain out loud.</li>
+        </ul>
       </section>
 
       {/* Navigation */}

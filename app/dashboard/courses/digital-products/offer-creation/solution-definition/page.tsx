@@ -1,5 +1,3 @@
-
-
 import Link from "next/link";
 import CoachChat from "@/components/CoachChat";
 
@@ -12,6 +10,8 @@ export default function SolutionDefinitionPage() {
       </h1>
       <p style={{ opacity: 0.75, marginBottom: 32 }}>
         A strong solution is defined by the outcome it delivers, not the features it includes.
+        People don’t buy tools or processes — they buy change. This step forces you to clearly
+        define what success looks like for the customer before you think about how to deliver it.
       </p>
 
       {/* Section 1 */}
@@ -21,8 +21,9 @@ export default function SolutionDefinitionPage() {
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
           People buy results, not processes. Before deciding how your solution works, you must be
-          clear on what changes for the customer after they use it. This outcome should be specific,
-          measurable, and meaningful.
+          clear on what changes for the customer after they use it. A strong outcome is specific,
+          easy to understand, and clearly better than their current situation. If the outcome is
+          vague, the offer will feel weak no matter how good the execution is.
         </p>
       </section>
 
@@ -33,9 +34,10 @@ export default function SolutionDefinitionPage() {
         </h2>
         <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
           <li>Is the outcome clearly different from the customer’s current state?</li>
-          <li>Can the result be explained in one sentence?</li>
+          <li>Can the result be explained simply, without technical language?</li>
           <li>Does the outcome justify paying for a solution?</li>
-          <li>Is this result achievable within a reasonable timeframe?</li>
+          <li>Is this result realistically achievable for the customer?</li>
+          <li>Would achieving this outcome meaningfully improve their situation?</li>
         </ul>
       </section>
 
@@ -45,9 +47,24 @@ export default function SolutionDefinitionPage() {
           Before You Move On
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-          Write one sentence that clearly states the outcome your solution delivers. Avoid describing
-          steps, methods, or tools — focus only on the end result the customer wants.
+          Before moving forward, write one clear sentence that describes the outcome your solution
+          delivers. Do not describe steps, methods, or features. Focus only on the end result the
+          customer wants to achieve. If the outcome feels generic or hard to explain, refine it
+          before continuing.
         </p>
+      </section>
+
+      {/* Apply This Step */}
+      <section style={{ marginBottom: 56 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          Apply This Step
+        </h2>
+        <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
+          <li>Write the single outcome your solution promises to deliver.</li>
+          <li>Describe the customer’s situation before achieving this outcome.</li>
+          <li>Describe what changes for the customer after achieving this outcome.</li>
+          <li>Decide whether this outcome feels specific, valuable, and easy to explain.</li>
+        </ul>
       </section>
 
       {/* Navigation */}

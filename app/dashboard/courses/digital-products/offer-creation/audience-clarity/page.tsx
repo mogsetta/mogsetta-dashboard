@@ -9,8 +9,9 @@ export default function AudienceClarityPage() {
         Audience Clarity
       </h1>
       <p style={{ opacity: 0.75, marginBottom: 32 }}>
-        A strong offer speaks to a specific person with a specific problem.
-        Vague audiences create vague demand.
+        A strong offer speaks to a specific person with a specific problem. When the audience
+        is clear, messaging becomes easier, pricing becomes more confident, and demand becomes
+        predictable. When the audience is vague, every part of the offer feels weaker.
       </p>
 
       {/* Section 1 */}
@@ -19,10 +20,24 @@ export default function AudienceClarityPage() {
           Why Audience Precision Matters
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-          Most weak offers fail because they try to appeal to too many people.
-          Your goal here is not to exclude — it’s to focus. Clear audiences
-          create clear messaging, pricing, and outcomes.
+          Most weak offers fail because they try to appeal to too many people at once. This usually
+          comes from fear of excluding potential buyers. In reality, focus creates momentum.
+          The more precisely you define who the offer is for, the easier it becomes to communicate
+          value, justify price, and deliver results.
         </p>
+      </section>
+
+      {/* Apply This Step */}
+      <section style={{ marginBottom: 56 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          Apply This Step
+        </h2>
+        <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
+          <li>Write a one-sentence description of your ideal customer.</li>
+          <li>List the specific problem they are trying to solve right now.</li>
+          <li>Describe why this problem matters to them today, not later.</li>
+          <li>Decide whether this audience has both urgency and ability to pay.</li>
+        </ul>
       </section>
 
       {/* Section 2 */}
@@ -31,10 +46,11 @@ export default function AudienceClarityPage() {
           The Audience Filter
         </h2>
         <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
-          <li>Who experiences the problem most frequently?</li>
-          <li>Who feels the pain most intensely?</li>
-          <li>Who already spends money trying to solve it?</li>
-          <li>Who has the authority to make a purchase?</li>
+          <li>Who experiences the problem most frequently or consistently?</li>
+          <li>Who feels the pain most intensely or urgently?</li>
+          <li>Who is already spending money trying to solve it?</li>
+          <li>Who has both the authority and willingness to buy?</li>
+          <li>Who would clearly benefit most from a solution right now?</li>
         </ul>
       </section>
 
@@ -44,9 +60,10 @@ export default function AudienceClarityPage() {
           Before You Move On
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-          Write a one-sentence description of your ideal customer. Include who
-          they are, what they struggle with, and why solving this problem matters
-          to them right now.
+          Before moving forward, write one clear sentence describing your ideal customer.
+          Include who they are, the problem they face, and why solving it matters now.
+          If the description feels broad, generic, or could apply to many people,
+          that’s a signal the audience needs further refinement.
         </p>
       </section>
 

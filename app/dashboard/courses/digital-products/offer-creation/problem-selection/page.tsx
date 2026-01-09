@@ -9,8 +9,10 @@ export default function ProblemSelectionPage() {
         Problem Selection
       </h1>
       <p style={{ opacity: 0.75, marginBottom: 32 }}>
-        The success of your offer is determined before you ever write copy or
-        build a product. It starts with choosing the right problem.
+        The success of your offer is determined before you ever write copy, build a product,
+        or choose a platform. It starts with choosing the right problem. When the problem is
+        clear, painful, and valuable, everything else becomes easier. When it isn’t, no amount
+        of execution will save the offer.
       </p>
 
       {/* Section 1 */}
@@ -19,9 +21,10 @@ export default function ProblemSelectionPage() {
           What Makes a Problem Worth Solving?
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-          Strong offers solve problems that are painful, expensive, or urgent.
-          Weak offers solve problems that are optional, vague, or nice-to-have.
-          Your goal here is not creativity — it’s accuracy.
+          Strong offers solve problems that are painful, expensive, or urgent. Weak offers solve
+          problems that are optional, vague, or based on curiosity. This step is not about coming
+          up with something new or clever — it’s about accurately identifying a problem people
+          already want solved. Precision here prevents wasted time later.
         </p>
       </section>
 
@@ -31,10 +34,11 @@ export default function ProblemSelectionPage() {
           The Problem Filter
         </h2>
         <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
-          <li>Is this problem already costing someone money?</li>
-          <li>Is the pain obvious without explanation?</li>
-          <li>Are people actively trying to solve it?</li>
+          <li>Is this problem already costing someone money, time, or missed opportunity?</li>
+          <li>Is the pain obvious without needing a long explanation?</li>
+          <li>Are people already searching for solutions or workarounds?</li>
           <li>Can you clearly describe the before and after state?</li>
+          <li>Would someone feel urgency to solve this now, not “someday”?</li>
         </ul>
       </section>
 
@@ -44,10 +48,24 @@ export default function ProblemSelectionPage() {
           Before You Move On
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-          Write one clear sentence that describes the problem you’re solving and
-          who experiences it. If you can’t do this cleanly, stop here and refine
-          before continuing.
+          Before moving forward, write one clear sentence that describes the problem you’re
+          solving and who experiences it. Avoid buzzwords or broad categories. If the sentence
+          feels fuzzy, generic, or hard to explain, that’s a signal to slow down and refine.
+          Clarity at this stage is non‑negotiable.
         </p>
+      </section>
+
+      {/* Apply This Step */}
+      <section style={{ marginBottom: 56 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 12 }}>
+          Apply This Step
+        </h2>
+        <ul style={{ paddingLeft: 20, lineHeight: 1.7, opacity: 0.9 }}>
+          <li>Write the one problem you are considering building an offer around.</li>
+          <li>Describe who experiences this problem and how often it occurs.</li>
+          <li>List the real costs of this problem (time, money, stress, missed opportunity).</li>
+          <li>Decide whether this problem feels urgent enough to justify a paid solution.</li>
+        </ul>
       </section>
 
       {/* Navigation */}
