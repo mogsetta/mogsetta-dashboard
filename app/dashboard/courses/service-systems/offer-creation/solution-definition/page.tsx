@@ -9,9 +9,9 @@ export default function SolutionDefinitionPage() {
         Solution Definition
       </h1>
       <p style={{ opacity: 0.75, marginBottom: 32 }}>
-        A strong solution is defined by the outcome it delivers, not the features it includes.
-        People don’t buy tools or processes — they buy change. This step forces you to clearly
-        define what success looks like for the customer before deciding how to deliver it.
+        A strong service solution is defined by the outcome it delivers, not the features it includes.
+        Clients don’t buy tools or processes — they buy change. This step forces you to clearly
+        define what success looks like for the client before deciding how to deliver it.
       </p>
 
       {/* Section 1 */}
@@ -21,7 +21,7 @@ export default function SolutionDefinitionPage() {
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
           People buy results, not processes. Before deciding how your solution works, you must be
-          clear on what changes for the customer after they use it. A strong outcome is specific,
+          clear on what changes for the client after they use it. A strong outcome is specific,
           easy to understand, and clearly better than their current situation. If the outcome is
           vague, even strong execution will struggle to convert.
         </p>
@@ -76,13 +76,13 @@ export default function SolutionDefinitionPage() {
         }}
       >
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/audience-clarity"
+          href="/dashboard/courses/service-systems/offer-creation/audience-clarity"
           style={{
             textDecoration: "none",
             padding: "12px 18px",
             borderRadius: 10,
-            border: "1px solid #991b1b",
-            color: "#991b1b",
+            border: "1px solid #7c3aed",
+            color: "#7c3aed",
             fontWeight: 600,
           }}
         >
@@ -90,12 +90,12 @@ export default function SolutionDefinitionPage() {
         </Link>
 
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/offer-structure"
+          href="/dashboard/courses/service-systems/offer-creation/offer-structure"
           style={{
             textDecoration: "none",
             padding: "14px 22px",
             borderRadius: 10,
-            background: "#991b1b",
+            background: "#7c3aed",
             color: "#fff",
             fontWeight: 600,
           }}
@@ -106,12 +106,12 @@ export default function SolutionDefinitionPage() {
 
       {/* AI Coach */}
       <CoachChat
-        coachId="digital-products"
-        system="digital-products"
+        coachId="service-systems"
+        system="service-systems"
         module="offer-creation"
         intent="strategy"
-        title="Offer Creation Coach"
-        description="Clarify the outcome your solution delivers and pressure-test whether it’s strong enough to anchor a compelling offer."
+        title="Service Offer Coach"
+        description="Clarify the outcome your service delivers and pressure-test whether it’s strong enough to anchor a scalable service system."
       />
     </div>
   );

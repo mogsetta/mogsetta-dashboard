@@ -9,7 +9,7 @@ export default function AudienceClarityPage() {
         Audience Clarity
       </h1>
       <p style={{ opacity: 0.75, marginBottom: 32 }}>
-        A strong offer speaks to a specific person with a specific problem. When the audience
+        A strong service offer speaks to a specific client with a specific problem. When the audience
         is clear, messaging becomes easier, pricing becomes more confident, and demand becomes
         predictable. When the audience is vague, every part of the offer weakens.
       </p>
@@ -20,7 +20,7 @@ export default function AudienceClarityPage() {
           Why Audience Precision Matters
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-          Most weak offers fail because they try to appeal to too many people at once. This often
+          Most weak service offers fail because they try to appeal to too many people at once. This often
           comes from fear of excluding potential buyers. In practice, focus creates momentum.
           The more precisely you define who the offer is for, the easier it becomes to communicate
           value, justify price, and deliver results.
@@ -76,13 +76,13 @@ export default function AudienceClarityPage() {
         }}
       >
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/problem-selection"
+          href="/dashboard/courses/service-systems/offer-creation/problem-selection"
           style={{
             textDecoration: "none",
             padding: "12px 18px",
             borderRadius: 10,
-            border: "1px solid #991b1b",
-            color: "#991b1b",
+            border: "1px solid #7c3aed",
+            color: "#7c3aed",
             fontWeight: 600,
           }}
         >
@@ -90,12 +90,12 @@ export default function AudienceClarityPage() {
         </Link>
 
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/solution-definition"
+          href="/dashboard/courses/service-systems/offer-creation/solution-definition"
           style={{
             textDecoration: "none",
             padding: "14px 22px",
             borderRadius: 10,
-            background: "#991b1b",
+            background: "#7c3aed",
             color: "#fff",
             fontWeight: 600,
           }}
@@ -106,12 +106,12 @@ export default function AudienceClarityPage() {
 
       {/* AI Coach */}
       <CoachChat
-        coachId="digital-products"
-        system="digital-products"
+        coachId="service-systems"
+        system="service-systems"
         module="offer-creation"
         intent="strategy"
-        title="Offer Creation Coach"
-        description="Refine who your offer is for and pressure-test whether your audience is specific enough to support a strong offer."
+        title="Service Offer Coach"
+        description="Refine who your service is for and pressure-test whether your client definition is specific enough to support a scalable service system."
       />
     </div>
   );

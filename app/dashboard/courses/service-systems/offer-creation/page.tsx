@@ -8,8 +8,8 @@ export default function OfferCreationPage() {
         Offer Creation
       </h1>
       <p style={{ opacity: 0.75, marginBottom: 32 }}>
-        Learn how to design offers that are clear, valuable, and easy to sell —
-        before you spend time building the wrong thing.
+        Learn how to design service offers that are clear, valuable, and easy to sell —
+        before you spend time building the wrong system.
       </p>
 
       {/* Overview */}
@@ -19,7 +19,7 @@ export default function OfferCreationPage() {
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
           Offer Creation is about choosing the right problem, defining the right
-          audience, and structuring a solution customers already want to buy.
+          client, and structuring a service solution clients already want to buy.
           This course helps you avoid wasted time, unclear positioning, and weak demand.
         </p>
       </section>
@@ -42,12 +42,12 @@ export default function OfferCreationPage() {
       {/* Start */}
       <div>
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/problem-selection"
+          href="/dashboard/courses/service-systems/offer-creation/problem-selection"
           style={{
             textDecoration: "none",
             padding: "16px 24px",
             borderRadius: 12,
-            background: "#991b1b",
+            background: "#7c3aed",
             color: "#fff",
             fontWeight: 600,
             display: "inline-block",

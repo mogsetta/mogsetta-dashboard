@@ -9,8 +9,8 @@ export default function ProblemSelectionPage() {
         Problem Selection
       </h1>
       <p style={{ opacity: 0.75, marginBottom: 32 }}>
-        The success of your offer is determined before you ever write copy, build a product,
-        or choose a platform. It starts with choosing the right problem. When the problem is
+        The success of your service is determined before you ever write copy, design a system,
+        or choose a delivery model. It starts with choosing the right problem. When the problem is
         clear, painful, and valuable, everything else becomes easier. When it isn’t, execution
         alone will not save the offer.
       </p>
@@ -21,7 +21,7 @@ export default function ProblemSelectionPage() {
           What Makes a Problem Worth Solving?
         </h2>
         <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-          Strong offers solve problems that are painful, expensive, or urgent. Weak offers solve
+          Strong service offers solve problems that are painful, expensive, or urgent. Weak offers solve
           problems that are optional, vague, or driven by curiosity. This step is not about
           inventing something new — it’s about accurately identifying a problem people already
           want solved. Precision here prevents wasted effort later.
@@ -77,12 +77,12 @@ export default function ProblemSelectionPage() {
         }}
       >
         <Link
-          href="/dashboard/courses/digital-products/offer-creation/audience-clarity"
+          href="/dashboard/courses/service-systems/offer-creation/audience-clarity"
           style={{
             textDecoration: "none",
             padding: "14px 22px",
             borderRadius: 10,
-            background: "#991b1b",
+            background: "#7c3aed",
             color: "#fff",
             fontWeight: 600,
           }}
@@ -93,12 +93,12 @@ export default function ProblemSelectionPage() {
 
       {/* AI Coach */}
       <CoachChat
-        coachId="digital-products"
-        system="digital-products"
+        coachId="service-systems"
+        system="service-systems"
         module="offer-creation"
         intent="strategy"
-        title="Offer Creation Coach"
-        description="Pressure-test whether a problem is worth building an offer around and refine your thinking before moving forward."
+        title="Service Offer Coach"
+        description="Pressure-test whether a service problem is worth building a scalable system around before moving forward."
       />
     </div>
   );
