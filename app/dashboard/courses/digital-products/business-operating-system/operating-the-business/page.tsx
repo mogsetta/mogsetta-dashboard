@@ -1,45 +1,45 @@
 import CoachChat from "@/components/CoachChat";
 import Link from "next/link";
 
-export default function FirstSalesFeedbackPhasePage() {
+export default function OperatingTheBusinessPhasePage() {
   const lessons = [
     {
-      title: "Interpreting Early Sales Signals",
+      title: "Operating Cadence",
       description:
-        "Learn how to read real sales behavior and avoid overreacting to early noise.",
-      href: "/dashboard/courses/digital-products/business-operating-system/first-sales-feedback/early-sales-signals",
+        "Design a simple weekly rhythm so the business runs without constant decision fatigue.",
+      href: "/dashboard/courses/digital-products/business-operating-system/operating-the-business/operating-cadence",
     },
     {
-      title: "What Feedback Actually Matters",
+      title: "Metrics That Matter",
       description:
-        "Separate actionable feedback from opinions that don’t move the business forward.",
-      href: "/dashboard/courses/digital-products/business-operating-system/first-sales-feedback/feedback-that-matters",
+        "Identify the few numbers that actually indicate health, growth, and risk.",
+      href: "/dashboard/courses/digital-products/business-operating-system/operating-the-business/metrics-that-matter",
     },
     {
-      title: "Pricing & Offer Adjustments",
+      title: "System Bottlenecks",
       description:
-        "Decide when pricing, positioning, or scope needs adjustment based on real data.",
-      href: "/dashboard/courses/digital-products/business-operating-system/first-sales-feedback/pricing-offer-adjustments",
+        "Learn how to diagnose what’s slowing the business down and fix it systematically.",
+      href: "/dashboard/courses/digital-products/business-operating-system/operating-the-business/system-bottlenecks",
     },
     {
-      title: "Fix, Ignore, or Double Down",
+      title: "Scaling Without Chaos",
       description:
-        "Make disciplined decisions about what to improve, what to ignore, and what to scale.",
-      href: "/dashboard/courses/digital-products/business-operating-system/first-sales-feedback/fix-ignore-double-down",
+        "Grow output and revenue without burning out or breaking what already works.",
+      href: "/dashboard/courses/digital-products/business-operating-system/operating-the-business/scaling-without-chaos",
     },
   ];
 
   return (
     <div style={{ maxWidth: 1100, margin: "0 auto", padding: "48px 24px" }}>
       <header style={{ marginBottom: 40 }}>
-        <div style={{ fontSize: 14, opacity: 0.7 }}>Phase 5</div>
+        <div style={{ fontSize: 14, opacity: 0.7 }}>Phase 6</div>
         <h1 style={{ fontSize: 32, fontWeight: 600, marginTop: 8 }}>
-          First Sales & Feedback
+          Operating the Business
         </h1>
-        <p style={{ marginTop: 12, maxWidth: 700, opacity: 0.85 }}>
-          This phase helps you interpret real market response. You’ll learn how to
-          evaluate early sales, filter feedback correctly, and make disciplined
-          decisions about what to change — and what to leave alone.
+        <p style={{ marginTop: 12, maxWidth: 720, opacity: 0.85 }}>
+          This phase focuses on stability. You’ll create operating rhythms,
+          track the right metrics, resolve bottlenecks, and scale the business
+          without chaos or burnout.
         </p>
       </header>
 
@@ -89,8 +89,8 @@ export default function FirstSalesFeedbackPhasePage() {
         system="digital-products"
         module="business-operating-system"
         coachId="digital-products"
-        title="First Sales & Feedback Coach"
-        description="Use this coach to interpret early results, diagnose issues, and decide what to change next."
+        title="Operating the Business Coach"
+        description="Use this coach to stabilize operations, resolve bottlenecks, and scale the business without burnout."
       />
     </div>
   );
