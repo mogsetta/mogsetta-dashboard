@@ -84,6 +84,12 @@ export default function LeverageReuseLesson() {
           system so each improvement benefits future customers automatically.
           Over time, this creates stability, scalability, and freedom.
         </p>
+        <p style={{ marginTop: 12, opacity: 0.85 }}>
+          By the end of this lesson, you should be able to clearly identify where your
+          effort compounds and where it resets. If an improvement does not benefit
+          future customers automatically, it is not leverage — and should be redesigned
+          before scaling.
+        </p>
       </section>
 
       <div style={{ marginBottom: 64 }}>

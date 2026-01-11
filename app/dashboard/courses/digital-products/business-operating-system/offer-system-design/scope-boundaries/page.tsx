@@ -82,9 +82,15 @@ export default function ScopeBoundariesLesson() {
           Boundaries create leverage
         </h2>
         <p style={{ opacity: 0.85 }}>
-          Strong boundaries make your system easier to deliver, easier to
-          improve, and easier to scale. Saying no to unnecessary scope is not
-          limiting — it’s strategic.
+          Clear boundaries are a deliberate choice, not a limitation. By the end of this
+          lesson, you should be confident defining exactly what your offer includes —
+          and just as importantly, what it intentionally excludes — in service of the
+          core outcome.
+        </p>
+        <p style={{ marginTop: 12, opacity: 0.85 }}>
+          If a component does not directly support that outcome, it does not belong in
+          the system right now. Protecting scope early prevents overbuilding, preserves
+          delivery quality, and creates leverage as the business grows.
         </p>
       </section>
 

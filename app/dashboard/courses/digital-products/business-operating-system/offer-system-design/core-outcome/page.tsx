@@ -79,9 +79,15 @@ export default function CoreOutcomeLesson() {
           Use the outcome as a filter
         </h2>
         <p style={{ opacity: 0.85 }}>
-          Once your core outcome is clear, use it to evaluate every feature,
-          lesson, or component you consider adding. If it doesn’t directly
-          support the outcome, it likely doesn’t belong.
+          A clear core outcome is not optional — it’s the foundation of the entire
+          system. By the end of this lesson, you should be able to articulate the
+          specific transformation your offer delivers in a way that is concrete and
+          observable.
+        </p>
+        <p style={{ marginTop: 12, opacity: 0.85 }}>
+          If you can’t clearly define that outcome yet, that’s a signal to pause before
+          designing features, lessons, or delivery. Clarity here determines whether the
+          rest of the system stays focused or drifts into unnecessary complexity.
         </p>
       </section>
 

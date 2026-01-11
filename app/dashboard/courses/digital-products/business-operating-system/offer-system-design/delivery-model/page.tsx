@@ -81,9 +81,16 @@ export default function DeliveryModelLesson() {
           Design for sustainability
         </h2>
         <p style={{ opacity: 0.85 }}>
-          A good delivery model protects your time while still serving the
-          buyer’s needs. Prioritize clarity, repeatability, and leverage so the
-          system remains viable as demand grows.
+          Your delivery model should be a deliberate choice, not an aspirational one.
+          By the end of this lesson, you should be clear on how the offer will be
+          delivered in a way that supports the outcome while remaining realistic for
+          you to operate consistently.
+        </p>
+        <p style={{ marginTop: 12, opacity: 0.85 }}>
+          If a delivery approach looks impressive but requires unsustainable time,
+          energy, or availability, it will eventually collapse. Choose the model that
+          you can execute repeatedly without burnout — that discipline is what allows
+          the system to scale.
         </p>
       </section>
 
